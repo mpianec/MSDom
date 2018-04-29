@@ -16,5 +16,10 @@ namespace MSDom
         {
             InitializeComponent();
         }
+
+        private void uiClickExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
