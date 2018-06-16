@@ -52,11 +52,47 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAzuriranjeJelovnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzuriranjeJelovnika.Designer.cs">
+      <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrisanjeAzuriranjeJelovnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrisanjeAzuriranjeJelovnika.Designer.cs">
+      <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJelovnikUnos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmJelovnikUnos.Designer.cs">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeDorucak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeDorucak.Designer.cs">
+      <DependentUpon>frmKreiranjePonudeDorucak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeRucka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeRucka.Designer.cs">
+      <DependentUpon>frmKreiranjePonudeRucka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeVecera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKreiranjePonudeVecera.Designer.cs">
+      <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetnaKuhar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaKuhar.Designer.cs">
+      <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistracija.cs">
       <SubType>Form</SubType>
@@ -69,8 +105,26 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAzuriranjeJelovnika.resx">
+      <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrisanjeAzuriranjeJelovnika.resx">
+      <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmJelovnikUnos.resx">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKreiranjePonudeDorucak.resx">
+      <DependentUpon>frmKreiranjePonudeDorucak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKreiranjePonudeRucka.resx">
+      <DependentUpon>frmKreiranjePonudeRucka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKreiranjePonudeVecera.resx">
+      <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaKuhar.resx">
+      <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistracija.resx">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
