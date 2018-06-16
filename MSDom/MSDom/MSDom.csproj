@@ -88,11 +88,23 @@
     <Compile Include="frmKreiranjePonudeVecera.Designer.cs">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPocetnaDirektor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaDirektor.Designer.cs">
+      <DependentUpon>frmPocetnaDirektor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPocetnaKuhar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPocetnaKuhar.Designer.cs">
       <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetnaStanar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaStanar.Designer.cs">
+      <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistracija.cs">
       <SubType>Form</SubType>
@@ -123,8 +135,14 @@
     <EmbeddedResource Include="frmKreiranjePonudeVecera.resx">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaDirektor.resx">
+      <DependentUpon>frmPocetnaDirektor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaKuhar.resx">
       <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaStanar.resx">
+      <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistracija.resx">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
