@@ -61,6 +61,7 @@
             this.uiActionRegistrirajNovogKorisnika.TabIndex = 2;
             this.uiActionRegistrirajNovogKorisnika.Text = "Registrirajte novog korisnika";
             this.uiActionRegistrirajNovogKorisnika.UseVisualStyleBackColor = true;
+            this.uiActionRegistrirajNovogKorisnika.Click += new System.EventHandler(this.uiActionRegistrirajNovogKorisnika_Click);
             // 
             // uiActionPregledKorisnika
             // 
