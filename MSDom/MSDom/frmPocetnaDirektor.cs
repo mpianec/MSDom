@@ -16,5 +16,11 @@ namespace MSDom
         {
             InitializeComponent();
         }
+
+        private void uiActionRegistrirajNovogKorisnika_Click(object sender, EventArgs e)
+        {
+            frmRegistracija registracija = new frmRegistracija();
+            registracija.ShowDialog();
+        }
     }
 }
