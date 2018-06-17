@@ -46,6 +46,7 @@
             this.uiActionKreiranjeJelovnika.TabIndex = 0;
             this.uiActionKreiranjeJelovnika.Text = "Kreiranje novog jelovnika";
             this.uiActionKreiranjeJelovnika.UseVisualStyleBackColor = true;
+            this.uiActionKreiranjeJelovnika.Click += new System.EventHandler(this.uiActionKreiranjeJelovnika_Click);
             // 
             // uiActionKreiranjeRucka
             // 
@@ -55,6 +56,7 @@
             this.uiActionKreiranjeRucka.TabIndex = 1;
             this.uiActionKreiranjeRucka.Text = "Kreiranje ponude ručka";
             this.uiActionKreiranjeRucka.UseVisualStyleBackColor = true;
+            this.uiActionKreiranjeRucka.Click += new System.EventHandler(this.uiActionKreiranjeRucka_Click);
             // 
             // uiActionKreiranjeDorucka
             // 
@@ -64,6 +66,7 @@
             this.uiActionKreiranjeDorucka.TabIndex = 2;
             this.uiActionKreiranjeDorucka.Text = "Kreiranje ponude doručka";
             this.uiActionKreiranjeDorucka.UseVisualStyleBackColor = true;
+            this.uiActionKreiranjeDorucka.Click += new System.EventHandler(this.uiActionKreiranjeDorucka_Click);
             // 
             // label1
             // 
@@ -83,6 +86,7 @@
             this.uiActionKreiranjeVecere.TabIndex = 4;
             this.uiActionKreiranjeVecere.Text = "Kreiranje ponude večere";
             this.uiActionKreiranjeVecere.UseVisualStyleBackColor = true;
+            this.uiActionKreiranjeVecere.Click += new System.EventHandler(this.uiActionKreiranjeVecere_Click);
             // 
             // uiActionPregledNarudzbi
             // 
@@ -99,8 +103,9 @@
             this.uiActionBrisanjeJelovnika.Name = "uiActionBrisanjeJelovnika";
             this.uiActionBrisanjeJelovnika.Size = new System.Drawing.Size(206, 23);
             this.uiActionBrisanjeJelovnika.TabIndex = 6;
-            this.uiActionBrisanjeJelovnika.Text = "Brisanje jelovnika";
+            this.uiActionBrisanjeJelovnika.Text = "Brisanje/Ažuriranje jelovnika";
             this.uiActionBrisanjeJelovnika.UseVisualStyleBackColor = true;
+            this.uiActionBrisanjeJelovnika.Click += new System.EventHandler(this.uiActionBrisanjeJelovnika_Click);
             // 
             // uiActionOdjava
             // 
