@@ -88,6 +88,12 @@
     <Compile Include="frmKreiranjePonudeVecera.Designer.cs">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOdabirDorucka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOdabirDorucka.Designer.cs">
+      <DependentUpon>frmOdabirDorucka.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPocetnaDirektor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,18 @@
     </Compile>
     <Compile Include="frmPocetnaStanar.Designer.cs">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPonudaRucka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPonudaRucka.Designer.cs">
+      <DependentUpon>frmPonudaRucka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPonudaVecere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPonudaVecere.Designer.cs">
+      <DependentUpon>frmPonudaVecere.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistracija.cs">
       <SubType>Form</SubType>
@@ -135,6 +153,9 @@
     <EmbeddedResource Include="frmKreiranjePonudeVecera.resx">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOdabirDorucka.resx">
+      <DependentUpon>frmOdabirDorucka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaDirektor.resx">
       <DependentUpon>frmPocetnaDirektor.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaStanar.resx">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPonudaRucka.resx">
+      <DependentUpon>frmPonudaRucka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPonudaVecere.resx">
+      <DependentUpon>frmPonudaVecere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistracija.resx">
       <DependentUpon>frmRegistracija.cs</DependentUpon>

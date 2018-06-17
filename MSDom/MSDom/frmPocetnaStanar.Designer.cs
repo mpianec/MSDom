@@ -43,6 +43,7 @@
             this.uiActionOdabirDorucka.TabIndex = 0;
             this.uiActionOdabirDorucka.Text = "Odabir doručka";
             this.uiActionOdabirDorucka.UseVisualStyleBackColor = true;
+            this.uiActionOdabirDorucka.Click += new System.EventHandler(this.uiActionOdabirDorucka_Click);
             // 
             // uiActionOdabirRucka
             // 
@@ -52,6 +53,7 @@
             this.uiActionOdabirRucka.TabIndex = 1;
             this.uiActionOdabirRucka.Text = "Odabir ručka";
             this.uiActionOdabirRucka.UseVisualStyleBackColor = true;
+            this.uiActionOdabirRucka.Click += new System.EventHandler(this.uiActionOdabirRucka_Click);
             // 
             // uiActionOdabirVecere
             // 
@@ -61,6 +63,7 @@
             this.uiActionOdabirVecere.TabIndex = 2;
             this.uiActionOdabirVecere.Text = "Odabir večere";
             this.uiActionOdabirVecere.UseVisualStyleBackColor = true;
+            this.uiActionOdabirVecere.Click += new System.EventHandler(this.uiActionOdabirVecere_Click);
             // 
             // uiActionOdjava
             // 

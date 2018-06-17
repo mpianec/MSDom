@@ -16,5 +16,24 @@ namespace MSDom
         {
             InitializeComponent();
         }
+
+        private void uiActionOdabirDorucka_Click(object sender, EventArgs e)
+        {
+            frmOdabirDorucka dorucak = new frmOdabirDorucka();
+            dorucak.ShowDialog();
+            
+        }
+
+        private void uiActionOdabirRucka_Click(object sender, EventArgs e)
+        {
+            frmPonudaRucka rucak = new frmPonudaRucka();
+            rucak.ShowDialog();
+        }
+
+        private void uiActionOdabirVecere_Click(object sender, EventArgs e)
+        {
+            frmPonudaVecere vecera = new frmPonudaVecere();
+            vecera.ShowDialog();
+        }
     }
 }
