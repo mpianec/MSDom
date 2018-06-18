@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="anketa.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +142,74 @@
     <Compile Include="frmRegistracija.Designer.cs">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="izbor.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="izborKategorija.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="korisnik.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="korisnikLijeka.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lijek.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lijekoviZaDijagnozu.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSDomModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MSDomModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSDomModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSDomModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MSDomModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="nalaz.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pitanje.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pitanjeSAnkete.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="podsjetnik.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="praonica.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rezervacijaPraonice.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sastanakSDoktorom.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="soba.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tipSobe.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uloga.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vasIzborDana.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +261,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="MSDomModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MSDomModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MSDomModel.edmx.diagram">
+      <DependentUpon>MSDomModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,6 +281,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MSDomModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MSDomModel.Context.cs</LastGenOutput>
+      <DependentUpon>MSDomModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MSDomModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MSDomModel.edmx</DependentUpon>
+      <LastGenOutput>MSDomModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
