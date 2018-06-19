@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiInputIme = new System.Windows.Forms.TextBox();
             this.uiInputPrezime = new System.Windows.Forms.TextBox();
-            this.uiInputBrojSobe = new System.Windows.Forms.TextBox();
-            this.uiInputUloga = new System.Windows.Forms.TextBox();
             this.uiInputLozinka = new System.Windows.Forms.TextBox();
             this.uiInputKorisnickoIme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +41,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.uiActionUnos = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.uiInputUloga = new System.Windows.Forms.ComboBox();
+            this.ulogaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uiInputBrojSobe = new System.Windows.Forms.ComboBox();
+            this.sobaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ulogaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sobaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uiInputIme
@@ -57,20 +62,6 @@
             this.uiInputPrezime.Name = "uiInputPrezime";
             this.uiInputPrezime.Size = new System.Drawing.Size(271, 20);
             this.uiInputPrezime.TabIndex = 1;
-            // 
-            // uiInputBrojSobe
-            // 
-            this.uiInputBrojSobe.Location = new System.Drawing.Point(200, 124);
-            this.uiInputBrojSobe.Name = "uiInputBrojSobe";
-            this.uiInputBrojSobe.Size = new System.Drawing.Size(271, 20);
-            this.uiInputBrojSobe.TabIndex = 2;
-            // 
-            // uiInputUloga
-            // 
-            this.uiInputUloga.Location = new System.Drawing.Point(200, 150);
-            this.uiInputUloga.Name = "uiInputUloga";
-            this.uiInputUloga.Size = new System.Drawing.Size(271, 20);
-            this.uiInputUloga.TabIndex = 3;
             // 
             // uiInputLozinka
             // 
@@ -148,6 +139,7 @@
             this.uiActionUnos.TabIndex = 12;
             this.uiActionUnos.Text = "Unesi";
             this.uiActionUnos.UseVisualStyleBackColor = true;
+            this.uiActionUnos.Click += new System.EventHandler(this.uiActionUnos_Click);
             // 
             // label7
             // 
@@ -159,11 +151,43 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Unesite novog korisnika:";
             // 
+            // uiInputUloga
+            // 
+            this.uiInputUloga.DataSource = this.ulogaBindingSource;
+            this.uiInputUloga.DisplayMember = "naziv";
+            this.uiInputUloga.FormattingEnabled = true;
+            this.uiInputUloga.Location = new System.Drawing.Point(200, 148);
+            this.uiInputUloga.Name = "uiInputUloga";
+            this.uiInputUloga.Size = new System.Drawing.Size(271, 21);
+            this.uiInputUloga.TabIndex = 14;
+            this.uiInputUloga.ValueMember = "id";
+            // 
+            // ulogaBindingSource
+            // 
+            this.ulogaBindingSource.DataSource = typeof(MSDom.uloga);
+            // 
+            // uiInputBrojSobe
+            // 
+            this.uiInputBrojSobe.DataSource = this.sobaBindingSource;
+            this.uiInputBrojSobe.DisplayMember = "brojSobe";
+            this.uiInputBrojSobe.FormattingEnabled = true;
+            this.uiInputBrojSobe.Location = new System.Drawing.Point(200, 121);
+            this.uiInputBrojSobe.Name = "uiInputBrojSobe";
+            this.uiInputBrojSobe.Size = new System.Drawing.Size(271, 21);
+            this.uiInputBrojSobe.TabIndex = 15;
+            this.uiInputBrojSobe.ValueMember = "id";
+            // 
+            // sobaBindingSource
+            // 
+            this.sobaBindingSource.DataSource = typeof(MSDom.soba);
+            // 
             // frmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 338);
+            this.Controls.Add(this.uiInputBrojSobe);
+            this.Controls.Add(this.uiInputUloga);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.uiActionUnos);
             this.Controls.Add(this.label6);
@@ -174,12 +198,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiInputKorisnickoIme);
             this.Controls.Add(this.uiInputLozinka);
-            this.Controls.Add(this.uiInputUloga);
-            this.Controls.Add(this.uiInputBrojSobe);
             this.Controls.Add(this.uiInputPrezime);
             this.Controls.Add(this.uiInputIme);
             this.Name = "frmRegistracija";
             this.Text = "Registracija novog korisnika";
+            ((System.ComponentModel.ISupportInitialize)(this.ulogaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sobaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,8 +213,6 @@
 
         private System.Windows.Forms.TextBox uiInputIme;
         private System.Windows.Forms.TextBox uiInputPrezime;
-        private System.Windows.Forms.TextBox uiInputBrojSobe;
-        private System.Windows.Forms.TextBox uiInputUloga;
         private System.Windows.Forms.TextBox uiInputLozinka;
         private System.Windows.Forms.TextBox uiInputKorisnickoIme;
         private System.Windows.Forms.Label label1;
@@ -201,5 +223,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button uiActionUnos;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox uiInputUloga;
+        private System.Windows.Forms.BindingSource ulogaBindingSource;
+        private System.Windows.Forms.ComboBox uiInputBrojSobe;
+        private System.Windows.Forms.BindingSource sobaBindingSource;
     }
 }
