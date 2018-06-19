@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.uiClickExit = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.uiActionPrijaviSe = new System.Windows.Forms.Button();
             this.uiInputLozinka = new System.Windows.Forms.TextBox();
             this.uiInputKorisnickoIme = new System.Windows.Forms.TextBox();
-            this.uiClickExit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +55,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(281, 424);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gabriola", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(41, 242);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = " MSDom Vaš starački dom";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(48, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(179, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -72,25 +92,16 @@
             this.panel2.Size = new System.Drawing.Size(281, 424);
             this.panel2.TabIndex = 1;
             // 
-            // pictureBox1
+            // uiClickExit
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 171);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gabriola", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(41, 242);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = " MSDom Vaš starački dom";
+            this.uiClickExit.AutoSize = true;
+            this.uiClickExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uiClickExit.Location = new System.Drawing.Point(245, 9);
+            this.uiClickExit.Name = "uiClickExit";
+            this.uiClickExit.Size = new System.Drawing.Size(24, 24);
+            this.uiClickExit.TabIndex = 12;
+            this.uiClickExit.Text = "X";
+            this.uiClickExit.Click += new System.EventHandler(this.uiClickExit_Click);
             // 
             // label4
             // 
@@ -135,6 +146,7 @@
             this.uiActionPrijaviSe.TabIndex = 8;
             this.uiActionPrijaviSe.Text = "Prijavi se";
             this.uiActionPrijaviSe.UseVisualStyleBackColor = false;
+            this.uiActionPrijaviSe.Click += new System.EventHandler(this.uiActionPrijaviSe_Click);
             // 
             // uiInputLozinka
             // 
@@ -152,17 +164,6 @@
             this.uiInputKorisnickoIme.Size = new System.Drawing.Size(200, 30);
             this.uiInputKorisnickoIme.TabIndex = 6;
             // 
-            // uiClickExit
-            // 
-            this.uiClickExit.AutoSize = true;
-            this.uiClickExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.uiClickExit.Location = new System.Drawing.Point(245, 9);
-            this.uiClickExit.Name = "uiClickExit";
-            this.uiClickExit.Size = new System.Drawing.Size(24, 24);
-            this.uiClickExit.TabIndex = 12;
-            this.uiClickExit.Text = "X";
-            this.uiClickExit.Click += new System.EventHandler(this.uiClickExit_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,9 +177,9 @@
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
