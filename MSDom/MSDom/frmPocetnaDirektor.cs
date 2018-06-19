@@ -22,5 +22,11 @@ namespace MSDom
             frmRegistracija registracija = new frmRegistracija();
             registracija.ShowDialog();
         }
+
+        private void uiActionPregledKorisnika_Click(object sender, EventArgs e)
+        {
+            frmPregledKorisnika pregledKorisnika = new frmPregledKorisnika();
+            pregledKorisnika.ShowDialog();
+        }
     }
 }

@@ -71,6 +71,7 @@
             this.uiActionPregledKorisnika.TabIndex = 3;
             this.uiActionPregledKorisnika.Text = "Pregled korisnika";
             this.uiActionPregledKorisnika.UseVisualStyleBackColor = true;
+            this.uiActionPregledKorisnika.Click += new System.EventHandler(this.uiActionPregledKorisnika_Click);
             // 
             // frmPocetnaDirektor
             // 
