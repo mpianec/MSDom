@@ -190,6 +190,7 @@
     <Compile Include="praonica.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PrijavljeniKorisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rezervacijaPraonice.cs">
