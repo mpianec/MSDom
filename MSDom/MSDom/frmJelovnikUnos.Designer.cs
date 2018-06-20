@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiInputPredjelo = new System.Windows.Forms.MaskedTextBox();
             this.uiInputMeso = new System.Windows.Forms.MaskedTextBox();
             this.uiInputPrilog = new System.Windows.Forms.MaskedTextBox();
@@ -40,6 +41,8 @@
             this.uiInputKategorija = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.uiActionUnos = new System.Windows.Forms.Button();
+            this.izborKategorijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.izborKategorijaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uiInputPredjelo
@@ -117,11 +120,14 @@
             // 
             // uiInputKategorija
             // 
+            this.uiInputKategorija.DataSource = this.izborKategorijaBindingSource;
+            this.uiInputKategorija.DisplayMember = "imeKategorije";
             this.uiInputKategorija.FormattingEnabled = true;
             this.uiInputKategorija.Location = new System.Drawing.Point(213, 166);
             this.uiInputKategorija.Name = "uiInputKategorija";
             this.uiInputKategorija.Size = new System.Drawing.Size(258, 21);
             this.uiInputKategorija.TabIndex = 11;
+            this.uiInputKategorija.ValueMember = "id";
             // 
             // label6
             // 
@@ -141,6 +147,11 @@
             this.uiActionUnos.TabIndex = 13;
             this.uiActionUnos.Text = "Unos";
             this.uiActionUnos.UseVisualStyleBackColor = true;
+            this.uiActionUnos.Click += new System.EventHandler(this.uiActionUnos_Click);
+            // 
+            // izborKategorijaBindingSource
+            // 
+            this.izborKategorijaBindingSource.DataSource = typeof(MSDom.izborKategorija);
             // 
             // frmJelovnikUnos
             // 
@@ -161,6 +172,7 @@
             this.Controls.Add(this.uiInputPredjelo);
             this.Name = "frmJelovnikUnos";
             this.Text = "Unos novog jelovnika";
+            ((System.ComponentModel.ISupportInitialize)(this.izborKategorijaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +192,6 @@
         private System.Windows.Forms.ComboBox uiInputKategorija;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button uiActionUnos;
+        private System.Windows.Forms.BindingSource izborKategorijaBindingSource;
     }
 }
