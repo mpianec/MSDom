@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiActionAzuriraj = new System.Windows.Forms.Button();
             this.uiInputKategorija = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.uiInputPredjelo = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.uiInputID = new System.Windows.Forms.MaskedTextBox();
+            this.izborKategorijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.izborKategorijaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uiActionAzuriraj
@@ -51,14 +54,18 @@
             this.uiActionAzuriraj.TabIndex = 25;
             this.uiActionAzuriraj.Text = "Ažuriraj";
             this.uiActionAzuriraj.UseVisualStyleBackColor = true;
+            this.uiActionAzuriraj.Click += new System.EventHandler(this.uiActionAzuriraj_Click);
             // 
             // uiInputKategorija
             // 
+            this.uiInputKategorija.DataSource = this.izborKategorijaBindingSource;
+            this.uiInputKategorija.DisplayMember = "imeKategorije";
             this.uiInputKategorija.FormattingEnabled = true;
             this.uiInputKategorija.Location = new System.Drawing.Point(190, 145);
             this.uiInputKategorija.Name = "uiInputKategorija";
             this.uiInputKategorija.Size = new System.Drawing.Size(258, 21);
             this.uiInputKategorija.TabIndex = 23;
+            this.uiInputKategorija.ValueMember = "id";
             // 
             // label5
             // 
@@ -150,6 +157,10 @@
             this.uiInputID.Size = new System.Drawing.Size(258, 20);
             this.uiInputID.TabIndex = 26;
             // 
+            // izborKategorijaBindingSource
+            // 
+            this.izborKategorijaBindingSource.DataSource = typeof(MSDom.izborKategorija);
+            // 
             // frmAzuriranjeJelovnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +181,7 @@
             this.Controls.Add(this.uiInputPredjelo);
             this.Name = "frmAzuriranjeJelovnika";
             this.Text = "Ažuriranje jelovnika";
+            ((System.ComponentModel.ISupportInitialize)(this.izborKategorijaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +202,6 @@
         private System.Windows.Forms.MaskedTextBox uiInputPredjelo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox uiInputID;
+        private System.Windows.Forms.BindingSource izborKategorijaBindingSource;
     }
 }
