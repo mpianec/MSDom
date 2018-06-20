@@ -18,6 +18,10 @@ namespace MSDom
             DohvatiUloge();
             DohvatiSobe();
         }
+        /// <summary>
+        /// Funkcija dohvaća uloge korisnika.
+        /// Kako bi se mogle odabrati u combobox-u.
+        /// </summary>
         private void DohvatiUloge()
         {
             BindingList<uloga> listaUloga = null;
@@ -27,15 +31,31 @@ namespace MSDom
             }
             uiInputUloga.DataSource = listaUloga;
         }
+        /// <summary>
+        /// Funkcija dohvaća sve sobe koje su prazne i one koje nisu tipa soba.
+        /// Kao što su na primjer Kabinet i Ured.
+        /// </summary>
         private void DohvatiSobe()
         {
-            BindingList<soba> listaSoba = null;
+            
             using(var db=new MSDomEntities())
             {
-                listaSoba = new BindingList<soba>(db.sobas.ToList());
+               var  listaSoba = from sob in db.sobas
+                            where (sob.brojPopunjenihKreveta < sob.brojKreveta || sob.tipSobeId!=1)
+                            select new {sob.id, sob.brojSobe};
+                uiInputBrojSobe.DataSource = listaSoba.ToList();
+
+
             }
-            uiInputBrojSobe.DataSource = listaSoba;
+            
         }
+        /// <summary>
+        /// Funkcija služi za spremanje novog korisnika u bazu.
+        /// Provjerava jesu li popunjena sva polja, ako jesu provjerava je li korisničko ime
+        /// različito od korisničkih imena u bazi, ako je i taj uvjet zadovoljen
+        /// u bazu se sprema novi korisnik.
+        /// </summary>
+        
         private void uiActionUnos_Click(object sender, EventArgs e)
         {
             if (uiInputIme.Text != "" && uiInputPrezime.Text != "" && uiInputKorisnickoIme.Text != "" && uiInputLozinka.Text != "" && uiInputUloga.SelectedValue != null && uiInputBrojSobe.SelectedValue != null) { 

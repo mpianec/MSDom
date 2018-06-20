@@ -70,6 +70,12 @@
     <Compile Include="frmAzuriranjeJelovnika.Designer.cs">
       <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAzuriranjeKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzuriranjeKorisnika.Designer.cs">
+      <DependentUpon>frmAzuriranjeKorisnika.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBrisanjeAzuriranjeJelovnika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAzuriranjeJelovnika.resx">
       <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAzuriranjeKorisnika.resx">
+      <DependentUpon>frmAzuriranjeKorisnika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBrisanjeAzuriranjeJelovnika.resx">
       <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>

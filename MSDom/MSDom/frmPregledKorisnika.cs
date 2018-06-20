@@ -33,5 +33,16 @@ namespace MSDom
             }
             
         }
+
+        private void uiActionAzurirajKorisnika_Click(object sender, EventArgs e)
+        {
+            if (uiOutputKorisnici.CurrentRow != null)
+            {
+                int id = int.Parse(uiOutputKorisnici.CurrentRow.Cells[0].Value.ToString());
+                frmAzuriranjeKorisnika azuriranjeKorisnika = new frmAzuriranjeKorisnika(id);
+                azuriranjeKorisnika.ShowDialog();
+                DohvatiKorisnike();
+            }
+        }
     }
 }
