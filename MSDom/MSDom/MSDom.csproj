@@ -288,6 +288,8 @@
       <DependentUpon>MSDomModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\izbor.datasource" />
+    <None Include="Properties\DataSources\izborKategorija.datasource" />
     <None Include="Properties\DataSources\korisnik.datasource" />
     <None Include="Properties\DataSources\soba.datasource" />
     <None Include="Properties\DataSources\uloga.datasource" />

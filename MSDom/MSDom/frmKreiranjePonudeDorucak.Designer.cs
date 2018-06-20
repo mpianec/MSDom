@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.uiActionDodaj = new System.Windows.Forms.Button();
             this.uiActionMakni = new System.Windows.Forms.Button();
-            this.uiActionSpremi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPopisDorucka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputDanasnjaPonudaDorucka)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +43,8 @@
             this.uiOutputPopisDorucka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputPopisDorucka.Location = new System.Drawing.Point(12, 61);
             this.uiOutputPopisDorucka.Name = "uiOutputPopisDorucka";
-            this.uiOutputPopisDorucka.Size = new System.Drawing.Size(350, 172);
+            this.uiOutputPopisDorucka.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uiOutputPopisDorucka.Size = new System.Drawing.Size(831, 172);
             this.uiOutputPopisDorucka.TabIndex = 0;
             // 
             // label1
@@ -59,15 +59,16 @@
             // uiOutputDanasnjaPonudaDorucka
             // 
             this.uiOutputDanasnjaPonudaDorucka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiOutputDanasnjaPonudaDorucka.Location = new System.Drawing.Point(386, 61);
+            this.uiOutputDanasnjaPonudaDorucka.Location = new System.Drawing.Point(12, 280);
             this.uiOutputDanasnjaPonudaDorucka.Name = "uiOutputDanasnjaPonudaDorucka";
-            this.uiOutputDanasnjaPonudaDorucka.Size = new System.Drawing.Size(350, 172);
+            this.uiOutputDanasnjaPonudaDorucka.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uiOutputDanasnjaPonudaDorucka.Size = new System.Drawing.Size(831, 172);
             this.uiOutputDanasnjaPonudaDorucka.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(383, 34);
+            this.label2.Location = new System.Drawing.Point(12, 264);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 3;
@@ -75,37 +76,29 @@
             // 
             // uiActionDodaj
             // 
-            this.uiActionDodaj.Location = new System.Drawing.Point(12, 249);
+            this.uiActionDodaj.Location = new System.Drawing.Point(682, 245);
             this.uiActionDodaj.Name = "uiActionDodaj";
             this.uiActionDodaj.Size = new System.Drawing.Size(161, 23);
             this.uiActionDodaj.TabIndex = 4;
             this.uiActionDodaj.Text = "Dodaj u danasnju ponudu";
             this.uiActionDodaj.UseVisualStyleBackColor = true;
+            this.uiActionDodaj.Click += new System.EventHandler(this.uiActionDodaj_Click);
             // 
             // uiActionMakni
             // 
-            this.uiActionMakni.Location = new System.Drawing.Point(289, 249);
+            this.uiActionMakni.Location = new System.Drawing.Point(682, 458);
             this.uiActionMakni.Name = "uiActionMakni";
             this.uiActionMakni.Size = new System.Drawing.Size(161, 23);
             this.uiActionMakni.TabIndex = 5;
             this.uiActionMakni.Text = "Makni s danasnje ponude";
             this.uiActionMakni.UseVisualStyleBackColor = true;
-            // 
-            // uiActionSpremi
-            // 
-            this.uiActionSpremi.Location = new System.Drawing.Point(575, 249);
-            this.uiActionSpremi.Name = "uiActionSpremi";
-            this.uiActionSpremi.Size = new System.Drawing.Size(161, 23);
-            this.uiActionSpremi.TabIndex = 6;
-            this.uiActionSpremi.Text = "Spremi";
-            this.uiActionSpremi.UseVisualStyleBackColor = true;
+            this.uiActionMakni.Click += new System.EventHandler(this.uiActionMakni_Click);
             // 
             // frmKreiranjePonudeDorucak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 342);
-            this.Controls.Add(this.uiActionSpremi);
+            this.ClientSize = new System.Drawing.Size(855, 493);
             this.Controls.Add(this.uiActionMakni);
             this.Controls.Add(this.uiActionDodaj);
             this.Controls.Add(this.label2);
@@ -129,6 +122,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button uiActionDodaj;
         private System.Windows.Forms.Button uiActionMakni;
-        private System.Windows.Forms.Button uiActionSpremi;
     }
 }

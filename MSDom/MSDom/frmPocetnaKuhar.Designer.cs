@@ -35,7 +35,6 @@
             this.uiActionKreiranjeVecere = new System.Windows.Forms.Button();
             this.uiActionPregledNarudzbi = new System.Windows.Forms.Button();
             this.uiActionBrisanjeJelovnika = new System.Windows.Forms.Button();
-            this.uiActionOdjava = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uiActionKreiranjeJelovnika
@@ -107,21 +106,11 @@
             this.uiActionBrisanjeJelovnika.UseVisualStyleBackColor = true;
             this.uiActionBrisanjeJelovnika.Click += new System.EventHandler(this.uiActionBrisanjeJelovnika_Click);
             // 
-            // uiActionOdjava
-            // 
-            this.uiActionOdjava.Location = new System.Drawing.Point(513, 27);
-            this.uiActionOdjava.Name = "uiActionOdjava";
-            this.uiActionOdjava.Size = new System.Drawing.Size(75, 23);
-            this.uiActionOdjava.TabIndex = 7;
-            this.uiActionOdjava.Text = "Odjava";
-            this.uiActionOdjava.UseVisualStyleBackColor = true;
-            // 
             // frmPocetnaKuhar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 348);
-            this.Controls.Add(this.uiActionOdjava);
+            this.ClientSize = new System.Drawing.Size(428, 348);
             this.Controls.Add(this.uiActionBrisanjeJelovnika);
             this.Controls.Add(this.uiActionPregledNarudzbi);
             this.Controls.Add(this.uiActionKreiranjeVecere);
@@ -145,6 +134,5 @@
         private System.Windows.Forms.Button uiActionKreiranjeVecere;
         private System.Windows.Forms.Button uiActionPregledNarudzbi;
         private System.Windows.Forms.Button uiActionBrisanjeJelovnika;
-        private System.Windows.Forms.Button uiActionOdjava;
     }
 }
