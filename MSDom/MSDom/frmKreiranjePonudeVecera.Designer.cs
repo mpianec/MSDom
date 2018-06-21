@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiActionSpremi = new System.Windows.Forms.Button();
             this.uiActionMakni = new System.Windows.Forms.Button();
             this.uiActionDodaj = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,37 +38,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPopisVecera)).BeginInit();
             this.SuspendLayout();
             // 
-            // uiActionSpremi
-            // 
-            this.uiActionSpremi.Location = new System.Drawing.Point(575, 251);
-            this.uiActionSpremi.Name = "uiActionSpremi";
-            this.uiActionSpremi.Size = new System.Drawing.Size(161, 23);
-            this.uiActionSpremi.TabIndex = 20;
-            this.uiActionSpremi.Text = "Spremi";
-            this.uiActionSpremi.UseVisualStyleBackColor = true;
-            // 
             // uiActionMakni
             // 
-            this.uiActionMakni.Location = new System.Drawing.Point(289, 251);
+            this.uiActionMakni.Location = new System.Drawing.Point(575, 473);
             this.uiActionMakni.Name = "uiActionMakni";
             this.uiActionMakni.Size = new System.Drawing.Size(161, 23);
             this.uiActionMakni.TabIndex = 19;
             this.uiActionMakni.Text = "Makni s današnje ponude";
             this.uiActionMakni.UseVisualStyleBackColor = true;
+            this.uiActionMakni.Click += new System.EventHandler(this.uiActionMakni_Click);
             // 
             // uiActionDodaj
             // 
-            this.uiActionDodaj.Location = new System.Drawing.Point(12, 251);
+            this.uiActionDodaj.Location = new System.Drawing.Point(575, 251);
             this.uiActionDodaj.Name = "uiActionDodaj";
             this.uiActionDodaj.Size = new System.Drawing.Size(161, 23);
             this.uiActionDodaj.TabIndex = 18;
             this.uiActionDodaj.Text = "Dodaj u današnju ponudu";
             this.uiActionDodaj.UseVisualStyleBackColor = true;
+            this.uiActionDodaj.Click += new System.EventHandler(this.uiActionDodaj_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(383, 36);
+            this.label2.Location = new System.Drawing.Point(12, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 17;
@@ -78,9 +70,10 @@
             // uiOutputDanasnjaPonudaVecera
             // 
             this.uiOutputDanasnjaPonudaVecera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiOutputDanasnjaPonudaVecera.Location = new System.Drawing.Point(386, 63);
+            this.uiOutputDanasnjaPonudaVecera.Location = new System.Drawing.Point(15, 289);
             this.uiOutputDanasnjaPonudaVecera.Name = "uiOutputDanasnjaPonudaVecera";
-            this.uiOutputDanasnjaPonudaVecera.Size = new System.Drawing.Size(350, 172);
+            this.uiOutputDanasnjaPonudaVecera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uiOutputDanasnjaPonudaVecera.Size = new System.Drawing.Size(721, 172);
             this.uiOutputDanasnjaPonudaVecera.TabIndex = 16;
             // 
             // label1
@@ -97,15 +90,15 @@
             this.uiOutputPopisVecera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputPopisVecera.Location = new System.Drawing.Point(12, 63);
             this.uiOutputPopisVecera.Name = "uiOutputPopisVecera";
-            this.uiOutputPopisVecera.Size = new System.Drawing.Size(350, 172);
+            this.uiOutputPopisVecera.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uiOutputPopisVecera.Size = new System.Drawing.Size(724, 172);
             this.uiOutputPopisVecera.TabIndex = 14;
             // 
             // frmKreiranjePonudeVecera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.uiActionSpremi);
+            this.ClientSize = new System.Drawing.Size(800, 508);
             this.Controls.Add(this.uiActionMakni);
             this.Controls.Add(this.uiActionDodaj);
             this.Controls.Add(this.label2);
@@ -122,8 +115,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button uiActionSpremi;
         private System.Windows.Forms.Button uiActionMakni;
         private System.Windows.Forms.Button uiActionDodaj;
         private System.Windows.Forms.Label label2;
