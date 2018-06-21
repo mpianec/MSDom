@@ -19,7 +19,10 @@ namespace MSDom
             DohvatiOdabraneDorucke();
             DohvatiSveDorucke();
         }
-
+        /// <summary>
+        /// Metoda DohvatiSveDoruce() dohvaća sve doručke koji nisu aktivni
+        /// te ih prikazuje u data grid viewu.
+        /// </summary>
         public void DohvatiSveDorucke()
         {
             using (var db = new MSDomEntities())
@@ -32,6 +35,11 @@ namespace MSDom
                 
             }
         }
+        /// <summary>
+        /// Metoda AktivirajIzbro() pronalazi u bazi izbor(jelovnik) 
+        /// s prosljeđenim id te mu pod atribut aktivan postavlja vrijednost 1.
+        /// </summary>
+        
         private void AktivirajIzbor(int id)
         {
             BindingList<izbor> listaIzbora = null;
@@ -50,7 +58,11 @@ namespace MSDom
             }
             
         }
-
+        /// <summary>
+        /// Metoda DeaktivirajIzvor() pronalazi izbor(jelovnik)
+        /// s prosljeđeim id te mu pod atribut aktivan postavlja vrijednost 1.
+        /// </summary>
+        
         private void DeaktivirajIzbor(int id)
         {
             BindingList<izbor> listaIzbora = null;
@@ -68,6 +80,10 @@ namespace MSDom
                 }
             }
         }
+        /// <summary>
+        /// Metoda DohvatiOdabreneDorucke() dohvaća sve jelovnike koji su vrste doručak
+        /// te pod vrijednosti atributa aktivan imaju vrijednost 1.
+        /// </summary>
         public void DohvatiOdabraneDorucke()
         {
             using (var db = new MSDomEntities())
@@ -79,7 +95,11 @@ namespace MSDom
                 uiOutputDanasnjaPonudaDorucka.DataSource = listaAktivnihDorucaka.ToList();
             }
         }
-
+        /// <summary>
+        /// Metoda uiActionDodaj_Click() klikom na gumb "Dodaj u današnju ponudu" 
+        /// uzima id selektiranog jelovnika te ga prosljeđuje metodi AktivirajIzbor().
+        /// </summary>
+        
         private void uiActionDodaj_Click(object sender, EventArgs e)
         {
            
@@ -102,12 +122,19 @@ namespace MSDom
                 
             }
         }
-
+        /// <summary>
+        /// Metoda uiActionMakni_Click() klikom na gumb "Maksni s danasnje ponude"
+        /// uzima id selektiranog jelovnika te ga prosljeđuje metodi DeaktivirajIzbor().
+        /// </summary>
+        
         private void uiActionMakni_Click(object sender, EventArgs e)
         {
-            DeaktivirajIzbor(int.Parse(uiOutputDanasnjaPonudaDorucka.CurrentRow.Cells[0].Value.ToString()));
-            DohvatiSveDorucke();
-            DohvatiOdabraneDorucke();
+            if (uiOutputDanasnjaPonudaDorucka.CurrentRow != null)
+            {
+                DeaktivirajIzbor(int.Parse(uiOutputDanasnjaPonudaDorucka.CurrentRow.Cells[0].Value.ToString()));
+                DohvatiSveDorucke();
+                DohvatiOdabraneDorucke();
+            }
         }
     }
 }
