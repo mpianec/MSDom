@@ -81,8 +81,20 @@ namespace MSDom
             }
             if (!postojeceKorisnickoIme)
             {
+                    soba sobaZaPovecanjeZauzetosti = null;
                 using (var db = new MSDomEntities())
                 {
+                        BindingList<soba> listaSoba = new BindingList<soba>(db.sobas.ToList());
+                        foreach (var item in listaSoba)
+                        {
+                            if (item.id == noviKorisnik.sobaId)
+                            {
+                                sobaZaPovecanjeZauzetosti = item;
+                            }
+
+                        }
+                        db.sobas.Attach(sobaZaPovecanjeZauzetosti);
+                        sobaZaPovecanjeZauzetosti.brojPopunjenihKreveta++;
                     db.korisniks.Add(noviKorisnik);
                     db.SaveChanges();
                 }

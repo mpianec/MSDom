@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.uiActionOdjava = new System.Windows.Forms.Button();
             this.uiActionRegistrirajNovogKorisnika = new System.Windows.Forms.Button();
             this.uiActionPregledKorisnika = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -43,15 +42,6 @@
             this.label1.Size = new System.Drawing.Size(127, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Vaše mogučnosti:";
-            // 
-            // uiActionOdjava
-            // 
-            this.uiActionOdjava.Location = new System.Drawing.Point(448, 21);
-            this.uiActionOdjava.Name = "uiActionOdjava";
-            this.uiActionOdjava.Size = new System.Drawing.Size(75, 23);
-            this.uiActionOdjava.TabIndex = 1;
-            this.uiActionOdjava.Text = "Odjava";
-            this.uiActionOdjava.UseVisualStyleBackColor = true;
             // 
             // uiActionRegistrirajNovogKorisnika
             // 
@@ -77,10 +67,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 297);
+            this.ClientSize = new System.Drawing.Size(386, 297);
             this.Controls.Add(this.uiActionPregledKorisnika);
             this.Controls.Add(this.uiActionRegistrirajNovogKorisnika);
-            this.Controls.Add(this.uiActionOdjava);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaDirektor";
             this.Text = "Direktor";
@@ -92,7 +81,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button uiActionOdjava;
         private System.Windows.Forms.Button uiActionRegistrirajNovogKorisnika;
         private System.Windows.Forms.Button uiActionPregledKorisnika;
     }
