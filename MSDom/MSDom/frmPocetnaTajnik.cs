@@ -19,6 +19,12 @@ namespace MSDom
 
         private void uiActionStvoriAnketu_Click(object sender, EventArgs e)
         {
+            frmStvoriAnketu stvoriAnketu = new frmStvoriAnketu();
+            stvoriAnketu.ShowDialog();  
+        }
+
+        private void uiActionIsprintaj_Click(object sender, EventArgs e)
+        {
             frmAnketa novaAnketa = new frmAnketa();
             novaAnketa.ShowDialog();
         }

@@ -181,6 +181,12 @@
     <Compile Include="frmRezervacijaPraonice.Designer.cs">
       <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStvoriAnketu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStvoriAnketu.Designer.cs">
+      <DependentUpon>frmStvoriAnketu.cs</DependentUpon>
+    </Compile>
     <Compile Include="izbor.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
@@ -310,6 +316,9 @@
     <EmbeddedResource Include="frmRezervacijaPraonice.resx">
       <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStvoriAnketu.resx">
+      <DependentUpon>frmStvoriAnketu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -328,9 +337,12 @@
       <DependentUpon>MSDomModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\anketa.datasource" />
     <None Include="Properties\DataSources\izbor.datasource" />
     <None Include="Properties\DataSources\izborKategorija.datasource" />
     <None Include="Properties\DataSources\korisnik.datasource" />
+    <None Include="Properties\DataSources\pitanje.datasource" />
+    <None Include="Properties\DataSources\pitanjeSAnkete.datasource" />
     <None Include="Properties\DataSources\soba.datasource" />
     <None Include="Properties\DataSources\uloga.datasource" />
     <None Include="Properties\Settings.settings">

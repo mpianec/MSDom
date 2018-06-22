@@ -28,16 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.pitanjeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.pitanjeBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "MSDom.rprtAnketa.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(3, 52);
+            this.reportViewer1.Location = new System.Drawing.Point(3, 51);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(750, 332);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // pitanjeBindingSource
+            // 
+            this.pitanjeBindingSource.DataSource = typeof(MSDom.pitanje);
             // 
             // frmAnketa
             // 
@@ -48,6 +59,7 @@
             this.Name = "frmAnketa";
             this.Text = "frmAnketa";
             this.Load += new System.EventHandler(this.frmAnketa_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -55,5 +67,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource pitanjeBindingSource;
     }
 }

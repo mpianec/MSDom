@@ -32,7 +32,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.35417in</Height>
+    <Height>3.42709in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -91,6 +91,15 @@
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="MSDom">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>f125f586-c547-4cbb-af25-7e5a3b00c05d</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>7449765c-3596-4dca-ac9a-cda05a2b3cac</rd:ReportID>
 </Report>

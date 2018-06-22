@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.uiActionStvoriAnketu = new System.Windows.Forms.Button();
+            this.uiActionIsprintaj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@
             // 
             // uiActionStvoriAnketu
             // 
-            this.uiActionStvoriAnketu.Location = new System.Drawing.Point(116, 47);
+            this.uiActionStvoriAnketu.Location = new System.Drawing.Point(124, 49);
             this.uiActionStvoriAnketu.Name = "uiActionStvoriAnketu";
             this.uiActionStvoriAnketu.Size = new System.Drawing.Size(153, 23);
             this.uiActionStvoriAnketu.TabIndex = 2;
@@ -52,11 +53,22 @@
             this.uiActionStvoriAnketu.UseVisualStyleBackColor = true;
             this.uiActionStvoriAnketu.Click += new System.EventHandler(this.uiActionStvoriAnketu_Click);
             // 
+            // uiActionIsprintaj
+            // 
+            this.uiActionIsprintaj.Location = new System.Drawing.Point(124, 78);
+            this.uiActionIsprintaj.Name = "uiActionIsprintaj";
+            this.uiActionIsprintaj.Size = new System.Drawing.Size(153, 23);
+            this.uiActionIsprintaj.TabIndex = 3;
+            this.uiActionIsprintaj.Text = "Isprintaj anketu";
+            this.uiActionIsprintaj.UseVisualStyleBackColor = true;
+            this.uiActionIsprintaj.Click += new System.EventHandler(this.uiActionIsprintaj_Click);
+            // 
             // frmPocetnaTajnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 275);
+            this.Controls.Add(this.uiActionIsprintaj);
             this.Controls.Add(this.uiActionStvoriAnketu);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaTajnik";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button uiActionStvoriAnketu;
+        private System.Windows.Forms.Button uiActionIsprintaj;
     }
 }
