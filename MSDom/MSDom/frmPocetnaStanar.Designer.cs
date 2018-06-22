@@ -31,7 +31,6 @@
             this.uiActionOdabirDorucka = new System.Windows.Forms.Button();
             this.uiActionOdabirRucka = new System.Windows.Forms.Button();
             this.uiActionOdabirVecere = new System.Windows.Forms.Button();
-            this.uiActionOdjava = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -65,15 +64,6 @@
             this.uiActionOdabirVecere.UseVisualStyleBackColor = true;
             this.uiActionOdabirVecere.Click += new System.EventHandler(this.uiActionOdabirVecere_Click);
             // 
-            // uiActionOdjava
-            // 
-            this.uiActionOdjava.Location = new System.Drawing.Point(439, 18);
-            this.uiActionOdjava.Name = "uiActionOdjava";
-            this.uiActionOdjava.Size = new System.Drawing.Size(75, 23);
-            this.uiActionOdjava.TabIndex = 3;
-            this.uiActionOdjava.Text = "Odjava";
-            this.uiActionOdjava.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,9 +78,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 279);
+            this.ClientSize = new System.Drawing.Size(413, 279);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.uiActionOdjava);
             this.Controls.Add(this.uiActionOdabirVecere);
             this.Controls.Add(this.uiActionOdabirRucka);
             this.Controls.Add(this.uiActionOdabirDorucka);
@@ -106,7 +95,6 @@
         private System.Windows.Forms.Button uiActionOdabirDorucka;
         private System.Windows.Forms.Button uiActionOdabirRucka;
         private System.Windows.Forms.Button uiActionOdabirVecere;
-        private System.Windows.Forms.Button uiActionOdjava;
         private System.Windows.Forms.Label label1;
     }
 }
