@@ -78,7 +78,12 @@ namespace MSDom
                                 pocetnaFormaStanar.ShowDialog();
                                 this.Close();
                                 break;
-                        case 2: break;
+                        case 2:
+                                frmPocetnaTajnik pocetnaFormaTajnik = new frmPocetnaTajnik();
+                                this.Hide();
+                                pocetnaFormaTajnik.ShowDialog();
+                                this.Close();
+                                break;
                         case 3: break;
                         case 4: break;
                         case 5:
