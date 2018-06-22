@@ -34,6 +34,7 @@
             this.uiOutputMojeRezervacije = new System.Windows.Forms.DataGridView();
             this.uiActionPoništiRezervaciju = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.uiInputDatumRezervacije = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).BeginInit();
             this.SuspendLayout();
@@ -46,12 +47,14 @@
             this.uiActionRezervirajPraonicu.TabIndex = 0;
             this.uiActionRezervirajPraonicu.Text = "Rezerviraj";
             this.uiActionRezervirajPraonicu.UseVisualStyleBackColor = true;
+            this.uiActionRezervirajPraonicu.Click += new System.EventHandler(this.uiActionRezervirajPraonicu_Click);
             // 
             // uiOutputSlobodnePraonice
             // 
             this.uiOutputSlobodnePraonice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputSlobodnePraonice.Location = new System.Drawing.Point(19, 42);
             this.uiOutputSlobodnePraonice.Name = "uiOutputSlobodnePraonice";
+            this.uiOutputSlobodnePraonice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiOutputSlobodnePraonice.Size = new System.Drawing.Size(393, 150);
             this.uiOutputSlobodnePraonice.TabIndex = 1;
             // 
@@ -69,6 +72,7 @@
             this.uiOutputMojeRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputMojeRezervacije.Location = new System.Drawing.Point(19, 219);
             this.uiOutputMojeRezervacije.Name = "uiOutputMojeRezervacije";
+            this.uiOutputMojeRezervacije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiOutputMojeRezervacije.Size = new System.Drawing.Size(393, 150);
             this.uiOutputMojeRezervacije.TabIndex = 3;
             // 
@@ -80,6 +84,7 @@
             this.uiActionPoništiRezervaciju.TabIndex = 4;
             this.uiActionPoništiRezervaciju.Text = "Poništi rezervaciju";
             this.uiActionPoništiRezervaciju.UseVisualStyleBackColor = true;
+            this.uiActionPoništiRezervaciju.Click += new System.EventHandler(this.uiActionPoništiRezervaciju_Click);
             // 
             // label2
             // 
@@ -90,11 +95,20 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Moje rezervacije";
             // 
+            // uiInputDatumRezervacije
+            // 
+            this.uiInputDatumRezervacije.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.uiInputDatumRezervacije.Location = new System.Drawing.Point(212, 16);
+            this.uiInputDatumRezervacije.Name = "uiInputDatumRezervacije";
+            this.uiInputDatumRezervacije.Size = new System.Drawing.Size(200, 20);
+            this.uiInputDatumRezervacije.TabIndex = 6;
+            // 
             // frmRezervacijaPraonice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 399);
+            this.Controls.Add(this.uiInputDatumRezervacije);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uiActionPoništiRezervaciju);
             this.Controls.Add(this.uiOutputMojeRezervacije);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.DataGridView uiOutputMojeRezervacije;
         private System.Windows.Forms.Button uiActionPoništiRezervaciju;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker uiInputDatumRezervacije;
     }
 }
