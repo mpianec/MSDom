@@ -95,6 +95,7 @@
             this.uiActionPregledNarudzbi.TabIndex = 5;
             this.uiActionPregledNarudzbi.Text = "Pregled narudžbi";
             this.uiActionPregledNarudzbi.UseVisualStyleBackColor = true;
+            this.uiActionPregledNarudzbi.Click += new System.EventHandler(this.uiActionPregledNarudzbi_Click);
             // 
             // uiActionBrisanjeJelovnika
             // 

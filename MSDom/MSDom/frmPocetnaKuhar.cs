@@ -47,5 +47,11 @@ namespace MSDom
             frmKreiranjePonudeVecera vecera = new frmKreiranjePonudeVecera();
             vecera.ShowDialog();
         }
+
+        private void uiActionPregledNarudzbi_Click(object sender, EventArgs e)
+        {
+            frmPrikazNarudzbi prikazNarudzbi = new frmPrikazNarudzbi();
+            prikazNarudzbi.ShowDialog();
+        }
     }
 }
