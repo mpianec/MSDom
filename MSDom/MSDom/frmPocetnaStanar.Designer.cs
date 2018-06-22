@@ -32,6 +32,7 @@
             this.uiActionOdabirRucka = new System.Windows.Forms.Button();
             this.uiActionOdabirVecere = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.uiActionRezervacijaPraonice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uiActionOdabirDorucka
@@ -74,11 +75,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Veše mogučnosti:";
             // 
+            // uiActionRezervacijaPraonice
+            // 
+            this.uiActionRezervacijaPraonice.Location = new System.Drawing.Point(132, 151);
+            this.uiActionRezervacijaPraonice.Name = "uiActionRezervacijaPraonice";
+            this.uiActionRezervacijaPraonice.Size = new System.Drawing.Size(148, 23);
+            this.uiActionRezervacijaPraonice.TabIndex = 5;
+            this.uiActionRezervacijaPraonice.Text = "Rezerviraj pranje";
+            this.uiActionRezervacijaPraonice.UseVisualStyleBackColor = true;
+            this.uiActionRezervacijaPraonice.Click += new System.EventHandler(this.uiActionRezervacijaPraonice_Click);
+            // 
             // frmPocetnaStanar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 279);
+            this.Controls.Add(this.uiActionRezervacijaPraonice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiActionOdabirVecere);
             this.Controls.Add(this.uiActionOdabirRucka);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button uiActionOdabirRucka;
         private System.Windows.Forms.Button uiActionOdabirVecere;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button uiActionRezervacijaPraonice;
     }
 }

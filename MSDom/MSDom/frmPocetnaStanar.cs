@@ -35,5 +35,11 @@ namespace MSDom
             frmPonudaVecere vecera = new frmPonudaVecere();
             vecera.ShowDialog();
         }
+
+        private void uiActionRezervacijaPraonice_Click(object sender, EventArgs e)
+        {
+            frmRezervacijaPraonice rezervacija = new frmRezervacijaPraonice();
+            rezervacija.ShowDialog();
+        }
     }
 }
