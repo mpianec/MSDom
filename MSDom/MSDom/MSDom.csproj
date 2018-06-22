@@ -39,11 +39,14 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +66,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnketa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnketa.Designer.cs">
+      <DependentUpon>frmAnketa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAzuriranjeJelovnika.cs">
       <SubType>Form</SubType>
@@ -130,6 +139,12 @@
     <Compile Include="frmPocetnaStanar.Designer.cs">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPocetnaTajnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaTajnik.Designer.cs">
+      <DependentUpon>frmPocetnaTajnik.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPonudaRucka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +174,12 @@
     </Compile>
     <Compile Include="frmRegistracija.Designer.cs">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRezervacijaPraonice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRezervacijaPraonice.Designer.cs">
+      <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
     </Compile>
     <Compile Include="izbor.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
@@ -232,6 +253,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAnketa.resx">
+      <DependentUpon>frmAnketa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAzuriranjeJelovnika.resx">
       <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +289,9 @@
     <EmbeddedResource Include="frmPocetnaStanar.resx">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaTajnik.resx">
+      <DependentUpon>frmPocetnaTajnik.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPonudaRucka.resx">
       <DependentUpon>frmPonudaRucka.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +307,9 @@
     <EmbeddedResource Include="frmRegistracija.resx">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRezervacijaPraonice.resx">
+      <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -289,6 +319,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rprtAnketa.rdlc" />
     <EntityDeploy Include="MSDomModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MSDomModel.Designer.cs</LastGenOutput>
