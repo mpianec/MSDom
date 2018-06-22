@@ -42,11 +42,11 @@ namespace MSDom
                 var idOdabranogJelovnika = from od in db.vasIzborDanas
                                            join dor in db.izbors
                                            on od.izborId equals dor.id
-                                           where (od.datum == datum && od.korisnikId == PrijavljeniKorisnik.id)
-                                           select new { dor.id, dor.predjelo, dor.prilog, dor.meso, dor.desert };
-                if (idOdabranogJelovnika.ToList().Count == 1)
-                {
-                    uiOutputVasOdabir.DataSource = idOdabranogJelovnika.ToList();
+                                           where (od.datum == datum && od.korisnikId == PrijavljeniKorisnik.id && dor.kategorijaId==1)
+                                           select new { dor.id, dor.predjelo, dor.prilog, dor.meso, dor.desert,dor.kategorijaId};
+                if (idOdabranogJelovnika.ToList().Count > 0)
+                {  
+                            uiOutputVasOdabir.DataSource = idOdabranogJelovnika.ToList();              
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace MSDom
         {
             if (uiOutputPonudaDorucka.CurrentRow != null)
             {
-
+                bool postojiOdabraniDorucak = false;
                 int idJelovnika = int.Parse(uiOutputPonudaDorucka.CurrentRow.Cells[0].Value.ToString());
                 DateTime datum = DateTime.Today;
                 using (var db = new MSDomEntities())
@@ -69,7 +69,7 @@ namespace MSDom
                                                join dor in db.izbors
                                                on od.izborId equals dor.id
                                                where (od.datum == datum && od.korisnikId == PrijavljeniKorisnik.id)
-                                               select new { dor.id, dor.predjelo, dor.prilog, dor.meso, dor.desert };
+                                               select new { dor.id, dor.predjelo, dor.prilog, dor.meso, dor.desert, dor.kategorijaId};
                     if (idOdabranogJelovnika.ToList().Count == 0)
                     {
                         vasIzborDana noviIzborDana = new vasIzborDana();
@@ -81,7 +81,27 @@ namespace MSDom
                     }
                     else
                     {
-                        MessageBox.Show("Imate odabrani doručak. Poništite trenutni izbor.");
+                        foreach (var item in idOdabranogJelovnika.ToList())
+                        {
+                            if (item.kategorijaId == 1)
+                            {
+                                postojiOdabraniDorucak = true;
+                            }
+                        }
+                        if (!postojiOdabraniDorucak)
+                        {
+                            vasIzborDana noviIzborDana = new vasIzborDana();
+                            noviIzborDana.datum = datum;
+                            noviIzborDana.korisnikId = PrijavljeniKorisnik.id;
+                            noviIzborDana.izborId = idJelovnika;
+                            db.vasIzborDanas.Add(noviIzborDana);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Imate odabrani doručak. Poništite trenutni izbor.");
+                        }
+                        
                     }
                 }
             }
@@ -97,7 +117,9 @@ namespace MSDom
             using (var db = new MSDomEntities())
             {
                 var idOdabira = from v in db.vasIzborDanas
-                                where (v.datum == datum && v.korisnikId == PrijavljeniKorisnik.id)
+                                join dor in db.izbors
+                                on v.izborId equals dor.id
+                                where (v.datum == datum && v.korisnikId == PrijavljeniKorisnik.id && dor.kategorijaId==1)
                                 select v.id;
                 if (idOdabira.ToList().Count > 0) { 
                 int id = Convert.ToInt32(idOdabira.FirstOrDefault());

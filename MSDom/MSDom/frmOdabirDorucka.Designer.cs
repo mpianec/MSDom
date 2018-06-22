@@ -43,6 +43,7 @@
             this.uiOutputPonudaDorucka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputPonudaDorucka.Location = new System.Drawing.Point(50, 40);
             this.uiOutputPonudaDorucka.Name = "uiOutputPonudaDorucka";
+            this.uiOutputPonudaDorucka.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiOutputPonudaDorucka.Size = new System.Drawing.Size(616, 137);
             this.uiOutputPonudaDorucka.TabIndex = 0;
             // 
@@ -71,15 +72,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Sutrašnja ponuda";
+            this.label1.Text = "Današnja ponuda";
             // 
             // uiOutputVasOdabir
             // 
             this.uiOutputVasOdabir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputVasOdabir.Location = new System.Drawing.Point(50, 236);
             this.uiOutputVasOdabir.Name = "uiOutputVasOdabir";
+            this.uiOutputVasOdabir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uiOutputVasOdabir.Size = new System.Drawing.Size(616, 65);
             this.uiOutputVasOdabir.TabIndex = 4;
             // 
