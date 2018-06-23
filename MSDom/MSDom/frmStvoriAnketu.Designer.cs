@@ -45,15 +45,17 @@
             this.uiOutputComboPitanja = new System.Windows.Forms.ComboBox();
             this.pitanjeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPitanjaNaAnketi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiActionDodajPitanje
             // 
-            this.uiActionDodajPitanje.Location = new System.Drawing.Point(549, 223);
+            this.uiActionDodajPitanje.Location = new System.Drawing.Point(303, 207);
             this.uiActionDodajPitanje.Name = "uiActionDodajPitanje";
             this.uiActionDodajPitanje.Size = new System.Drawing.Size(75, 23);
             this.uiActionDodajPitanje.TabIndex = 0;
@@ -65,9 +67,9 @@
             // 
             this.uiOutputPitanjaNaAnketi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.uiOutputPitanjaNaAnketi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiOutputPitanjaNaAnketi.Location = new System.Drawing.Point(80, 213);
+            this.uiOutputPitanjaNaAnketi.Location = new System.Drawing.Point(116, 236);
             this.uiOutputPitanjaNaAnketi.Name = "uiOutputPitanjaNaAnketi";
-            this.uiOutputPitanjaNaAnketi.Size = new System.Drawing.Size(394, 126);
+            this.uiOutputPitanjaNaAnketi.Size = new System.Drawing.Size(394, 118);
             this.uiOutputPitanjaNaAnketi.TabIndex = 3;
             // 
             // anketaBindingSource
@@ -80,7 +82,7 @@
             // 
             // uiActionStvoriPitanje
             // 
-            this.uiActionStvoriPitanje.Location = new System.Drawing.Point(116, 57);
+            this.uiActionStvoriPitanje.Location = new System.Drawing.Point(104, 56);
             this.uiActionStvoriPitanje.Name = "uiActionStvoriPitanje";
             this.uiActionStvoriPitanje.Size = new System.Drawing.Size(91, 23);
             this.uiActionStvoriPitanje.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             // uiActionStvoriAnketu
             // 
-            this.uiActionStvoriAnketu.Location = new System.Drawing.Point(459, 97);
+            this.uiActionStvoriAnketu.Location = new System.Drawing.Point(385, 94);
             this.uiActionStvoriAnketu.Name = "uiActionStvoriAnketu";
             this.uiActionStvoriAnketu.Size = new System.Drawing.Size(91, 23);
             this.uiActionStvoriAnketu.TabIndex = 5;
@@ -101,7 +103,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 15);
+            this.label1.Location = new System.Drawing.Point(44, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 6;
@@ -110,7 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(399, 19);
+            this.label2.Location = new System.Drawing.Point(325, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 7;
@@ -118,21 +120,21 @@
             // 
             // uiInputDatumAnkete
             // 
-            this.uiInputDatumAnkete.Location = new System.Drawing.Point(402, 71);
+            this.uiInputDatumAnkete.Location = new System.Drawing.Point(328, 68);
             this.uiInputDatumAnkete.Name = "uiInputDatumAnkete";
             this.uiInputDatumAnkete.Size = new System.Drawing.Size(200, 20);
             this.uiInputDatumAnkete.TabIndex = 8;
             // 
             // uiInputUnosPitanja
             // 
-            this.uiInputUnosPitanja.Location = new System.Drawing.Point(59, 31);
+            this.uiInputUnosPitanja.Location = new System.Drawing.Point(47, 30);
             this.uiInputUnosPitanja.Name = "uiInputUnosPitanja";
             this.uiInputUnosPitanja.Size = new System.Drawing.Size(213, 20);
             this.uiInputUnosPitanja.TabIndex = 9;
             // 
             // uiInputNazivAnkete
             // 
-            this.uiInputNazivAnkete.Location = new System.Drawing.Point(402, 35);
+            this.uiInputNazivAnkete.Location = new System.Drawing.Point(328, 32);
             this.uiInputNazivAnkete.Name = "uiInputNazivAnkete";
             this.uiInputNazivAnkete.Size = new System.Drawing.Size(132, 20);
             this.uiInputNazivAnkete.TabIndex = 10;
@@ -142,7 +144,7 @@
             this.uiOutputComboAnkete.DataSource = this.anketaBindingSource;
             this.uiOutputComboAnkete.DisplayMember = "naziv";
             this.uiOutputComboAnkete.FormattingEnabled = true;
-            this.uiOutputComboAnkete.Location = new System.Drawing.Point(38, 165);
+            this.uiOutputComboAnkete.Location = new System.Drawing.Point(59, 165);
             this.uiOutputComboAnkete.Name = "uiOutputComboAnkete";
             this.uiOutputComboAnkete.Size = new System.Drawing.Size(121, 21);
             this.uiOutputComboAnkete.TabIndex = 11;
@@ -152,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 149);
+            this.label3.Location = new System.Drawing.Point(56, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 13);
             this.label3.TabIndex = 12;
@@ -182,22 +184,32 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Odaberi pitanje koje želiš dodati na anketu: ";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiInputNazivAnkete);
+            this.groupBox1.Controls.Add(this.uiActionStvoriPitanje);
+            this.groupBox1.Controls.Add(this.uiActionStvoriAnketu);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.uiInputDatumAnkete);
+            this.groupBox1.Controls.Add(this.uiInputUnosPitanja);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(612, 134);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Kreiraj";
+            // 
             // frmStvoriAnketu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 422);
+            this.ClientSize = new System.Drawing.Size(636, 385);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uiOutputComboPitanja);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uiOutputComboAnkete);
-            this.Controls.Add(this.uiInputNazivAnkete);
-            this.Controls.Add(this.uiInputUnosPitanja);
-            this.Controls.Add(this.uiInputDatumAnkete);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.uiActionStvoriAnketu);
-            this.Controls.Add(this.uiActionStvoriPitanje);
             this.Controls.Add(this.uiOutputPitanjaNaAnketi);
             this.Controls.Add(this.uiActionDodajPitanje);
             this.Name = "frmStvoriAnketu";
@@ -206,6 +218,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +243,6 @@
         private System.Windows.Forms.ComboBox uiOutputComboPitanja;
         private System.Windows.Forms.BindingSource pitanjeBindingSource;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
