@@ -81,7 +81,7 @@
             this.uiActionRezervacijaPraonice.Name = "uiActionRezervacijaPraonice";
             this.uiActionRezervacijaPraonice.Size = new System.Drawing.Size(148, 23);
             this.uiActionRezervacijaPraonice.TabIndex = 5;
-            this.uiActionRezervacijaPraonice.Text = "Rezerviraj pranje";
+            this.uiActionRezervacijaPraonice.Text = "Rezerviranje pranja";
             this.uiActionRezervacijaPraonice.UseVisualStyleBackColor = true;
             this.uiActionRezervacijaPraonice.Click += new System.EventHandler(this.uiActionRezervacijaPraonice_Click);
             // 

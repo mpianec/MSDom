@@ -116,7 +116,7 @@
             this.Controls.Add(this.uiOutputSlobodnePraonice);
             this.Controls.Add(this.uiActionRezervirajPraonicu);
             this.Name = "frmRezervacijaPraonice";
-            this.Text = "frmRezervacijaPraonice";
+            this.Text = "Rezervacija praonice";
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).EndInit();
             this.ResumeLayout(false);

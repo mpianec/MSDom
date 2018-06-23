@@ -92,7 +92,7 @@
             this.Controls.Add(this.uiOutputAnkete);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmAnketa";
-            this.Text = "frmAnketa";
+            this.Text = "Ispis ankete";
             this.Load += new System.EventHandler(this.frmAnketa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).EndInit();

@@ -55,7 +55,7 @@
             // 
             // uiActionDodajPitanje
             // 
-            this.uiActionDodajPitanje.Location = new System.Drawing.Point(303, 207);
+            this.uiActionDodajPitanje.Location = new System.Drawing.Point(284, 207);
             this.uiActionDodajPitanje.Name = "uiActionDodajPitanje";
             this.uiActionDodajPitanje.Size = new System.Drawing.Size(75, 23);
             this.uiActionDodajPitanje.TabIndex = 0;
@@ -86,7 +86,7 @@
             this.uiActionStvoriPitanje.Name = "uiActionStvoriPitanje";
             this.uiActionStvoriPitanje.Size = new System.Drawing.Size(91, 23);
             this.uiActionStvoriPitanje.TabIndex = 4;
-            this.uiActionStvoriPitanje.Text = "Stvori pitanje";
+            this.uiActionStvoriPitanje.Text = "Spremi";
             this.uiActionStvoriPitanje.UseVisualStyleBackColor = true;
             this.uiActionStvoriPitanje.Click += new System.EventHandler(this.uiInputDodajPitanje_Click);
             // 
@@ -96,7 +96,7 @@
             this.uiActionStvoriAnketu.Name = "uiActionStvoriAnketu";
             this.uiActionStvoriAnketu.Size = new System.Drawing.Size(91, 23);
             this.uiActionStvoriAnketu.TabIndex = 5;
-            this.uiActionStvoriAnketu.Text = "Stvori anketu";
+            this.uiActionStvoriAnketu.Text = "Spremi";
             this.uiActionStvoriAnketu.UseVisualStyleBackColor = true;
             this.uiActionStvoriAnketu.Click += new System.EventHandler(this.uiActionStvoriAnketu_Click);
             // 
@@ -213,7 +213,7 @@
             this.Controls.Add(this.uiOutputPitanjaNaAnketi);
             this.Controls.Add(this.uiActionDodajPitanje);
             this.Name = "frmStvoriAnketu";
-            this.Text = "frmStvoriAnketu";
+            this.Text = "Stvaranje ankete";
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPitanjaNaAnketi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();

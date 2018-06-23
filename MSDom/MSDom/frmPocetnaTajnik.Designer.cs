@@ -49,7 +49,7 @@
             this.uiActionStvoriAnketu.Name = "uiActionStvoriAnketu";
             this.uiActionStvoriAnketu.Size = new System.Drawing.Size(153, 23);
             this.uiActionStvoriAnketu.TabIndex = 2;
-            this.uiActionStvoriAnketu.Text = "Stvorite anketu za stanare";
+            this.uiActionStvoriAnketu.Text = "Kreiranje ankete";
             this.uiActionStvoriAnketu.UseVisualStyleBackColor = true;
             this.uiActionStvoriAnketu.Click += new System.EventHandler(this.uiActionStvoriAnketu_Click);
             // 
@@ -59,7 +59,7 @@
             this.uiActionIsprintaj.Name = "uiActionIsprintaj";
             this.uiActionIsprintaj.Size = new System.Drawing.Size(153, 23);
             this.uiActionIsprintaj.TabIndex = 3;
-            this.uiActionIsprintaj.Text = "Isprintaj anketu";
+            this.uiActionIsprintaj.Text = "Ispris ankete";
             this.uiActionIsprintaj.UseVisualStyleBackColor = true;
             this.uiActionIsprintaj.Click += new System.EventHandler(this.uiActionIsprintaj_Click);
             // 
@@ -72,7 +72,7 @@
             this.Controls.Add(this.uiActionStvoriAnketu);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaTajnik";
-            this.Text = "frmPocetnaTajnik";
+            this.Text = "Tajnik";
             this.ResumeLayout(false);
             this.PerformLayout();
 
