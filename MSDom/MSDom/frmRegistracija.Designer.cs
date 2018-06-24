@@ -201,7 +201,7 @@
             this.Controls.Add(this.uiInputPrezime);
             this.Controls.Add(this.uiInputIme);
             this.Name = "frmRegistracija";
-            this.Text = "Registracija novog korisnika";
+            this.Text = "-";
             ((System.ComponentModel.ISupportInitialize)(this.ulogaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sobaBindingSource)).EndInit();
             this.ResumeLayout(false);
