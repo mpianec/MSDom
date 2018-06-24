@@ -39,8 +39,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -72,6 +88,12 @@
     </Compile>
     <Compile Include="frmAnketa.Designer.cs">
       <DependentUpon>frmAnketa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAzurirajPotsjetnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzurirajPotsjetnik.Designer.cs">
+      <DependentUpon>frmAzurirajPotsjetnik.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAzuriranjeJelovnika.cs">
       <SubType>Form</SubType>
@@ -115,6 +137,12 @@
     <Compile Include="frmKreiranjePonudeVecera.Designer.cs">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNoviPotsjetnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNoviPotsjetnik.Designer.cs">
+      <DependentUpon>frmNoviPotsjetnik.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOdabirDorucka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +184,12 @@
     </Compile>
     <Compile Include="frmPonudaVecere.Designer.cs">
       <DependentUpon>frmPonudaVecere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPotsjetnici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPotsjetnici.Designer.cs">
+      <DependentUpon>frmPotsjetnici.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPregledKorisnika.cs">
       <SubType>Form</SubType>
@@ -247,6 +281,7 @@
     <Compile Include="soba.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="tipSobe.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
@@ -261,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAnketa.resx">
       <DependentUpon>frmAnketa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAzurirajPotsjetnik.resx">
+      <DependentUpon>frmAzurirajPotsjetnik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAzuriranjeJelovnika.resx">
       <DependentUpon>frmAzuriranjeJelovnika.cs</DependentUpon>
@@ -283,6 +321,9 @@
     <EmbeddedResource Include="frmKreiranjePonudeVecera.resx">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNoviPotsjetnik.resx">
+      <DependentUpon>frmNoviPotsjetnik.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOdabirDorucka.resx">
       <DependentUpon>frmOdabirDorucka.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPonudaVecere.resx">
       <DependentUpon>frmPonudaVecere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPotsjetnici.resx">
+      <DependentUpon>frmPotsjetnici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPregledKorisnika.resx">
       <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
@@ -343,6 +387,7 @@
     <None Include="Properties\DataSources\korisnik.datasource" />
     <None Include="Properties\DataSources\pitanje.datasource" />
     <None Include="Properties\DataSources\pitanjeSAnkete.datasource" />
+    <None Include="Properties\DataSources\podsjetnik.datasource" />
     <None Include="Properties\DataSources\soba.datasource" />
     <None Include="Properties\DataSources\uloga.datasource" />
     <None Include="Properties\Settings.settings">
@@ -368,6 +413,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MSDomModel.edmx</DependentUpon>
       <LastGenOutput>MSDomModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
