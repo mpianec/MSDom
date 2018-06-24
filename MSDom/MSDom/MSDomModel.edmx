@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MSDomDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MSDomDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="anketa">
           <Key>
             <PropertyRef Name="id" />
@@ -76,6 +76,7 @@
           <Property Name="nazivBolesti" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="dijagnoza" Type="text" Nullable="false" />
           <Property Name="stanarId" Type="int" Nullable="false" />
+          <Property Name="datum" Type="date" />
         </EntityType>
         <EntityType Name="pitanje">
           <Key>
@@ -468,8 +469,7 @@
             <End Role="vasIzborDana" EntitySet="vasIzborDana" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MSDomDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -565,6 +565,7 @@
           <Property Name="stanarId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="korisnik" Relationship="Self.fk_nalaz_korisnik_1" FromRole="nalaz" ToRole="korisnik" />
           <NavigationProperty Name="lijekoviZaDijagnozus" Relationship="Self.fk_lijekoviZaDijagnozu_nalaz_1" FromRole="nalaz" ToRole="lijekoviZaDijagnozu" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="pitanje">
           <Key>
@@ -1051,6 +1052,7 @@
           <EntitySetMapping Name="nalazs">
             <EntityTypeMapping TypeName="MSDomDBModel.nalaz">
               <MappingFragment StoreEntitySet="nalaz">
+                <ScalarProperty Name="datum" ColumnName="datum" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nazivBolesti" ColumnName="nazivBolesti" />
                 <ScalarProperty Name="dijagnoza" ColumnName="dijagnoza" />

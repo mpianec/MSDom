@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
@@ -113,6 +114,12 @@
     <Compile Include="frmBrisanjeAzuriranjeJelovnika.Designer.cs">
       <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDodajLijekStanaru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDodajLijekStanaru.Designer.cs">
+      <DependentUpon>frmDodajLijekStanaru.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJelovnikUnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +144,18 @@
     <Compile Include="frmKreiranjePonudeVecera.Designer.cs">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNarudzbaLijekova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNarudzbaLijekova.Designer.cs">
+      <DependentUpon>frmNarudzbaLijekova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNarudzbenice.Designer.cs">
+      <DependentUpon>frmNarudzbenice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNoviPotsjetnik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,11 +174,23 @@
     <Compile Include="frmPocetnaDirektor.Designer.cs">
       <DependentUpon>frmPocetnaDirektor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPocetnaDoktor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaDoktor.Designer.cs">
+      <DependentUpon>frmPocetnaDoktor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPocetnaKuhar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPocetnaKuhar.Designer.cs">
       <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetnaMedicinskaSestra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaMedicinskaSestra.Designer.cs">
+      <DependentUpon>frmPocetnaMedicinskaSestra.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPocetnaStanar.cs">
       <SubType>Form</SubType>
@@ -185,6 +216,12 @@
     <Compile Include="frmPonudaVecere.Designer.cs">
       <DependentUpon>frmPonudaVecere.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPopunjavanjeZdKartona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPopunjavanjeZdKartona.Designer.cs">
+      <DependentUpon>frmPopunjavanjeZdKartona.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPotsjetnici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +233,12 @@
     </Compile>
     <Compile Include="frmPregledKorisnika.Designer.cs">
       <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPregledSastanaka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPregledSastanaka.Designer.cs">
+      <DependentUpon>frmPregledSastanaka.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrikazNarudzbi.cs">
       <SubType>Form</SubType>
@@ -214,6 +257,12 @@
     </Compile>
     <Compile Include="frmRezervacijaPraonice.Designer.cs">
       <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSastanakSDoktorom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSastanakSDoktorom.Designer.cs">
+      <DependentUpon>frmSastanakSDoktorom.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStvoriAnketu.cs">
       <SubType>Form</SubType>
@@ -309,6 +358,9 @@
     <EmbeddedResource Include="frmBrisanjeAzuriranjeJelovnika.resx">
       <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDodajLijekStanaru.resx">
+      <DependentUpon>frmDodajLijekStanaru.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmJelovnikUnos.resx">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +373,12 @@
     <EmbeddedResource Include="frmKreiranjePonudeVecera.resx">
       <DependentUpon>frmKreiranjePonudeVecera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNarudzbaLijekova.resx">
+      <DependentUpon>frmNarudzbaLijekova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNarudzbenice.resx">
+      <DependentUpon>frmNarudzbenice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNoviPotsjetnik.resx">
       <DependentUpon>frmNoviPotsjetnik.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,8 +388,14 @@
     <EmbeddedResource Include="frmPocetnaDirektor.resx">
       <DependentUpon>frmPocetnaDirektor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaDoktor.resx">
+      <DependentUpon>frmPocetnaDoktor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaKuhar.resx">
       <DependentUpon>frmPocetnaKuhar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaMedicinskaSestra.resx">
+      <DependentUpon>frmPocetnaMedicinskaSestra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaStanar.resx">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
@@ -345,11 +409,17 @@
     <EmbeddedResource Include="frmPonudaVecere.resx">
       <DependentUpon>frmPonudaVecere.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPopunjavanjeZdKartona.resx">
+      <DependentUpon>frmPopunjavanjeZdKartona.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPotsjetnici.resx">
       <DependentUpon>frmPotsjetnici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPregledKorisnika.resx">
       <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPregledSastanaka.resx">
+      <DependentUpon>frmPregledSastanaka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrikazNarudzbi.resx">
       <DependentUpon>frmPrikazNarudzbi.cs</DependentUpon>
@@ -360,9 +430,13 @@
     <EmbeddedResource Include="frmRezervacijaPraonice.resx">
       <DependentUpon>frmRezervacijaPraonice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSastanakSDoktorom.resx">
+      <DependentUpon>frmSastanakSDoktorom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStvoriAnketu.resx">
       <DependentUpon>frmStvoriAnketu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IzvještajNarudžbenica.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -385,9 +459,13 @@
     <None Include="Properties\DataSources\izbor.datasource" />
     <None Include="Properties\DataSources\izborKategorija.datasource" />
     <None Include="Properties\DataSources\korisnik.datasource" />
+    <None Include="Properties\DataSources\lijek.datasource" />
+    <None Include="Properties\DataSources\lijekoviZaDijagnozu.datasource" />
+    <None Include="Properties\DataSources\nalaz.datasource" />
     <None Include="Properties\DataSources\pitanje.datasource" />
     <None Include="Properties\DataSources\pitanjeSAnkete.datasource" />
     <None Include="Properties\DataSources\podsjetnik.datasource" />
+    <None Include="Properties\DataSources\sastanakSDoktorom.datasource" />
     <None Include="Properties\DataSources\soba.datasource" />
     <None Include="Properties\DataSources\uloga.datasource" />
     <None Include="Properties\Settings.settings">
