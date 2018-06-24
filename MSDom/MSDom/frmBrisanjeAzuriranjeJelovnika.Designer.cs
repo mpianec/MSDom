@@ -78,7 +78,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiOutputPopisJelovnika);
             this.Name = "frmBrisanjeAzuriranjeJelovnika";
-            this.Text = "Brisanje / ažuriranje jelovnika";
+            this.Text = "Ažuriranje jelovnika";
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPopisJelovnika)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.izborBindingSource)).EndInit();
             this.ResumeLayout(false);

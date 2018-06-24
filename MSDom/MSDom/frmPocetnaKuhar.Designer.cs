@@ -103,7 +103,7 @@
             this.uiActionBrisanjeJelovnika.Name = "uiActionBrisanjeJelovnika";
             this.uiActionBrisanjeJelovnika.Size = new System.Drawing.Size(206, 23);
             this.uiActionBrisanjeJelovnika.TabIndex = 6;
-            this.uiActionBrisanjeJelovnika.Text = "Brisanje/Ažuriranje jelovnika";
+            this.uiActionBrisanjeJelovnika.Text = "Ažuriranje jelovnika";
             this.uiActionBrisanjeJelovnika.UseVisualStyleBackColor = true;
             this.uiActionBrisanjeJelovnika.Click += new System.EventHandler(this.uiActionBrisanjeJelovnika_Click);
             // 
