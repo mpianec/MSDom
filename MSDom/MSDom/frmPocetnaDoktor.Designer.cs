@@ -28,58 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.uiActionNaruči = new System.Windows.Forms.Button();
+            this.uiActionPopuniZdKarton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.uiActionPregledSastanaka = new System.Windows.Forms.Button();
-            this.uiActionPopunjavanjeZdKartona = new System.Windows.Forms.Button();
-            this.uiActionNaruciLijekove = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // uiActionNaruči
+            // 
+            this.uiActionNaruči.Location = new System.Drawing.Point(191, 138);
+            this.uiActionNaruči.Name = "uiActionNaruči";
+            this.uiActionNaruči.Size = new System.Drawing.Size(153, 33);
+            this.uiActionNaruči.TabIndex = 6;
+            this.uiActionNaruči.Text = "Naručivanje lijekova";
+            this.uiActionNaruči.UseVisualStyleBackColor = true;
+            this.uiActionNaruči.Click += new System.EventHandler(this.uiActionNaruči_Click);
+            // 
+            // uiActionPopuniZdKarton
+            // 
+            this.uiActionPopuniZdKarton.Location = new System.Drawing.Point(191, 95);
+            this.uiActionPopuniZdKarton.Name = "uiActionPopuniZdKarton";
+            this.uiActionPopuniZdKarton.Size = new System.Drawing.Size(153, 37);
+            this.uiActionPopuniZdKarton.TabIndex = 5;
+            this.uiActionPopuniZdKarton.Text = "Popunjavanje zdravstvenog kartona";
+            this.uiActionPopuniZdKarton.UseVisualStyleBackColor = true;
+            this.uiActionPopuniZdKarton.Click += new System.EventHandler(this.uiActionPopuniZdKarton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(191, 79);
+            this.label1.Location = new System.Drawing.Point(79, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 18);
-            this.label1.TabIndex = 9;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Vaše mogučnosti:";
             // 
             // uiActionPregledSastanaka
             // 
-            this.uiActionPregledSastanaka.Location = new System.Drawing.Point(249, 154);
+            this.uiActionPregledSastanaka.Location = new System.Drawing.Point(191, 177);
             this.uiActionPregledSastanaka.Name = "uiActionPregledSastanaka";
-            this.uiActionPregledSastanaka.Size = new System.Drawing.Size(148, 23);
+            this.uiActionPregledSastanaka.Size = new System.Drawing.Size(153, 33);
             this.uiActionPregledSastanaka.TabIndex = 7;
             this.uiActionPregledSastanaka.Text = "Pregled sastanaka";
             this.uiActionPregledSastanaka.UseVisualStyleBackColor = true;
-            // 
-            // uiActionPopunjavanjeZdKartona
-            // 
-            this.uiActionPopunjavanjeZdKartona.Location = new System.Drawing.Point(249, 124);
-            this.uiActionPopunjavanjeZdKartona.Name = "uiActionPopunjavanjeZdKartona";
-            this.uiActionPopunjavanjeZdKartona.Size = new System.Drawing.Size(148, 23);
-            this.uiActionPopunjavanjeZdKartona.TabIndex = 6;
-            this.uiActionPopunjavanjeZdKartona.Text = "Nalazi";
-            this.uiActionPopunjavanjeZdKartona.UseVisualStyleBackColor = true;
-            // 
-            // uiActionNaruciLijekove
-            // 
-            this.uiActionNaruciLijekove.Location = new System.Drawing.Point(249, 183);
-            this.uiActionNaruciLijekove.Name = "uiActionNaruciLijekove";
-            this.uiActionNaruciLijekove.Size = new System.Drawing.Size(148, 23);
-            this.uiActionNaruciLijekove.TabIndex = 10;
-            this.uiActionNaruciLijekove.Text = "Naruči lijekove";
-            this.uiActionNaruciLijekove.UseVisualStyleBackColor = true;
+            this.uiActionPregledSastanaka.Click += new System.EventHandler(this.uiActionPregledSastanaka_Click);
             // 
             // frmPocetnaDoktor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 344);
-            this.Controls.Add(this.uiActionNaruciLijekove);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(490, 292);
             this.Controls.Add(this.uiActionPregledSastanaka);
-            this.Controls.Add(this.uiActionPopunjavanjeZdKartona);
+            this.Controls.Add(this.uiActionNaruči);
+            this.Controls.Add(this.uiActionPopuniZdKarton);
+            this.Controls.Add(this.label1);
             this.Name = "frmPocetnaDoktor";
             this.Text = "frmPocetnaDoktor";
             this.ResumeLayout(false);
@@ -88,9 +91,10 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button uiActionNaruči;
+        private System.Windows.Forms.Button uiActionPopuniZdKarton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button uiActionPregledSastanaka;
-        private System.Windows.Forms.Button uiActionPopunjavanjeZdKartona;
-        private System.Windows.Forms.Button uiActionNaruciLijekove;
     }
 }
