@@ -24,6 +24,7 @@ namespace MSDom
         public string nazivBolesti { get; set; }
         public string dijagnoza { get; set; }
         public int stanarId { get; set; }
+        public Nullable<System.DateTime> datum { get; set; }
     
         public virtual korisnik korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
