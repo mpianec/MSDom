@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MSDom
+{
+    public partial class frmDodajLijekStanaru : Form
+    {
+        public frmDodajLijekStanaru()
+        {
+            InitializeComponent();
+            DohvatiLijekove();
+            DohvatiNalaze();
+            DohvatiLijekoveZaDijagnozu();
+        }
+
+        private void uiActionDodaj_Click(object sender, EventArgs e)
+        {
+            using (var db = new MSDomEntities())
+            {
+                lijekoviZaDijagnozu lijek = new lijekoviZaDijagnozu();
+                lijek.lijekId = int.Parse(uiInputLijek.SelectedValue.ToString());
+                lijek.nalazId = int.Parse(uiInputNalaz.SelectedValue.ToString());
+                db.lijekoviZaDijagnozus.Add(lijek);
+                db.SaveChanges();
+            }
+            DohvatiLijekoveZaDijagnozu();
+        }
+
+        public void DohvatiLijekove()
+        {
+
+            BindingList<lijek> listaLijekica = null;
+            using (var db = new MSDomEntities())
+            {
+
+                listaLijekica = new BindingList<lijek>(db.lijeks.ToList());
+                lijekBindingSource.DataSource = listaLijekica;
+
+            }
+        }
+
+        public void DohvatiNalaze()
+        {
+            BindingList<nalaz> listaNalaza = null;
+            using (var db = new MSDomEntities())
+            {
+
+                listaNalaza = new BindingList<nalaz>(db.nalazs.ToList());
+                nalazBindingSource.DataSource = listaNalaza;
+
+            }
+        }
+
+        public void DohvatiLijekoveZaDijagnozu()
+        {
+            int idNalaz = int.Parse(uiInputNalaz.SelectedValue.ToString());
+            using (var db = new MSDomEntities())
+            {
+                var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
+                                   where (nalaz.nalazId == idNalaz)
+                                   select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
+
+                uiOutputPrikazLijekovaINalaza.DataSource = listaLijekova.ToList();
+
+
+            }
+        }
+
+        private void uiInputNalaz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DohvatiLijekoveZaDijagnozu();
+        }
+    }
+}
