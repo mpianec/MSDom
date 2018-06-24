@@ -84,8 +84,18 @@ namespace MSDom
                                 pocetnaFormaTajnik.ShowDialog();
                                 this.Close();
                                 break;
-                        case 3: break;
-                        case 4: break;
+                       case 3:
+                                frmPocetnaDoktor pocetnaFormaDoktor = new frmPocetnaDoktor();
+                                this.Hide();
+                                pocetnaFormaDoktor.ShowDialog();
+                                this.Close();
+                                break;
+                       case 4:
+                                frmPocetnaMedicinskaSestra pocetnaFormaMedicinskaSestra = new frmPocetnaMedicinskaSestra();
+                                this.Hide();
+                                pocetnaFormaMedicinskaSestra.ShowDialog();
+                                this.Close();
+                                break;
                         case 5:
                                 frmPocetnaKuhar pocetnaFormaKuhar = new frmPocetnaKuhar();
                                 this.Hide();
