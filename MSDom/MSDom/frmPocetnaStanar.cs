@@ -41,5 +41,11 @@ namespace MSDom
             frmRezervacijaPraonice rezervacija = new frmRezervacijaPraonice();
             rezervacija.ShowDialog();
         }
+
+        private void uiActionPodsjetnici_Click(object sender, EventArgs e)
+        {
+            frmPotsjetnici potsjetnici = new frmPotsjetnici();
+            potsjetnici.ShowDialog();
+        }
     }
 }

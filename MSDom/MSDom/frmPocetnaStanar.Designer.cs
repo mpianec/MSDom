@@ -33,6 +33,7 @@
             this.uiActionOdabirVecere = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.uiActionRezervacijaPraonice = new System.Windows.Forms.Button();
+            this.uiActionPodsjetnici = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uiActionOdabirDorucka
@@ -85,11 +86,22 @@
             this.uiActionRezervacijaPraonice.UseVisualStyleBackColor = true;
             this.uiActionRezervacijaPraonice.Click += new System.EventHandler(this.uiActionRezervacijaPraonice_Click);
             // 
+            // uiActionPodsjetnici
+            // 
+            this.uiActionPodsjetnici.Location = new System.Drawing.Point(132, 180);
+            this.uiActionPodsjetnici.Name = "uiActionPodsjetnici";
+            this.uiActionPodsjetnici.Size = new System.Drawing.Size(148, 23);
+            this.uiActionPodsjetnici.TabIndex = 6;
+            this.uiActionPodsjetnici.Text = "Podsjetnici";
+            this.uiActionPodsjetnici.UseVisualStyleBackColor = true;
+            this.uiActionPodsjetnici.Click += new System.EventHandler(this.uiActionPodsjetnici_Click);
+            // 
             // frmPocetnaStanar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 279);
+            this.Controls.Add(this.uiActionPodsjetnici);
             this.Controls.Add(this.uiActionRezervacijaPraonice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiActionOdabirVecere);
@@ -109,5 +121,6 @@
         private System.Windows.Forms.Button uiActionOdabirVecere;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button uiActionRezervacijaPraonice;
+        private System.Windows.Forms.Button uiActionPodsjetnici;
     }
 }
