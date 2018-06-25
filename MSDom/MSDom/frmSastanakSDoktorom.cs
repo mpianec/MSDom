@@ -30,6 +30,7 @@ namespace MSDom
                 db.sastanakSDoktoroms.Add(sastanak);
                 db.SaveChanges();
             }
+            MessageBox.Show("Ugovorili ste sastanak!");
             DohvatiDoktoreCmb();
             DohvatiStanareCmb();
         }

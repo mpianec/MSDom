@@ -20,7 +20,7 @@
             </Paragraphs>
             <rd:DefaultName>id</rd:DefaultName>
             <Top>1.00542cm</Top>
-            <Left>4.08813cm</Left>
+            <Left>5.46396cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <Style>
@@ -33,25 +33,25 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="lijekId">
+          <Textbox Name="Textbox1">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!lijekId.Value, "DsNarudzbenice")</Value>
+                    <Value>Id narudžbenice</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>lijekId</rd:DefaultName>
-            <Top>1.78181cm</Top>
-            <Left>4.08813cm</Left>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.00542cm</Top>
+            <Left>1.29237cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>3.99521cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -63,26 +63,116 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="nalazId">
+          <Textbox Name="Textbox2">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!nalazId.Value, "DsNarudzbenice")</Value>
+                    <Value>Nalaz</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>nalazId</rd:DefaultName>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>2.55819cm</Top>
-            <Left>4.08813cm</Left>
+            <Left>1.29236cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.99521cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Lijek</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.78181cm</Top>
+            <Left>1.29236cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.99521cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="nazivBolesti">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!nazivBolesti.Value, "DsNalaz")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>nazivBolesti</rd:DefaultName>
+            <Top>2.5582cm</Top>
+            <Left>5.46396cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
-            <ZIndex>2</ZIndex>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="naziv">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!naziv.Value, "DsLijek")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>naziv</rd:DefaultName>
+            <Top>1.78181cm</Top>
+            <Left>5.46396cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -97,7 +187,7 @@
         <KeepTogether>true</KeepTogether>
         <Top>0.63182cm</Top>
         <Left>2.99953cm</Left>
-        <Height>4.16361cm</Height>
+        <Height>8.02652cm</Height>
         <Width>10.45104cm</Width>
         <Style>
           <Border>
@@ -106,7 +196,7 @@
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>3.4088in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -162,6 +252,68 @@
         <rd:DataSetName>MSDom</rd:DataSetName>
         <rd:TableName>lijekoviZaDijagnozu</rd:TableName>
         <rd:ObjectDataSourceType>MSDom.lijekoviZaDijagnozu, MSDom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsNalaz">
+      <Query>
+        <DataSourceName>MSDom</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="datum">
+          <DataField>datum</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="dijagnoza">
+          <DataField>dijagnoza</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="korisnik">
+          <DataField>korisnik</DataField>
+          <rd:TypeName>MSDom.korisnik</rd:TypeName>
+        </Field>
+        <Field Name="nazivBolesti">
+          <DataField>nazivBolesti</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="stanarId">
+          <DataField>stanarId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MSDom</rd:DataSetName>
+        <rd:TableName>nalaz</rd:TableName>
+        <rd:ObjectDataSourceType>MSDom.nalaz, MSDom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsLijek">
+      <Query>
+        <DataSourceName>MSDom</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="kolicina">
+          <DataField>kolicina</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="naziv">
+          <DataField>naziv</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MSDom</rd:DataSetName>
+        <rd:TableName>lijek</rd:TableName>
+        <rd:ObjectDataSourceType>MSDom.lijek, MSDom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

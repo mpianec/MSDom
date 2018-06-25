@@ -75,7 +75,6 @@
             this.uiOutputPrikaz.Size = new System.Drawing.Size(119, 21);
             this.uiOutputPrikaz.TabIndex = 2;
             this.uiOutputPrikaz.ValueMember = "id";
-            this.uiOutputPrikaz.SelectedIndexChanged += new System.EventHandler(this.uiOutputPrikaz_SelectedIndexChanged);
             // 
             // nalazBindingSource
             // 

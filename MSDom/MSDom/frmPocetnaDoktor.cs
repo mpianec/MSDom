@@ -21,20 +21,17 @@ namespace MSDom
         {
             frmPopunjavanjeZdKartona forma = new frmPopunjavanjeZdKartona();
             forma.ShowDialog();
-            Close();
         }
 
         private void uiActionPregledSastanaka_Click(object sender, EventArgs e)
         {
             frmPregledSastanaka forma = new frmPregledSastanaka();
             forma.ShowDialog();
-            Close();
         }
 
         private void uiActionNaruči_Click(object sender, EventArgs e)
         {
             frmNarudzbaLijekova forma = new frmNarudzbaLijekova();
-            Close();
             forma.ShowDialog();
         }
     }

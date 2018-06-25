@@ -22,50 +22,65 @@ namespace MSDom
         private void frmNarudzbenice_Load(object sender, EventArgs e)
         {
             int idNalaz = int.Parse(uiOutputPrikaz.SelectedValue.ToString());
+            BindingList<lijekoviZaDijagnozu> listaLijekovaZaDijgnozu = null;
             using (var db = new MSDomEntities())
             {
-                var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
-                                    where (nalaz.nalazId == idNalaz)
-                                    select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
+                listaLijekovaZaDijgnozu = new BindingList<lijekoviZaDijagnozu>(db.lijekoviZaDijagnozus.ToList());
+                foreach (var item in listaLijekovaZaDijgnozu)
+                {
+                    if (item.nalazId == idNalaz)
+                    {
+                        lijekoviZaDijagnozuBindingSource.DataSource = listaLijekovaZaDijgnozu;
 
-                lijekoviZaDijagnozuBindingSource.DataSource = listaLijekova.ToList();
-
-
+                    }
+                }
             }
+
             this.reportViewer1.RefreshReport();
         }
+            
 
         
         public void DohvatiNalaze()
         {
-            BindingList<nalaz> listaNalaza = null;
             using (var db = new MSDomEntities())
             {
+                var listaNalaza = from nalaz in db.nalazs
+                                     select new { nalaz.id, nalaz.nazivBolesti};
+                nalazBindingSource.DataSource = listaNalaza.ToList(); ;
 
-                listaNalaza = new BindingList<nalaz>(db.nalazs.ToList());
-                nalazBindingSource.DataSource = listaNalaza;
+            }
+        }
 
+        public void DohvatiLijekove()
+        {
+            using (var db = new MSDomEntities())
+            {
+                var listalijekova = from lij in db.lijeks
+                                  select new { lij.id, lij.naziv };
+
+                
             }
         }
 
         public void DohvatiLijekoveZaDijagnozu()
         {
             int idNalaz = int.Parse(uiOutputPrikaz.SelectedValue.ToString());
+            BindingList<lijekoviZaDijagnozu> listaLijekovaZaDijgnozu = null;
             using (var db = new MSDomEntities())
             {
-                var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
-                                    where (nalaz.nalazId == idNalaz)
-                                    select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
+                listaLijekovaZaDijgnozu = new BindingList<lijekoviZaDijagnozu>(db.lijekoviZaDijagnozus.ToList());
+                foreach (var item in listaLijekovaZaDijgnozu)
+                {
+                    if (item.nalazId==idNalaz)
+                    {
+                        lijekoviZaDijagnozuBindingSource.DataSource = listaLijekovaZaDijgnozu;
 
-                lijekoviZaDijagnozuBindingSource.DataSource = listaLijekova.ToList();
-
-
+                    }
+                }
             }
         }
 
-        private void uiOutputPrikaz_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DohvatiLijekoveZaDijagnozu();
-        }
+
     }
 }

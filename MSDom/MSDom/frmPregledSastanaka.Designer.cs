@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.uiOutputSastanak = new System.Windows.Forms.DataGridView();
             this.uiActionObrisi = new System.Windows.Forms.Button();
-            this.pitanjeSAnketeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sastanakSDoktoromBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pitanjeSAnketeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stanarIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doktorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +41,9 @@
             this.korisnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnik1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sastanakSDoktoromBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uiOutputSastanak
@@ -71,13 +73,17 @@
             this.uiActionObrisi.UseVisualStyleBackColor = true;
             this.uiActionObrisi.Click += new System.EventHandler(this.uiActionObrisi_Click);
             // 
-            // pitanjeSAnketeBindingSource
+            // korisnikBindingSource
             // 
-            this.pitanjeSAnketeBindingSource.DataSource = typeof(MSDom.pitanjeSAnkete);
+            this.korisnikBindingSource.DataSource = typeof(MSDom.korisnik);
             // 
             // sastanakSDoktoromBindingSource
             // 
             this.sastanakSDoktoromBindingSource.DataSource = typeof(MSDom.sastanakSDoktorom);
+            // 
+            // pitanjeSAnketeBindingSource
+            // 
+            this.pitanjeSAnketeBindingSource.DataSource = typeof(MSDom.pitanjeSAnkete);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -88,14 +94,16 @@
             // stanarIdDataGridViewTextBoxColumn
             // 
             this.stanarIdDataGridViewTextBoxColumn.DataPropertyName = "stanarId";
-            this.stanarIdDataGridViewTextBoxColumn.HeaderText = "stanarId";
+            this.stanarIdDataGridViewTextBoxColumn.HeaderText = "stanar";
             this.stanarIdDataGridViewTextBoxColumn.Name = "stanarIdDataGridViewTextBoxColumn";
+            this.stanarIdDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // doktorIdDataGridViewTextBoxColumn
             // 
             this.doktorIdDataGridViewTextBoxColumn.DataPropertyName = "doktorId";
-            this.doktorIdDataGridViewTextBoxColumn.HeaderText = "doktorId";
+            this.doktorIdDataGridViewTextBoxColumn.HeaderText = "doktor";
             this.doktorIdDataGridViewTextBoxColumn.Name = "doktorIdDataGridViewTextBoxColumn";
+            this.doktorIdDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // datumVrijemeDataGridViewTextBoxColumn
             // 
@@ -127,8 +135,9 @@
             this.Name = "frmPregledSastanaka";
             this.Text = "frmPregledSastanaka";
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sastanakSDoktoromBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,12 +147,13 @@
         private System.Windows.Forms.DataGridView uiOutputSastanak;
         private System.Windows.Forms.Button uiActionObrisi;
         private System.Windows.Forms.BindingSource pitanjeSAnketeBindingSource;
+        private System.Windows.Forms.BindingSource sastanakSDoktoromBindingSource;
+        private System.Windows.Forms.BindingSource korisnikBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stanarIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn doktorIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumVrijemeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnik1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource sastanakSDoktoromBindingSource;
     }
 }
