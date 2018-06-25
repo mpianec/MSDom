@@ -85,10 +85,14 @@ namespace MSDom
                         TimeSpan interval2 = new TimeSpan(1, 0, 0, 0);
                         foreach(var item in idOdabranePraonice.ToList())
                         {
-                            if ( item.datumVrijeme.Subtract(uiInputDatumRezervacije.Value)<=interval2)
+                           /* if ( item.datumVrijeme.Subtract(uiInputDatumRezervacije.Value)<=interval2)
                             {
                                 postoji = true;
-                            }                            
+                            }*/
+                            if (uiInputDatumRezervacije.Value.Subtract(item.datumVrijeme) < interval2)
+                            {
+                                postoji = true;
+                            }
                         }
                         if (!postoji)
                         {
@@ -127,11 +131,11 @@ namespace MSDom
             praonica praonicaBrisanje = null;
             using (var db=new MSDomEntities())
             {
-                var idOdabir = from v in db.rezervacijaPraonices
+                var idOdabir = from od in db.rezervacijaPraonices
                                join praon in db.praonicas
-                               on v.praonicaId equals praon.id
-                               where (v.korisnikId == PrijavljeniKorisnik.id)
-                               select v.id;
+                               on od.praonicaId equals praon.id
+                               where (od.korisnikId == PrijavljeniKorisnik.id)
+                               select od.id;
                 if (idOdabir.ToList().Count > 0)
                 {
                     int id =  int.Parse(uiOutputMojeRezervacije.CurrentRow.Cells[0].Value.ToString());
