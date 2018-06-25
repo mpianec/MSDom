@@ -30,14 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label1 = new System.Windows.Forms.Label();
             this.uiOutputPrikaz = new System.Windows.Forms.ComboBox();
             this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lijekoviZaDijagnozuBindingSource
@@ -48,7 +52,13 @@
             // 
             reportDataSource1.Name = "DsNarudzbenice";
             reportDataSource1.Value = this.lijekoviZaDijagnozuBindingSource;
+            reportDataSource2.Name = "DsNalaz";
+            reportDataSource2.Value = this.nalazBindingSource;
+            reportDataSource3.Name = "DsLijek";
+            reportDataSource3.Value = this.lijekBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "MSDom.IzvještajNarudžbenica.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 98);
             this.reportViewer1.Name = "reportViewer1";
@@ -80,6 +90,10 @@
             // 
             this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
             // 
+            // lijekBindingSource
+            // 
+            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
+            // 
             // frmNarudzbenice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +107,7 @@
             this.Load += new System.EventHandler(this.frmNarudzbenice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox uiOutputPrikaz;
         private System.Windows.Forms.BindingSource nalazBindingSource;
+        private System.Windows.Forms.BindingSource lijekBindingSource;
     }
 }

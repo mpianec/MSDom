@@ -17,6 +17,7 @@ namespace MSDom
             InitializeComponent();
             DohvatiNalaze();
             DohvatiLijekoveZaDijagnozu();
+            DohvatiLijekove();
         }
 
         private void frmNarudzbenice_Load(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace MSDom
             {
                 var listaNalaza = from nalaz in db.nalazs
                                      select new { nalaz.id, nalaz.nazivBolesti};
-                nalazBindingSource.DataSource = listaNalaza.ToList(); ;
+                nalazBindingSource.DataSource = listaNalaza.ToList(); 
 
             }
         }
@@ -58,7 +59,7 @@ namespace MSDom
             {
                 var listalijekova = from lij in db.lijeks
                                   select new { lij.id, lij.naziv };
-
+                lijekBindingSource.DataSource = listalijekova.ToList();
                 
             }
         }

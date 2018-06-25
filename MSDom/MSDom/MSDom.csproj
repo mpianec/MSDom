@@ -192,6 +192,12 @@
     <Compile Include="frmPocetnaMedicinskaSestra.Designer.cs">
       <DependentUpon>frmPocetnaMedicinskaSestra.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPocetnaSpremacica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetnaSpremacica.Designer.cs">
+      <DependentUpon>frmPocetnaSpremacica.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPocetnaStanar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,12 @@
     </Compile>
     <Compile Include="frmPocetnaTajnik.Designer.cs">
       <DependentUpon>frmPocetnaTajnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPonistiRezervaciju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPonistiRezervaciju.Designer.cs">
+      <DependentUpon>frmPonistiRezervaciju.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPonudaRucka.cs">
       <SubType>Form</SubType>
@@ -397,11 +409,17 @@
     <EmbeddedResource Include="frmPocetnaMedicinskaSestra.resx">
       <DependentUpon>frmPocetnaMedicinskaSestra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetnaSpremacica.resx">
+      <DependentUpon>frmPocetnaSpremacica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaStanar.resx">
       <DependentUpon>frmPocetnaStanar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPocetnaTajnik.resx">
       <DependentUpon>frmPocetnaTajnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPonistiRezervaciju.resx">
+      <DependentUpon>frmPonistiRezervaciju.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPonudaRucka.resx">
       <DependentUpon>frmPonudaRucka.cs</DependentUpon>
