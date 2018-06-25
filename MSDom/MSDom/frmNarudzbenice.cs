@@ -64,19 +64,24 @@ namespace MSDom
                                      select new { nalaz.id, nalaz.nazivBolesti};
                 nalazBindingSource.DataSource = listaNalaza.ToList();
             }
+            this.reportViewer1.Refresh();
         }
         /// <summary>
         /// Metoda DohvatiLijekove() vraća sve lijekove iz baze podataka i sprema ih sa bindingsourceom
         /// </summary>
         public void DohvatiLijekove()
         {
+            int idNalaz = int.Parse(uiOutputPrikaz.SelectedValue.ToString());
             using (var db = new MSDomEntities())
             {
                 var listalijekova = from lij in db.lijeks
+                                    join od in db.lijekoviZaDijagnozus
+                                    on lij.id equals od.lijekId
+                                    where(od.id==idNalaz)
                                   select new { lij.id, lij.naziv };
-                lijekBindingSource.DataSource = listalijekova.ToList();
-                
+                lijekBindingSource.DataSource = listalijekova.ToList();             
             }
+            this.reportViewer1.Refresh();
         }
         /// <summary>
         /// Metoda DohvatiLijekoveZaDijagnozu() vraća sve narudzbenice iz baze podataka i sprema ih sa bindingsourceom
@@ -106,16 +111,14 @@ namespace MSDom
                                     select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
 
                 lijekoviZaDijagnozuBindingSource.DataSource = listaLijekova.ToList();
-
-                this.reportViewer1.Refresh();
-
             }
+            this.reportViewer1.Refresh();
         }
 
         private void uiOutputPrikaz_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DohvatiLijekoveZaDijagnozu();
             DohvatiLijekove();
+            DohvatiLijekoveZaDijagnozu();           
         }
     }
 }
