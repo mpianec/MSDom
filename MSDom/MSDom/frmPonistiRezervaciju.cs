@@ -17,6 +17,10 @@ namespace MSDom
             InitializeComponent();
             DohvatiRezervirane();
         }
+        //<sumarry>
+        //Metoda DohvatiRezervirane() vraća sve rezervirane praonice, 
+        //točnije id rezervacije, naziv praonice i datum rezervacije 
+        //</sumarry>   
         public void DohvatiRezervirane()
         {
             using (var db=new MSDomEntities())

@@ -19,6 +19,10 @@ namespace MSDom
             DohvatiAnketu();
             DohvatiAnketuSPitanjima();
         }
+        //<sumarry>
+        //Metoda DohvatiPitanje() vraća sva pitanja iz baze,
+        //točnije njihov id te sami tekst pitanja
+        //</sumarry> 
         public void DohvatiPitanja()
         {
             using (var db=new MSDomEntities())
@@ -29,6 +33,10 @@ namespace MSDom
 
             }
         }
+        //<sumarry>
+        //Metoda DohvatiAnketu() vraća sve ankete iz baze,
+        //točnije vraća id, naziv i datum provođenja ankete
+        //</sumarry> 
         public void DohvatiAnketu()
         {
             using (var db = new MSDomEntities())
@@ -65,6 +73,11 @@ namespace MSDom
             DohvatiAnketu();
             DohvatiAnketuSPitanjima();
         }
+        //<sumarry>
+        //Metoda DohvatiAnketuSPitanjima() služi za dohvaćanje svih pitanja
+        //koja se nalaze na nekoj određenoj anketi (koja je odabrana u comboboxu),
+        //ispisuje se naziv ankete i pitanja koje je na njoj
+        //</sumarry> 
         private void DohvatiAnketuSPitanjima()
         {
             int idAnk = int.Parse(uiOutputComboAnkete.SelectedValue.ToString());

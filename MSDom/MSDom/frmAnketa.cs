@@ -33,6 +33,10 @@ namespace MSDom
             }
             this.reportViewer1.RefreshReport();
         }
+        //<sumarry>
+        //Metoda DohvatiAnketu() vraća sve ankete, 
+        //točnije id, naziv i datum 
+        //</sumarry> 
         public void DohvatiAnketu()
         {
             using (var db = new MSDomEntities())
@@ -43,6 +47,10 @@ namespace MSDom
                 uiOutputAnkete.DataSource = listaAnketa.ToList();
             }
         }
+        //<sumarry>
+        //Metoda DohvatiDatum() vraća točno određeni datum, 
+        //datum one ankete koja je odabrana u comboboxu
+        //</sumarry> 
         public void DohvatiDatum()
         {
             int idAnk = int.Parse(uiOutputAnkete.SelectedValue.ToString());

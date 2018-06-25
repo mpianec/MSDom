@@ -17,7 +17,11 @@ namespace MSDom
             InitializeComponent();
             DohvatiSlobodnePraonice();
             DohvatiVaseRezervacije();
-        }      
+        }
+        //<sumarry>
+        //Metoda DohvatiSlobodnePraonice() vraća sve slobodne praonice, 
+        //točnije id i naziv praonice  
+        //</sumarry> 
         public void DohvatiSlobodnePraonice()
         {
             using (var db = new MSDomEntities())
@@ -29,6 +33,11 @@ namespace MSDom
                 uiOutputSlobodnePraonice.DataSource = listaSlobodnihPraonica.ToList();
             }
         }
+        //<sumarry>
+        //Metoda DohvatiVaseRezervacije() vraća sve rezervirane praonice, 
+        //koje je rezervirao trenutno prijavljeni korisnik
+        //ispisuje id rezervacije, naziv praonice i datum rezervacije
+        //</sumarry> 
         public void DohvatiVaseRezervacije()
         {
             using (var db=new MSDomEntities())
