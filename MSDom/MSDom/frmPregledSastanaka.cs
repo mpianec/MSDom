@@ -17,7 +17,10 @@ namespace MSDom
             InitializeComponent();
             DohvatiSastanke();
         }
-
+        /// <summary>
+        /// Metoda DohvatiSasstanke dohvaća sve sastanke iz baze podataka i sprema ih sa bindingsourceom
+        /// na datagridview koji se nalazi na formi
+        /// </summary>
         public void DohvatiSastanke()
         {
             BindingList<sastanakSDoktorom> listaSastanaka = null;

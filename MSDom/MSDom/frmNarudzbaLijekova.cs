@@ -50,13 +50,29 @@ namespace MSDom
 
         private void uiActionNoviLijek_Click(object sender, EventArgs e)
         {
+            bool postoji = false;
             using (var db = new MSDomEntities())
             {
+                BindingList<lijek> listaLijekova = new BindingList<lijek>(db.lijeks.ToList());
                 lijek lijek = new lijek();
                 lijek.naziv = uiInputNaziv.Text;
                 lijek.kolicina = int.Parse(uiInputKolicinaLijeka.Text);
-                db.lijeks.Add(lijek);
-                db.SaveChanges();
+                foreach (var item in listaLijekova)
+                {
+                    if (item.naziv==lijek.naziv)
+                    {
+                        postoji = true;
+                    }
+                }
+                if (!postoji)
+                {
+                    db.lijeks.Add(lijek);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Lijek već postoji u bazi!");
+                }
             }
             DohvatiLijekove();
         }

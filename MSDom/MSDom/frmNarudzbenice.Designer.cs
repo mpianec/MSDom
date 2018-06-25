@@ -33,12 +33,12 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label1 = new System.Windows.Forms.Label();
             this.uiOutputPrikaz = new System.Windows.Forms.ComboBox();
-            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
@@ -47,6 +47,14 @@
             // lijekoviZaDijagnozuBindingSource
             // 
             this.lijekoviZaDijagnozuBindingSource.DataSource = typeof(MSDom.lijekoviZaDijagnozu);
+            // 
+            // nalazBindingSource
+            // 
+            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
+            // 
+            // lijekBindingSource
+            // 
+            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
             // 
             // reportViewer1
             // 
@@ -85,14 +93,7 @@
             this.uiOutputPrikaz.Size = new System.Drawing.Size(119, 21);
             this.uiOutputPrikaz.TabIndex = 2;
             this.uiOutputPrikaz.ValueMember = "id";
-            // 
-            // nalazBindingSource
-            // 
-            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
-            // 
-            // lijekBindingSource
-            // 
-            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
+            this.uiOutputPrikaz.SelectedIndexChanged += new System.EventHandler(this.uiOutputPrikaz_SelectedIndexChanged);
             // 
             // frmNarudzbenice
             // 

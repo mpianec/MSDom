@@ -19,7 +19,10 @@ namespace MSDom
             DohvatiNalaze();
             DohvatiStanaraZaNoviNalaz();
         }
-
+        /// <summary>
+        /// Metoda DohvatiNalaze() vraća sve nalaze iz baze podataka i sprema ih
+        /// u datagridview ako odgovara zadanom upitu
+        /// </summary>
         public void DohvatiNalaze()
         {
             int idKor = int.Parse(uiOutputKorisnik.SelectedValue.ToString());
@@ -34,7 +37,11 @@ namespace MSDom
                 
             }
         }
-
+        /// <summary>
+        /// Metoda DohvatiStanareCmb() vraća sve korisnike iz baze podataka koji imaju ulogu 1
+        /// odnosno koji su stanari i sprema ih zatim u combobox u kojem ih možemo odabrati
+        /// da nam se prikažu
+        /// </summary>
         public void DohvatiStanareCmb()
         {
             using (var db = new MSDomEntities())
@@ -70,7 +77,10 @@ namespace MSDom
             DohvatiNalaze();
 
         }
-
+        /// <summary>
+        /// Metoda DohvatiStanareZaNoviNalaz() dohvaća iz baze sve korisnike koji su stanari
+        /// te ih sprema u datagridview s kojim upisujemo novi nalaz
+        /// </summary>
         public void DohvatiStanaraZaNoviNalaz()
         {
             using (var db = new MSDomEntities())

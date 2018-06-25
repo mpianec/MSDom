@@ -32,7 +32,10 @@ namespace MSDom
             }
             DohvatiLijekoveZaDijagnozu();
         }
-
+        /// <summary>
+        /// Metoda DohvatiLijekove() vraća sve nalaze iz baze podataka i sprema ih sa bindingsourceom
+        /// u combobox sa lijekovima
+        /// </summary>
         public void DohvatiLijekove()
         {
 
@@ -45,7 +48,10 @@ namespace MSDom
 
             }
         }
-
+        /// <summary>
+        /// Metoda DohvatiNalaze() vraća sve nalaze iz baze podataka i sprema ih sa bindingsourceom
+        /// u combobox
+        /// </summary>
         public void DohvatiNalaze()
         {
             BindingList<nalaz> listaNalaza = null;
@@ -57,7 +63,9 @@ namespace MSDom
 
             }
         }
-
+        /// <summary>
+        /// Metoda DohvatiLijekoveZaDijagnozu() vraća sve nalaze iz baze podataka i sprema ih sa bindingsourceom
+        /// </summary>
         public void DohvatiLijekoveZaDijagnozu()
         {
             int idNalaz = int.Parse(uiInputNalaz.SelectedValue.ToString());
@@ -72,7 +80,7 @@ namespace MSDom
 
             }
         }
-
+        
         private void uiInputNalaz_SelectedIndexChanged(object sender, EventArgs e)
         {
             DohvatiLijekoveZaDijagnozu();
