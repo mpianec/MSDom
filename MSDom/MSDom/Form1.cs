@@ -102,7 +102,12 @@ namespace MSDom
                                 pocetnaFormaKuhar.ShowDialog();
                                 this.Close();
                                 break;
-                        case 6: break;
+                        case 6:
+                                frmPocetnaSpremacica pocetnaSpremacica = new frmPocetnaSpremacica();
+                                this.Hide();
+                                pocetnaSpremacica.ShowDialog();
+                                this.Close();
+                                break;
                         case 7:
                                 frmPocetnaDirektor pocetnaFormaDirektor = new frmPocetnaDirektor();
                                 this.Hide();
