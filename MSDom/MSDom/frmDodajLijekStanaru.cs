@@ -69,17 +69,28 @@ namespace MSDom
         public void DohvatiLijekoveZaDijagnozu()
         {
             int idNalaz = int.Parse(uiInputNalaz.SelectedValue.ToString());
+            /* using (var db = new MSDomEntities())
+             {
+                 var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
+                                    where (nalaz.nalazId == idNalaz)
+                                    select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
+
+                 uiOutputPrikazLijekovaINalaza.DataSource = listaLijekova.ToList();*/
             using (var db = new MSDomEntities())
             {
-                var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
-                                   where (nalaz.nalazId == idNalaz)
-                                   select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
-
-                uiOutputPrikazLijekovaINalaza.DataSource = listaLijekova.ToList();
-
-
+                var listaLijeka = from lij in db.lijeks
+                                  join od in db.lijekoviZaDijagnozus
+                                  on lij.id equals od.lijekId
+                                  join nal in db.nalazs
+                                  on od.nalazId equals nal.id
+                                  where(od.nalazId==idNalaz)
+                                  select new {od.id, lij.naziv,nal.dijagnoza };
+                uiOutputPrikazLijekovaINalaza.DataSource = listaLijeka.ToList();
             }
+
+
         }
+        
         
         private void uiInputNalaz_SelectedIndexChanged(object sender, EventArgs e)
         {

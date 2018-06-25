@@ -50,6 +50,7 @@
             // 
             // uiOutputPrikazLijekovaINalaza
             // 
+            this.uiOutputPrikazLijekovaINalaza.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.uiOutputPrikazLijekovaINalaza.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uiOutputPrikazLijekovaINalaza.Location = new System.Drawing.Point(33, 149);
             this.uiOutputPrikazLijekovaINalaza.Name = "uiOutputPrikazLijekovaINalaza";
