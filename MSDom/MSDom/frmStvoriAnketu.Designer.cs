@@ -46,6 +46,7 @@
             this.pitanjeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPitanjaNaAnketi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).BeginInit();
@@ -200,11 +201,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kreiraj";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(514, 363);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmStvoriAnketu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 385);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uiOutputComboPitanja);
@@ -214,6 +225,8 @@
             this.Controls.Add(this.uiActionDodajPitanje);
             this.Name = "frmStvoriAnketu";
             this.Text = "Stvaranje ankete";
+            this.Load += new System.EventHandler(this.frmStvoriAnketu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmStvoriAnketu_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPitanjaNaAnketi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anketaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();
@@ -244,5 +257,6 @@
         private System.Windows.Forms.BindingSource pitanjeBindingSource;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

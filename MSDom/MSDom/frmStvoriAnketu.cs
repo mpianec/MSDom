@@ -133,5 +133,21 @@ namespace MSDom
         {
             DohvatiAnketuSPitanjima();
         }
+
+        private void frmStvoriAnketu_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmStvoriAnketu_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmStvoriAnketu_KeyDown); ;
+        }
+
+        private void frmStvoriAnketu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1StvoriAnketu forma = new frmF1StvoriAnketu();
+                forma.ShowDialog();
+            }
+        }
     }
 }

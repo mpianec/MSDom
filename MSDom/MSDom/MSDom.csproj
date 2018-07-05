@@ -120,6 +120,30 @@
     <Compile Include="frmDodajLijekStanaru.Designer.cs">
       <DependentUpon>frmDodajLijekStanaru.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmF1IspisAnkete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1IspisAnkete.Designer.cs">
+      <DependentUpon>frmF1IspisAnkete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmF1PoništiRezervaciju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1PoništiRezervaciju.Designer.cs">
+      <DependentUpon>frmF1PoništiRezervaciju.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmF1RezervacijaPraonice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1RezervacijaPraonice.Designer.cs">
+      <DependentUpon>frmF1RezervacijaPraonice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmF1StvoriAnketu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1StvoriAnketu.Designer.cs">
+      <DependentUpon>frmF1StvoriAnketu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJelovnikUnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +396,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDodajLijekStanaru.resx">
       <DependentUpon>frmDodajLijekStanaru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmF1IspisAnkete.resx">
+      <DependentUpon>frmF1IspisAnkete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmF1PoništiRezervaciju.resx">
+      <DependentUpon>frmF1PoništiRezervaciju.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmF1RezervacijaPraonice.resx">
+      <DependentUpon>frmF1RezervacijaPraonice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmF1StvoriAnketu.resx">
+      <DependentUpon>frmF1StvoriAnketu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmJelovnikUnos.resx">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
