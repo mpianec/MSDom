@@ -78,5 +78,21 @@ namespace MSDom
             }
             DohvatiSastanke();
         }
+
+        private void frmPregledSastanaka_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmPregledSastanaka_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmPregledSastanaka_KeyDown);
+        }
+
+        private void frmPregledSastanaka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1PregledSastanaka forma = new frmF1PregledSastanaka();
+                forma.ShowDialog();
+            }
+        }
     }
 }

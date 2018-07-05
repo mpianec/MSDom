@@ -76,5 +76,21 @@ namespace MSDom
             }
             DohvatiLijekove();
         }
+
+        private void frmNarudzbaLijekova_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmNarudzbaLijekova_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmNarudzbaLijekova_KeyDown);
+        }
+
+        private void frmNarudzbaLijekova_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1NarudzbaLijekova forma = new frmF1NarudzbaLijekova();
+                forma.ShowDialog();
+            }
+        }
     }
 }

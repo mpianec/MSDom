@@ -92,5 +92,21 @@ namespace MSDom
                 uiInputStanar.DataSource = listaKorisnika.ToList();
             }
         }
+
+        private void frmPopunjavanjeZdKartona_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmPopunjavanjeZdKartona_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmPopunjavanjeZdKartona_KeyDown);
+        }
+
+        private void frmPopunjavanjeZdKartona_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1PopunjavanjeZdKartona forma = new frmF1PopunjavanjeZdKartona();
+                forma.ShowDialog();
+            }
+        }
     }
 }

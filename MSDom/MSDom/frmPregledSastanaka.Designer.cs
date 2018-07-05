@@ -34,6 +34,7 @@
             this.sastanakSDoktoromBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pitanjeSAnketeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sastanakSDoktoromBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
@@ -70,20 +71,33 @@
             // 
             this.pitanjeSAnketeBindingSource.DataSource = typeof(MSDom.pitanjeSAnkete);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(678, 443);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmPregledSastanaka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 465);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.uiActionObrisi);
             this.Controls.Add(this.uiOutputSastanak);
             this.Name = "frmPregledSastanaka";
             this.Text = "frmPregledSastanaka";
+            this.Load += new System.EventHandler(this.frmPregledSastanaka_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPregledSastanaka_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sastanakSDoktoromBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeSAnketeBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +108,6 @@
         private System.Windows.Forms.BindingSource pitanjeSAnketeBindingSource;
         private System.Windows.Forms.BindingSource sastanakSDoktoromBindingSource;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
+        private System.Windows.Forms.Label label4;
     }
 }

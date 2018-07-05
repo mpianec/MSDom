@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.uiActionNoviNalaz = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.uiInputStanar = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.uiInputDijagnoza = new System.Windows.Forms.TextBox();
             this.uiInputNazivBolesti = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputStanari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -110,6 +111,13 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodaj";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(252, 180);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
+            this.dateTimePicker1.TabIndex = 18;
             // 
             // uiInputStanar
             // 
@@ -180,24 +188,29 @@
             this.textBox1.Size = new System.Drawing.Size(185, 20);
             this.textBox1.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // label6
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(252, 180);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
-            this.dateTimePicker1.TabIndex = 18;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(866, 536);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Pritisnite F1 za pomoć";
             // 
             // frmPopunjavanjeZdKartona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 544);
+            this.ClientSize = new System.Drawing.Size(1019, 558);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiOutputKorisnik);
             this.Controls.Add(this.uiOutputStanari);
             this.Name = "frmPopunjavanjeZdKartona";
             this.Text = "frmPopunjavanjeZdKartona";
+            this.Load += new System.EventHandler(this.frmPopunjavanjeZdKartona_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPopunjavanjeZdKartona_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputStanari)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -224,5 +237,6 @@
         private System.Windows.Forms.TextBox uiInputNazivBolesti;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
     }
 }

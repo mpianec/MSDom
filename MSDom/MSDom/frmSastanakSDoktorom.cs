@@ -88,5 +88,21 @@ namespace MSDom
 
             }
         }
+
+        private void frmSastanakSDoktorom_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmSastanakSDoktorom_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmSastanakSDoktorom_KeyDown);
+        }
+
+        private void frmSastanakSDoktorom_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1SastanakSDoktorom forma = new frmF1SastanakSDoktorom();
+                forma.ShowDialog();
+            }
+        }
     }
 }

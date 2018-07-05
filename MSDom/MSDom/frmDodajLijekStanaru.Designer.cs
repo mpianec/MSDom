@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.uiActionDodaj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekovaINalaza)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
@@ -153,15 +154,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodavanje lijeka nalazu";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(598, 425);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmDodajLijekStanaru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.uiOutputPrikazLijekovaINalaza);
             this.Name = "frmDodajLijekStanaru";
             this.Text = "frmDodajLijekStanaru";
+            this.Load += new System.EventHandler(this.frmDodajLijekStanaru_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDodajLijekStanaru_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekovaINalaza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).EndInit();
@@ -169,6 +182,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -186,5 +200,6 @@
         private System.Windows.Forms.BindingSource nalazBindingSource;
         private System.Windows.Forms.BindingSource lijekBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

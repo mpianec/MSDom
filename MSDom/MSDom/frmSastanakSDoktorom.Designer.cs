@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.uiInputStanar = new System.Windows.Forms.ComboBox();
+            this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiInputDoktor = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.uiActionUgovori = new System.Windows.Forms.Button();
-            this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +51,10 @@
             this.uiInputStanar.Size = new System.Drawing.Size(221, 21);
             this.uiInputStanar.TabIndex = 0;
             this.uiInputStanar.ValueMember = "id";
+            // 
+            // korisnikBindingSource
+            // 
+            this.korisnikBindingSource.DataSource = typeof(MSDom.korisnik);
             // 
             // uiInputDoktor
             // 
@@ -107,15 +112,21 @@
             this.uiActionUgovori.UseVisualStyleBackColor = true;
             this.uiActionUgovori.Click += new System.EventHandler(this.uiActionUgovori_Click);
             // 
-            // korisnikBindingSource
+            // label4
             // 
-            this.korisnikBindingSource.DataSource = typeof(MSDom.korisnik);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(378, 257);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Pritisnite F1 za pomoć";
             // 
             // frmSastanakSDoktorom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 279);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.uiActionUgovori);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -125,6 +136,8 @@
             this.Controls.Add(this.uiInputStanar);
             this.Name = "frmSastanakSDoktorom";
             this.Text = "frmSastanakSDoktorom";
+            this.Load += new System.EventHandler(this.frmSastanakSDoktorom_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSastanakSDoktorom_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -141,5 +154,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button uiActionUgovori;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
+        private System.Windows.Forms.Label label4;
     }
 }

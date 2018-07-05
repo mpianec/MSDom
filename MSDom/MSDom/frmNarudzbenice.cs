@@ -24,6 +24,11 @@ namespace MSDom
         /// </summary>
         private void frmNarudzbenice_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmNarudzbenice_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmNarudzbenice_KeyDown);
+
+
             /*int idNalaz = int.Parse(uiOutputPrikaz.SelectedValue.ToString());
             BindingList<lijekoviZaDijagnozu> listaLijekovaZaDijgnozu = null;
             using (var db = new MSDomEntities())
@@ -119,6 +124,15 @@ namespace MSDom
         {
             DohvatiLijekove();
             DohvatiLijekoveZaDijagnozu();           
+        }
+
+        private void frmNarudzbenice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1Narudzbenice forma = new frmF1Narudzbenice();
+                forma.ShowDialog();
+            }
         }
     }
 }

@@ -96,5 +96,21 @@ namespace MSDom
         {
             DohvatiLijekoveZaDijagnozu();
         }
+
+        private void frmDodajLijekStanaru_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmDodajLijekStanaru_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmDodajLijekStanaru_KeyDown);
+        }
+
+        private void frmDodajLijekStanaru_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1DodajLijekStanaru forma = new frmF1DodajLijekStanaru();
+                forma.ShowDialog();
+            }
+        }
     }
 }
