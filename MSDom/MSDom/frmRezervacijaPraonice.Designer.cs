@@ -35,6 +35,7 @@
             this.uiActionPoništiRezervaciju = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.uiInputDatumRezervacije = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).BeginInit();
             this.SuspendLayout();
@@ -103,11 +104,21 @@
             this.uiInputDatumRezervacije.Size = new System.Drawing.Size(200, 20);
             this.uiInputDatumRezervacije.TabIndex = 6;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(514, 377);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmRezervacijaPraonice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 399);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.uiInputDatumRezervacije);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uiActionPoništiRezervaciju);
@@ -117,6 +128,8 @@
             this.Controls.Add(this.uiActionRezervirajPraonicu);
             this.Name = "frmRezervacijaPraonice";
             this.Text = "Rezervacija praonice";
+            this.Load += new System.EventHandler(this.frmRezervacijaPraonice_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRezervacijaPraonice_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).EndInit();
             this.ResumeLayout(false);
@@ -133,5 +146,6 @@
         private System.Windows.Forms.Button uiActionPoništiRezervaciju;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker uiInputDatumRezervacije;
+        private System.Windows.Forms.Label label5;
     }
 }

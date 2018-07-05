@@ -179,5 +179,21 @@ namespace MSDom
             DohvatiSlobodnePraonice();
             DohvatiVaseRezervacije();
         }
+
+        private void frmRezervacijaPraonice_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmRezervacijaPraonice_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmRezervacijaPraonice_KeyDown);
+        }
+
+        private void frmRezervacijaPraonice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1RezervacijaPraonice forma = new frmF1RezervacijaPraonice();
+                forma.ShowDialog();
+            }
+        }
     }
 }
