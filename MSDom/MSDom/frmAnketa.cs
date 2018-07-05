@@ -21,6 +21,10 @@ namespace MSDom
 
         private void frmAnketa_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmAnketa_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmAnketa_KeyDown); 
+
             int idAnk = int.Parse(uiOutputAnkete.SelectedValue.ToString());
             using (var db=new MSDomEntities())
             {
@@ -79,6 +83,15 @@ namespace MSDom
             }
             this.reportViewer1.RefreshReport();
             
+        }
+
+        private void frmAnketa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1IspisAnkete forma = new frmF1IspisAnkete();
+                forma.ShowDialog();
+            }
         }
     }
 }
