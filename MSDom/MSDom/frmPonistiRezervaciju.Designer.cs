@@ -31,6 +31,7 @@
             this.uiOutputRezervacije = new System.Windows.Forms.DataGridView();
             this.uiActionPonisti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputRezervacije)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,16 +63,28 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rezervacije praonica: ";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(450, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmPonistiRezervaciju
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 304);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiActionPonisti);
             this.Controls.Add(this.uiOutputRezervacije);
             this.Name = "frmPonistiRezervaciju";
             this.Text = "Poništavanje rezervacije";
+            this.Load += new System.EventHandler(this.frmPonistiRezervaciju_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPonistiRezervaciju_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputRezervacije)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -83,5 +96,6 @@
         private System.Windows.Forms.DataGridView uiOutputRezervacije;
         private System.Windows.Forms.Button uiActionPonisti;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

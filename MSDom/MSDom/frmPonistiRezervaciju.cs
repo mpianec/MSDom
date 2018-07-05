@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Class_Library;
+//using Class_Library;
 
 namespace MSDom
 {
@@ -79,6 +79,22 @@ namespace MSDom
                 }
             }
             DohvatiRezervirane();
+        }
+
+        private void frmPonistiRezervaciju_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1PoništiRezervaciju forma = new frmF1PoništiRezervaciju();
+                forma.ShowDialog();
+            }
+        }
+
+        private void frmPonistiRezervaciju_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmPonistiRezervaciju_KeyDown);
+            this.KeyDown-= new KeyEventHandler(frmPonistiRezervaciju_KeyDown); ;
         }
     }
 }
