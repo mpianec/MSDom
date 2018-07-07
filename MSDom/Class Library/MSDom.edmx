@@ -1,0 +1,1180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="anketa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="izbor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="predjelo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prilog" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="meso" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="desert" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="aktivanIzbor" Type="tinyint" Nullable="false" />
+          <Property Name="kategorijaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="izborKategorija">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imeKategorije" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="korisnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prezime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sobaId" Type="int" />
+          <Property Name="korisnickoIme" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lozinka" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ulogaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="korisnikLijeka">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="osobaId" Type="int" Nullable="false" />
+          <Property Name="lijekoviId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lijek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="kolicina" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lijekoviZaDijagnozu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lijekId" Type="int" Nullable="false" />
+          <Property Name="nalazId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nalaz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazivBolesti" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dijagnoza" Type="text" Nullable="false" />
+          <Property Name="stanarId" Type="int" Nullable="false" />
+          <Property Name="datum" Type="date" />
+        </EntityType>
+        <EntityType Name="pitanje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pitanje" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pitanjeSAnkete">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pitanjeId" Type="int" Nullable="false" />
+          <Property Name="anketaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="podsjetnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korisnikId" Type="int" Nullable="false" />
+          <Property Name="datumVrijeme" Type="datetime" Nullable="false" />
+          <Property Name="razlog" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="praonica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="zauzeto" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rezervacijaPraonice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korisnikId" Type="int" Nullable="false" />
+          <Property Name="praonicaId" Type="int" Nullable="false" />
+          <Property Name="datumVrijeme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sastanakSDoktorom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stanarId" Type="int" Nullable="false" />
+          <Property Name="doktorId" Type="int" Nullable="false" />
+          <Property Name="datumVrijeme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soba">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brojSobe" Type="int" Nullable="false" />
+          <Property Name="brojKreveta" Type="int" Nullable="false" />
+          <Property Name="brojPopunjenihKreveta" Type="int" Nullable="false" />
+          <Property Name="tipSobeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipSobe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tip" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vasIzborDana">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korisnikId" Type="int" Nullable="false" />
+          <Property Name="izborId" Type="int" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_izbor_izborKategorija_1">
+          <End Role="izborKategorija" Type="Self.izborKategorija" Multiplicity="1" />
+          <End Role="izbor" Type="Self.izbor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="izborKategorija">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="izbor">
+              <PropertyRef Name="kategorijaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnik_soba_1">
+          <End Role="soba" Type="Self.soba" Multiplicity="0..1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soba">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="sobaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnik_uloga_1">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="ulogaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnikLijeka_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="korisnikLijeka" Type="Self.korisnikLijeka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnikLijeka">
+              <PropertyRef Name="osobaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnikLijeka_lijek_1">
+          <End Role="lijek" Type="Self.lijek" Multiplicity="1" />
+          <End Role="korisnikLijeka" Type="Self.korisnikLijeka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnikLijeka">
+              <PropertyRef Name="lijekoviId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lijekoviZaDijagnozu_lijek_1">
+          <End Role="lijek" Type="Self.lijek" Multiplicity="1" />
+          <End Role="lijekoviZaDijagnozu" Type="Self.lijekoviZaDijagnozu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lijekoviZaDijagnozu">
+              <PropertyRef Name="lijekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lijekoviZaDijagnozu_nalaz_1">
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="1" />
+          <End Role="lijekoviZaDijagnozu" Type="Self.lijekoviZaDijagnozu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nalaz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lijekoviZaDijagnozu">
+              <PropertyRef Name="nalazId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nalaz_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="stanarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pitanjeSAnkete_anketa_1">
+          <End Role="anketa" Type="Self.anketa" Multiplicity="1" />
+          <End Role="pitanjeSAnkete" Type="Self.pitanjeSAnkete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="anketa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pitanjeSAnkete">
+              <PropertyRef Name="anketaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pitanjeSAnkete_pitanje_1">
+          <End Role="pitanje" Type="Self.pitanje" Multiplicity="1" />
+          <End Role="pitanjeSAnkete" Type="Self.pitanjeSAnkete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pitanje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pitanjeSAnkete">
+              <PropertyRef Name="pitanjeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_podsjetnik_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="podsjetnik" Type="Self.podsjetnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="podsjetnik">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_praonica_1">
+          <End Role="praonica" Type="Self.praonica" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="praonica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="praonicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sastanakSDoktorom_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="sastanakSDoktorom" Type="Self.sastanakSDoktorom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sastanakSDoktorom">
+              <PropertyRef Name="stanarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sastanakSDoktorom_korisnik_2">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="sastanakSDoktorom" Type="Self.sastanakSDoktorom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sastanakSDoktorom">
+              <PropertyRef Name="doktorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_soba_tipSobe_1">
+          <End Role="tipSobe" Type="Self.tipSobe" Multiplicity="1" />
+          <End Role="soba" Type="Self.soba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipSobe">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="soba">
+              <PropertyRef Name="tipSobeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vasIzborDana_izbor_1">
+          <End Role="izbor" Type="Self.izbor" Multiplicity="1" />
+          <End Role="vasIzborDana" Type="Self.vasIzborDana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="izbor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vasIzborDana">
+              <PropertyRef Name="izborId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vasIzborDana_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="vasIzborDana" Type="Self.vasIzborDana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vasIzborDana">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="anketa" EntityType="Self.anketa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="izbor" EntityType="Self.izbor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="izborKategorija" EntityType="Self.izborKategorija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="korisnik" EntityType="Self.korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="korisnikLijeka" EntityType="Self.korisnikLijeka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lijek" EntityType="Self.lijek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lijekoviZaDijagnozu" EntityType="Self.lijekoviZaDijagnozu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nalaz" EntityType="Self.nalaz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pitanje" EntityType="Self.pitanje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pitanjeSAnkete" EntityType="Self.pitanjeSAnkete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="podsjetnik" EntityType="Self.podsjetnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="praonica" EntityType="Self.praonica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rezervacijaPraonice" EntityType="Self.rezervacijaPraonice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sastanakSDoktorom" EntityType="Self.sastanakSDoktorom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soba" EntityType="Self.soba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipSobe" EntityType="Self.tipSobe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uloga" EntityType="Self.uloga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vasIzborDana" EntityType="Self.vasIzborDana" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_izbor_izborKategorija_1" Association="Self.fk_izbor_izborKategorija_1">
+            <End Role="izborKategorija" EntitySet="izborKategorija" />
+            <End Role="izbor" EntitySet="izbor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnik_soba_1" Association="Self.fk_korisnik_soba_1">
+            <End Role="soba" EntitySet="soba" />
+            <End Role="korisnik" EntitySet="korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnik_uloga_1" Association="Self.fk_korisnik_uloga_1">
+            <End Role="uloga" EntitySet="uloga" />
+            <End Role="korisnik" EntitySet="korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnikLijeka_korisnik_1" Association="Self.fk_korisnikLijeka_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="korisnikLijeka" EntitySet="korisnikLijeka" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnikLijeka_lijek_1" Association="Self.fk_korisnikLijeka_lijek_1">
+            <End Role="lijek" EntitySet="lijek" />
+            <End Role="korisnikLijeka" EntitySet="korisnikLijeka" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lijekoviZaDijagnozu_lijek_1" Association="Self.fk_lijekoviZaDijagnozu_lijek_1">
+            <End Role="lijek" EntitySet="lijek" />
+            <End Role="lijekoviZaDijagnozu" EntitySet="lijekoviZaDijagnozu" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lijekoviZaDijagnozu_nalaz_1" Association="Self.fk_lijekoviZaDijagnozu_nalaz_1">
+            <End Role="nalaz" EntitySet="nalaz" />
+            <End Role="lijekoviZaDijagnozu" EntitySet="lijekoviZaDijagnozu" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nalaz_korisnik_1" Association="Self.fk_nalaz_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pitanjeSAnkete_anketa_1" Association="Self.fk_pitanjeSAnkete_anketa_1">
+            <End Role="anketa" EntitySet="anketa" />
+            <End Role="pitanjeSAnkete" EntitySet="pitanjeSAnkete" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pitanjeSAnkete_pitanje_1" Association="Self.fk_pitanjeSAnkete_pitanje_1">
+            <End Role="pitanje" EntitySet="pitanje" />
+            <End Role="pitanjeSAnkete" EntitySet="pitanjeSAnkete" />
+          </AssociationSet>
+          <AssociationSet Name="fk_podsjetnik_korisnik_1" Association="Self.fk_podsjetnik_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="podsjetnik" EntitySet="podsjetnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_korisnik_1" Association="Self.fk_rezervacijaPraonice_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_praonica_1" Association="Self.fk_rezervacijaPraonice_praonica_1">
+            <End Role="praonica" EntitySet="praonica" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sastanakSDoktorom_korisnik_1" Association="Self.fk_sastanakSDoktorom_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="sastanakSDoktorom" EntitySet="sastanakSDoktorom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sastanakSDoktorom_korisnik_2" Association="Self.fk_sastanakSDoktorom_korisnik_2">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="sastanakSDoktorom" EntitySet="sastanakSDoktorom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_soba_tipSobe_1" Association="Self.fk_soba_tipSobe_1">
+            <End Role="tipSobe" EntitySet="tipSobe" />
+            <End Role="soba" EntitySet="soba" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vasIzborDana_izbor_1" Association="Self.fk_vasIzborDana_izbor_1">
+            <End Role="izbor" EntitySet="izbor" />
+            <End Role="vasIzborDana" EntitySet="vasIzborDana" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vasIzborDana_korisnik_1" Association="Self.fk_vasIzborDana_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="vasIzborDana" EntitySet="vasIzborDana" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="anketa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="pitanjeSAnkete" Relationship="Self.fk_pitanjeSAnkete_anketa_1" FromRole="anketa" ToRole="pitanjeSAnkete" />
+        </EntityType>
+        <EntityType Name="izbor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="predjelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prilog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="meso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desert" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktivanIzbor" Type="Byte" Nullable="false" />
+          <Property Name="kategorijaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="izborKategorija" Relationship="Self.fk_izbor_izborKategorija_1" FromRole="izbor" ToRole="izborKategorija" />
+          <NavigationProperty Name="vasIzborDana" Relationship="Self.fk_vasIzborDana_izbor_1" FromRole="izbor" ToRole="vasIzborDana" />
+        </EntityType>
+        <EntityType Name="izborKategorija">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imeKategorije" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="izbor" Relationship="Self.fk_izbor_izborKategorija_1" FromRole="izborKategorija" ToRole="izbor" />
+        </EntityType>
+        <EntityType Name="korisnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prezime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sobaId" Type="Int32" />
+          <Property Name="korisnickoIme" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lozinka" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulogaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="soba" Relationship="Self.fk_korisnik_soba_1" FromRole="korisnik" ToRole="soba" />
+          <NavigationProperty Name="uloga" Relationship="Self.fk_korisnik_uloga_1" FromRole="korisnik" ToRole="uloga" />
+          <NavigationProperty Name="korisnikLijeka" Relationship="Self.fk_korisnikLijeka_korisnik_1" FromRole="korisnik" ToRole="korisnikLijeka" />
+          <NavigationProperty Name="nalaz" Relationship="Self.fk_nalaz_korisnik_1" FromRole="korisnik" ToRole="nalaz" />
+          <NavigationProperty Name="podsjetnik" Relationship="Self.fk_podsjetnik_korisnik_1" FromRole="korisnik" ToRole="podsjetnik" />
+          <NavigationProperty Name="rezervacijaPraonice" Relationship="Self.fk_rezervacijaPraonice_korisnik_1" FromRole="korisnik" ToRole="rezervacijaPraonice" />
+          <NavigationProperty Name="sastanakSDoktorom" Relationship="Self.fk_sastanakSDoktorom_korisnik_1" FromRole="korisnik" ToRole="sastanakSDoktorom" />
+          <NavigationProperty Name="sastanakSDoktorom1" Relationship="Self.fk_sastanakSDoktorom_korisnik_2" FromRole="korisnik" ToRole="sastanakSDoktorom" />
+          <NavigationProperty Name="vasIzborDana" Relationship="Self.fk_vasIzborDana_korisnik_1" FromRole="korisnik" ToRole="vasIzborDana" />
+        </EntityType>
+        <EntityType Name="korisnikLijeka">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="osobaId" Type="Int32" Nullable="false" />
+          <Property Name="lijekoviId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_korisnikLijeka_korisnik_1" FromRole="korisnikLijeka" ToRole="korisnik" />
+          <NavigationProperty Name="lijek" Relationship="Self.fk_korisnikLijeka_lijek_1" FromRole="korisnikLijeka" ToRole="lijek" />
+        </EntityType>
+        <EntityType Name="lijek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kolicina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnikLijeka" Relationship="Self.fk_korisnikLijeka_lijek_1" FromRole="lijek" ToRole="korisnikLijeka" />
+          <NavigationProperty Name="lijekoviZaDijagnozu" Relationship="Self.fk_lijekoviZaDijagnozu_lijek_1" FromRole="lijek" ToRole="lijekoviZaDijagnozu" />
+        </EntityType>
+        <EntityType Name="lijekoviZaDijagnozu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lijekId" Type="Int32" Nullable="false" />
+          <Property Name="nalazId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lijek" Relationship="Self.fk_lijekoviZaDijagnozu_lijek_1" FromRole="lijekoviZaDijagnozu" ToRole="lijek" />
+          <NavigationProperty Name="nalaz" Relationship="Self.fk_lijekoviZaDijagnozu_nalaz_1" FromRole="lijekoviZaDijagnozu" ToRole="nalaz" />
+        </EntityType>
+        <EntityType Name="nalaz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazivBolesti" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dijagnoza" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stanarId" Type="Int32" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_nalaz_korisnik_1" FromRole="nalaz" ToRole="korisnik" />
+          <NavigationProperty Name="lijekoviZaDijagnozu" Relationship="Self.fk_lijekoviZaDijagnozu_nalaz_1" FromRole="nalaz" ToRole="lijekoviZaDijagnozu" />
+        </EntityType>
+        <EntityType Name="pitanje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pitanje1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pitanjeSAnkete" Relationship="Self.fk_pitanjeSAnkete_pitanje_1" FromRole="pitanje" ToRole="pitanjeSAnkete" />
+        </EntityType>
+        <EntityType Name="pitanjeSAnkete">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pitanjeId" Type="Int32" Nullable="false" />
+          <Property Name="anketaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="anketa" Relationship="Self.fk_pitanjeSAnkete_anketa_1" FromRole="pitanjeSAnkete" ToRole="anketa" />
+          <NavigationProperty Name="pitanje" Relationship="Self.fk_pitanjeSAnkete_pitanje_1" FromRole="pitanjeSAnkete" ToRole="pitanje" />
+        </EntityType>
+        <EntityType Name="podsjetnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnikId" Type="Int32" Nullable="false" />
+          <Property Name="datumVrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="razlog" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_podsjetnik_korisnik_1" FromRole="podsjetnik" ToRole="korisnik" />
+        </EntityType>
+        <EntityType Name="praonica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zauzeto" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="rezervacijaPraonice" Relationship="Self.fk_rezervacijaPraonice_praonica_1" FromRole="praonica" ToRole="rezervacijaPraonice" />
+        </EntityType>
+        <EntityType Name="rezervacijaPraonice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnikId" Type="Int32" Nullable="false" />
+          <Property Name="praonicaId" Type="Int32" Nullable="false" />
+          <Property Name="datumVrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_rezervacijaPraonice_korisnik_1" FromRole="rezervacijaPraonice" ToRole="korisnik" />
+          <NavigationProperty Name="praonica" Relationship="Self.fk_rezervacijaPraonice_praonica_1" FromRole="rezervacijaPraonice" ToRole="praonica" />
+        </EntityType>
+        <EntityType Name="sastanakSDoktorom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stanarId" Type="Int32" Nullable="false" />
+          <Property Name="doktorId" Type="Int32" Nullable="false" />
+          <Property Name="datumVrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_sastanakSDoktorom_korisnik_1" FromRole="sastanakSDoktorom" ToRole="korisnik" />
+          <NavigationProperty Name="korisnik1" Relationship="Self.fk_sastanakSDoktorom_korisnik_2" FromRole="sastanakSDoktorom" ToRole="korisnik" />
+        </EntityType>
+        <EntityType Name="soba">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brojSobe" Type="Int32" Nullable="false" />
+          <Property Name="brojKreveta" Type="Int32" Nullable="false" />
+          <Property Name="brojPopunjenihKreveta" Type="Int32" Nullable="false" />
+          <Property Name="tipSobeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_korisnik_soba_1" FromRole="soba" ToRole="korisnik" />
+          <NavigationProperty Name="tipSobe" Relationship="Self.fk_soba_tipSobe_1" FromRole="soba" ToRole="tipSobe" />
+        </EntityType>
+        <EntityType Name="tipSobe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="soba" Relationship="Self.fk_soba_tipSobe_1" FromRole="tipSobe" ToRole="soba" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_korisnik_uloga_1" FromRole="uloga" ToRole="korisnik" />
+        </EntityType>
+        <EntityType Name="vasIzborDana">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnikId" Type="Int32" Nullable="false" />
+          <Property Name="izborId" Type="Int32" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="izbor" Relationship="Self.fk_vasIzborDana_izbor_1" FromRole="vasIzborDana" ToRole="izbor" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_vasIzborDana_korisnik_1" FromRole="vasIzborDana" ToRole="korisnik" />
+        </EntityType>
+        <Association Name="fk_pitanjeSAnkete_anketa_1">
+          <End Role="anketa" Type="Self.anketa" Multiplicity="1" />
+          <End Role="pitanjeSAnkete" Type="Self.pitanjeSAnkete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="anketa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pitanjeSAnkete">
+              <PropertyRef Name="anketaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_izbor_izborKategorija_1">
+          <End Role="izborKategorija" Type="Self.izborKategorija" Multiplicity="1" />
+          <End Role="izbor" Type="Self.izbor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="izborKategorija">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="izbor">
+              <PropertyRef Name="kategorijaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vasIzborDana_izbor_1">
+          <End Role="izbor" Type="Self.izbor" Multiplicity="1" />
+          <End Role="vasIzborDana" Type="Self.vasIzborDana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="izbor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vasIzborDana">
+              <PropertyRef Name="izborId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnik_soba_1">
+          <End Role="soba" Type="Self.soba" Multiplicity="0..1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soba">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="sobaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnik_uloga_1">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="ulogaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnikLijeka_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="korisnikLijeka" Type="Self.korisnikLijeka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnikLijeka">
+              <PropertyRef Name="osobaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_nalaz_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="nalaz">
+              <PropertyRef Name="stanarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_podsjetnik_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="podsjetnik" Type="Self.podsjetnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="podsjetnik">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sastanakSDoktorom_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="sastanakSDoktorom" Type="Self.sastanakSDoktorom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sastanakSDoktorom">
+              <PropertyRef Name="stanarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sastanakSDoktorom_korisnik_2">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="sastanakSDoktorom" Type="Self.sastanakSDoktorom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sastanakSDoktorom">
+              <PropertyRef Name="doktorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vasIzborDana_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="vasIzborDana" Type="Self.vasIzborDana" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vasIzborDana">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_korisnikLijeka_lijek_1">
+          <End Role="lijek" Type="Self.lijek" Multiplicity="1" />
+          <End Role="korisnikLijeka" Type="Self.korisnikLijeka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnikLijeka">
+              <PropertyRef Name="lijekoviId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lijekoviZaDijagnozu_lijek_1">
+          <End Role="lijek" Type="Self.lijek" Multiplicity="1" />
+          <End Role="lijekoviZaDijagnozu" Type="Self.lijekoviZaDijagnozu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lijekoviZaDijagnozu">
+              <PropertyRef Name="lijekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lijekoviZaDijagnozu_nalaz_1">
+          <End Role="nalaz" Type="Self.nalaz" Multiplicity="1" />
+          <End Role="lijekoviZaDijagnozu" Type="Self.lijekoviZaDijagnozu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nalaz">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lijekoviZaDijagnozu">
+              <PropertyRef Name="nalazId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pitanjeSAnkete_pitanje_1">
+          <End Role="pitanje" Type="Self.pitanje" Multiplicity="1" />
+          <End Role="pitanjeSAnkete" Type="Self.pitanjeSAnkete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pitanje">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pitanjeSAnkete">
+              <PropertyRef Name="pitanjeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_praonica_1">
+          <End Role="praonica" Type="Self.praonica" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="praonica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="praonicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_soba_tipSobe_1">
+          <End Role="tipSobe" Type="Self.tipSobe" Multiplicity="1" />
+          <End Role="soba" Type="Self.soba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipSobe">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="soba">
+              <PropertyRef Name="tipSobeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MSDomEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="anketa" EntityType="Self.anketa" />
+          <EntitySet Name="izbor" EntityType="Self.izbor" />
+          <EntitySet Name="izborKategorija" EntityType="Self.izborKategorija" />
+          <EntitySet Name="korisnik" EntityType="Self.korisnik" />
+          <EntitySet Name="korisnikLijeka" EntityType="Self.korisnikLijeka" />
+          <EntitySet Name="lijek" EntityType="Self.lijek" />
+          <EntitySet Name="lijekoviZaDijagnozu" EntityType="Self.lijekoviZaDijagnozu" />
+          <EntitySet Name="nalaz" EntityType="Self.nalaz" />
+          <EntitySet Name="pitanje" EntityType="Self.pitanje" />
+          <EntitySet Name="pitanjeSAnkete" EntityType="Self.pitanjeSAnkete" />
+          <EntitySet Name="podsjetnik" EntityType="Self.podsjetnik" />
+          <EntitySet Name="praonica" EntityType="Self.praonica" />
+          <EntitySet Name="rezervacijaPraonice" EntityType="Self.rezervacijaPraonice" />
+          <EntitySet Name="sastanakSDoktorom" EntityType="Self.sastanakSDoktorom" />
+          <EntitySet Name="soba" EntityType="Self.soba" />
+          <EntitySet Name="tipSobe" EntityType="Self.tipSobe" />
+          <EntitySet Name="uloga" EntityType="Self.uloga" />
+          <EntitySet Name="vasIzborDana" EntityType="Self.vasIzborDana" />
+          <AssociationSet Name="fk_pitanjeSAnkete_anketa_1" Association="Self.fk_pitanjeSAnkete_anketa_1">
+            <End Role="anketa" EntitySet="anketa" />
+            <End Role="pitanjeSAnkete" EntitySet="pitanjeSAnkete" />
+          </AssociationSet>
+          <AssociationSet Name="fk_izbor_izborKategorija_1" Association="Self.fk_izbor_izborKategorija_1">
+            <End Role="izborKategorija" EntitySet="izborKategorija" />
+            <End Role="izbor" EntitySet="izbor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vasIzborDana_izbor_1" Association="Self.fk_vasIzborDana_izbor_1">
+            <End Role="izbor" EntitySet="izbor" />
+            <End Role="vasIzborDana" EntitySet="vasIzborDana" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnik_soba_1" Association="Self.fk_korisnik_soba_1">
+            <End Role="soba" EntitySet="soba" />
+            <End Role="korisnik" EntitySet="korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnik_uloga_1" Association="Self.fk_korisnik_uloga_1">
+            <End Role="uloga" EntitySet="uloga" />
+            <End Role="korisnik" EntitySet="korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnikLijeka_korisnik_1" Association="Self.fk_korisnikLijeka_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="korisnikLijeka" EntitySet="korisnikLijeka" />
+          </AssociationSet>
+          <AssociationSet Name="fk_nalaz_korisnik_1" Association="Self.fk_nalaz_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="nalaz" EntitySet="nalaz" />
+          </AssociationSet>
+          <AssociationSet Name="fk_podsjetnik_korisnik_1" Association="Self.fk_podsjetnik_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="podsjetnik" EntitySet="podsjetnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_korisnik_1" Association="Self.fk_rezervacijaPraonice_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sastanakSDoktorom_korisnik_1" Association="Self.fk_sastanakSDoktorom_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="sastanakSDoktorom" EntitySet="sastanakSDoktorom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sastanakSDoktorom_korisnik_2" Association="Self.fk_sastanakSDoktorom_korisnik_2">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="sastanakSDoktorom" EntitySet="sastanakSDoktorom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vasIzborDana_korisnik_1" Association="Self.fk_vasIzborDana_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="vasIzborDana" EntitySet="vasIzborDana" />
+          </AssociationSet>
+          <AssociationSet Name="fk_korisnikLijeka_lijek_1" Association="Self.fk_korisnikLijeka_lijek_1">
+            <End Role="lijek" EntitySet="lijek" />
+            <End Role="korisnikLijeka" EntitySet="korisnikLijeka" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lijekoviZaDijagnozu_lijek_1" Association="Self.fk_lijekoviZaDijagnozu_lijek_1">
+            <End Role="lijek" EntitySet="lijek" />
+            <End Role="lijekoviZaDijagnozu" EntitySet="lijekoviZaDijagnozu" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lijekoviZaDijagnozu_nalaz_1" Association="Self.fk_lijekoviZaDijagnozu_nalaz_1">
+            <End Role="nalaz" EntitySet="nalaz" />
+            <End Role="lijekoviZaDijagnozu" EntitySet="lijekoviZaDijagnozu" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pitanjeSAnkete_pitanje_1" Association="Self.fk_pitanjeSAnkete_pitanje_1">
+            <End Role="pitanje" EntitySet="pitanje" />
+            <End Role="pitanjeSAnkete" EntitySet="pitanjeSAnkete" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_praonica_1" Association="Self.fk_rezervacijaPraonice_praonica_1">
+            <End Role="praonica" EntitySet="praonica" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_soba_tipSobe_1" Association="Self.fk_soba_tipSobe_1">
+            <End Role="tipSobe" EntitySet="tipSobe" />
+            <End Role="soba" EntitySet="soba" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="MSDomEntities">
+          <EntitySetMapping Name="anketa">
+            <EntityTypeMapping TypeName="DBModel.anketa">
+              <MappingFragment StoreEntitySet="anketa">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="izbor">
+            <EntityTypeMapping TypeName="DBModel.izbor">
+              <MappingFragment StoreEntitySet="izbor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="predjelo" ColumnName="predjelo" />
+                <ScalarProperty Name="prilog" ColumnName="prilog" />
+                <ScalarProperty Name="meso" ColumnName="meso" />
+                <ScalarProperty Name="desert" ColumnName="desert" />
+                <ScalarProperty Name="aktivanIzbor" ColumnName="aktivanIzbor" />
+                <ScalarProperty Name="kategorijaId" ColumnName="kategorijaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="izborKategorija">
+            <EntityTypeMapping TypeName="DBModel.izborKategorija">
+              <MappingFragment StoreEntitySet="izborKategorija">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="imeKategorije" ColumnName="imeKategorije" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="korisnik">
+            <EntityTypeMapping TypeName="DBModel.korisnik">
+              <MappingFragment StoreEntitySet="korisnik">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="sobaId" ColumnName="sobaId" />
+                <ScalarProperty Name="korisnickoIme" ColumnName="korisnickoIme" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="ulogaId" ColumnName="ulogaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="korisnikLijeka">
+            <EntityTypeMapping TypeName="DBModel.korisnikLijeka">
+              <MappingFragment StoreEntitySet="korisnikLijeka">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="osobaId" ColumnName="osobaId" />
+                <ScalarProperty Name="lijekoviId" ColumnName="lijekoviId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lijek">
+            <EntityTypeMapping TypeName="DBModel.lijek">
+              <MappingFragment StoreEntitySet="lijek">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lijekoviZaDijagnozu">
+            <EntityTypeMapping TypeName="DBModel.lijekoviZaDijagnozu">
+              <MappingFragment StoreEntitySet="lijekoviZaDijagnozu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lijekId" ColumnName="lijekId" />
+                <ScalarProperty Name="nalazId" ColumnName="nalazId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nalaz">
+            <EntityTypeMapping TypeName="DBModel.nalaz">
+              <MappingFragment StoreEntitySet="nalaz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nazivBolesti" ColumnName="nazivBolesti" />
+                <ScalarProperty Name="dijagnoza" ColumnName="dijagnoza" />
+                <ScalarProperty Name="stanarId" ColumnName="stanarId" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pitanje">
+            <EntityTypeMapping TypeName="DBModel.pitanje">
+              <MappingFragment StoreEntitySet="pitanje">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pitanje1" ColumnName="pitanje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pitanjeSAnkete">
+            <EntityTypeMapping TypeName="DBModel.pitanjeSAnkete">
+              <MappingFragment StoreEntitySet="pitanjeSAnkete">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pitanjeId" ColumnName="pitanjeId" />
+                <ScalarProperty Name="anketaId" ColumnName="anketaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="podsjetnik">
+            <EntityTypeMapping TypeName="DBModel.podsjetnik">
+              <MappingFragment StoreEntitySet="podsjetnik">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
+                <ScalarProperty Name="datumVrijeme" ColumnName="datumVrijeme" />
+                <ScalarProperty Name="razlog" ColumnName="razlog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="praonica">
+            <EntityTypeMapping TypeName="DBModel.praonica">
+              <MappingFragment StoreEntitySet="praonica">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="zauzeto" ColumnName="zauzeto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rezervacijaPraonice">
+            <EntityTypeMapping TypeName="DBModel.rezervacijaPraonice">
+              <MappingFragment StoreEntitySet="rezervacijaPraonice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
+                <ScalarProperty Name="praonicaId" ColumnName="praonicaId" />
+                <ScalarProperty Name="datumVrijeme" ColumnName="datumVrijeme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sastanakSDoktorom">
+            <EntityTypeMapping TypeName="DBModel.sastanakSDoktorom">
+              <MappingFragment StoreEntitySet="sastanakSDoktorom">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="stanarId" ColumnName="stanarId" />
+                <ScalarProperty Name="doktorId" ColumnName="doktorId" />
+                <ScalarProperty Name="datumVrijeme" ColumnName="datumVrijeme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soba">
+            <EntityTypeMapping TypeName="DBModel.soba">
+              <MappingFragment StoreEntitySet="soba">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="brojSobe" ColumnName="brojSobe" />
+                <ScalarProperty Name="brojKreveta" ColumnName="brojKreveta" />
+                <ScalarProperty Name="brojPopunjenihKreveta" ColumnName="brojPopunjenihKreveta" />
+                <ScalarProperty Name="tipSobeId" ColumnName="tipSobeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipSobe">
+            <EntityTypeMapping TypeName="DBModel.tipSobe">
+              <MappingFragment StoreEntitySet="tipSobe">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tip" ColumnName="tip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uloga">
+            <EntityTypeMapping TypeName="DBModel.uloga">
+              <MappingFragment StoreEntitySet="uloga">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vasIzborDana">
+            <EntityTypeMapping TypeName="DBModel.vasIzborDana">
+              <MappingFragment StoreEntitySet="vasIzborDana">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
+                <ScalarProperty Name="izborId" ColumnName="izborId" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

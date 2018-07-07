@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Class_Library;
+using Class_Library;
 
 namespace MSDom
 {
@@ -24,7 +24,8 @@ namespace MSDom
         //</sumarry>   
         public void DohvatiRezervirane()
         {
-            using (var db=new MSDomEntities())
+            Metode metoda = new Metode();
+            /*using (var db=new MSDomEntities())
             {
                 var idRezervacije = from rez in db.rezervacijaPraonices
                                     join praon in db.praonicas
@@ -34,7 +35,9 @@ namespace MSDom
                     uiOutputRezervacije.DataSource = idRezervacije.ToList();
                 else
                     uiOutputRezervacije.DataSource = null;
-            }
+            }*/
+            uiOutputRezervacije.DataSource = null;
+            uiOutputRezervacije.DataSource = metoda.DohvatiRezervirane1();
         }
 
         private void uiActionPonisti_Click(object sender, EventArgs e)

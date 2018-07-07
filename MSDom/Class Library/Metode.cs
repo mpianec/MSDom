@@ -8,15 +8,19 @@ namespace Class_Library
 {
     public class Metode
     {
-        public void DohvatiRezervirane()
+        public IEnumerable<object> DohvatiRezervirane1()
         {
+            
+            List<object> lista = new List<object>();
             using (var db = new MSDomEntities())
             {
-                var idRezervacije = from rez in db.rezervacijaPraonices
-                                    join praon in db.praonicas
-                                    on rez.praonicaId equals praon.id
-                                    select new { rez.id, praon.naziv, rez.datumVrijeme };                
+                IEnumerable<object> idRezervacije = from rez in db.rezervacijaPraonice
+                                           join praon in db.praonica
+                                           on rez.praonicaId equals praon.id
+                                           select new { rez.id, praon.naziv, rez.datumVrijeme };
+                lista = new List<object>(idRezervacije);
             }
+            return lista;
         }
     }
 }
