@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Class_Library;
 
 namespace MSDom
 {
@@ -31,101 +32,111 @@ namespace MSDom
        
         private void uiActionPrijaviSe_Click(object sender, EventArgs e)
         {
-            if (uiInputKorisnickoIme.Text!="" && uiInputLozinka.Text!="") { 
-            string lozinkaUBazi = "";
-            int ulogaKorisnika = 0;
-            string korisnickoIme = uiInputKorisnickoIme.Text;
-            string lozinka = uiInputLozinka.Text;
-            uiInputKorisnickoIme.Text = "";
-            uiInputLozinka.Text = "";
-            BindingList<korisnik> listaKorisnika = null;
-            using (var db = new MSDomEntities()) {
-                listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
-            }
-            bool postojiKorisnik = false;
-            foreach (var item in listaKorisnika)
+            Prijava p = new Prijava();
+            if (p.UneseneVrijednosti(uiInputKorisnickoIme.Text, uiInputLozinka.Text)==true)
             {
-                if (item.korisnickoIme == korisnickoIme)
-                {
-                    postojiKorisnik = true;
-                    lozinkaUBazi = item.lozinka;
-                    ulogaKorisnika = item.ulogaId;
-                }
-            }
-            if (postojiKorisnik)
-            {
-                if (lozinka == lozinkaUBazi)
-                {
-                        foreach (var item in listaKorisnika)
+                    string lozinkaUBazi = "";
+                    int ulogaKorisnika = 0;
+                    string korisnickoIme = uiInputKorisnickoIme.Text;
+                    string lozinka = uiInputLozinka.Text;
+                    uiInputKorisnickoIme.Text = "";
+                    uiInputLozinka.Text = "";
+                    BindingList<korisnik> listaKorisnika = null;
+                    using (var db = new MSDomEntities()) {
+                        listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
+                    }
+                    bool postojiKorisnik = false;
+                    foreach (var item in listaKorisnika)
+                    {
+                        if (item.korisnickoIme == korisnickoIme)
                         {
-                            if (item.korisnickoIme == korisnickoIme)
+                            postojiKorisnik = true;
+                            lozinkaUBazi = item.lozinka;
+                            ulogaKorisnika = item.ulogaId;
+                        }
+                    }
+                    if (postojiKorisnik)
+                    {
+                        if (lozinka == lozinkaUBazi)
+                        {
+                            foreach (var item in listaKorisnika)
                             {
-                                PrijavljeniKorisnik.id = item.id;
-                                PrijavljeniKorisnik.ime = item.ime;
-                                PrijavljeniKorisnik.prezime = item.prezime;
-                                PrijavljeniKorisnik.idSobe = item.sobaId;
-                                PrijavljeniKorisnik.korisnickoIme = item.korisnickoIme;
-                                PrijavljeniKorisnik.lozinka = item.lozinka;
-                                PrijavljeniKorisnik.uloga = item.ulogaId;
+                                if (item.korisnickoIme == korisnickoIme)
+                                {
+                                    PrijavljeniKorisnik.id = item.id;
+                                    PrijavljeniKorisnik.ime = item.ime;
+                                    PrijavljeniKorisnik.prezime = item.prezime;
+                                    PrijavljeniKorisnik.idSobe = item.sobaId;
+                                    PrijavljeniKorisnik.korisnickoIme = item.korisnickoIme;
+                                    PrijavljeniKorisnik.lozinka = item.lozinka;
+                                    PrijavljeniKorisnik.uloga = item.ulogaId;
+
+                                }
+                            }
+                            switch (ulogaKorisnika)
+                            {
+                                case 1:
+                                    frmPocetnaStanar pocetnaFormaStanar = new frmPocetnaStanar();
+                                    this.Hide();
+                                    pocetnaFormaStanar.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 2:
+                                    frmPocetnaTajnik pocetnaFormaTajnik = new frmPocetnaTajnik();
+                                    this.Hide();
+                                    pocetnaFormaTajnik.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 3:
+                                    frmPocetnaDoktor pocetnaFormaDoktor = new frmPocetnaDoktor();
+                                    this.Hide();
+                                    pocetnaFormaDoktor.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 4:
+                                    frmPocetnaMedicinskaSestra pocetnaFormaMedicinskaSestra = new frmPocetnaMedicinskaSestra();
+                                    this.Hide();
+                                    pocetnaFormaMedicinskaSestra.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 5:
+                                    frmPocetnaKuhar pocetnaFormaKuhar = new frmPocetnaKuhar();
+                                    this.Hide();
+                                    pocetnaFormaKuhar.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 6:
+                                    frmPocetnaSpremacica pocetnaSpremacica = new frmPocetnaSpremacica();
+                                    this.Hide();
+                                    pocetnaSpremacica.ShowDialog();
+                                    this.Close();
+                                    break;
+                                case 7:
+                                    frmPocetnaDirektor pocetnaFormaDirektor = new frmPocetnaDirektor();
+                                    this.Hide();
+                                    pocetnaFormaDirektor.ShowDialog();
+                                    this.Close();
+                                    break;
 
                             }
                         }
-                    switch (ulogaKorisnika)
-                    {
-                        case 1:   
-                                frmPocetnaStanar pocetnaFormaStanar = new frmPocetnaStanar();
-                                this.Hide();
-                                pocetnaFormaStanar.ShowDialog();
-                                this.Close();
-                                break;
-                        case 2:
-                                frmPocetnaTajnik pocetnaFormaTajnik = new frmPocetnaTajnik();
-                                this.Hide();
-                                pocetnaFormaTajnik.ShowDialog();
-                                this.Close();
-                                break;
-                       case 3:
-                                frmPocetnaDoktor pocetnaFormaDoktor = new frmPocetnaDoktor();
-                                this.Hide();
-                                pocetnaFormaDoktor.ShowDialog();
-                                this.Close();
-                                break;
-                       case 4:
-                                frmPocetnaMedicinskaSestra pocetnaFormaMedicinskaSestra = new frmPocetnaMedicinskaSestra();
-                                this.Hide();
-                                pocetnaFormaMedicinskaSestra.ShowDialog();
-                                this.Close();
-                                break;
-                        case 5:
-                                frmPocetnaKuhar pocetnaFormaKuhar = new frmPocetnaKuhar();
-                                this.Hide();
-                                pocetnaFormaKuhar.ShowDialog();
-                                this.Close();
-                                break;
-                        case 6:
-                                frmPocetnaSpremacica pocetnaSpremacica = new frmPocetnaSpremacica();
-                                this.Hide();
-                                pocetnaSpremacica.ShowDialog();
-                                this.Close();
-                                break;
-                        case 7:
-                                frmPocetnaDirektor pocetnaFormaDirektor = new frmPocetnaDirektor();
-                                this.Hide();
-                                pocetnaFormaDirektor.ShowDialog();
-                                this.Close();
-                                break;
-
+                        else
+                        {
+                            MessageBox.Show("Unjeli ste pogrešnu lozinku.");
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Unjeli ste pogrešnu lozinku.");
-                }
+                    else
+                    {
+                        MessageBox.Show("Unjeli ste neispravno korisničko ime.");
+                    }
+                
+               
             }
             else
             {
-                MessageBox.Show("Unjeli ste neispravno korisničko ime.");
-            } }
+                MessageBox.Show("Moraju biti polja upisana!");
+            }
+            
         }
     }
 }

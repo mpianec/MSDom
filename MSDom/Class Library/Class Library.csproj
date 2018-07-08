@@ -107,7 +107,7 @@
     <Compile Include="rezervacijaPraonice.cs">
       <DependentUpon>MSDom.tt</DependentUpon>
     </Compile>
-    <Compile Include="Rezervirane.cs" />
+    <Compile Include="Prijava.cs" />
     <Compile Include="sastanakSDoktorom.cs">
       <DependentUpon>MSDom.tt</DependentUpon>
     </Compile>
