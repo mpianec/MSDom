@@ -36,13 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.uiInputDatumRezervacije = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.calendar1 = new Calendar.NET.Calendar();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).BeginInit();
             this.SuspendLayout();
             // 
             // uiActionRezervirajPraonicu
             // 
-            this.uiActionRezervirajPraonicu.Location = new System.Drawing.Point(432, 42);
+            this.uiActionRezervirajPraonicu.Location = new System.Drawing.Point(287, 51);
             this.uiActionRezervirajPraonicu.Name = "uiActionRezervirajPraonicu";
             this.uiActionRezervirajPraonicu.Size = new System.Drawing.Size(75, 23);
             this.uiActionRezervirajPraonicu.TabIndex = 0;
@@ -56,7 +57,7 @@
             this.uiOutputSlobodnePraonice.Location = new System.Drawing.Point(19, 42);
             this.uiOutputSlobodnePraonice.Name = "uiOutputSlobodnePraonice";
             this.uiOutputSlobodnePraonice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiOutputSlobodnePraonice.Size = new System.Drawing.Size(393, 150);
+            this.uiOutputSlobodnePraonice.Size = new System.Drawing.Size(262, 150);
             this.uiOutputSlobodnePraonice.TabIndex = 1;
             // 
             // label1
@@ -74,12 +75,12 @@
             this.uiOutputMojeRezervacije.Location = new System.Drawing.Point(19, 219);
             this.uiOutputMojeRezervacije.Name = "uiOutputMojeRezervacije";
             this.uiOutputMojeRezervacije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiOutputMojeRezervacije.Size = new System.Drawing.Size(393, 150);
+            this.uiOutputMojeRezervacije.Size = new System.Drawing.Size(262, 150);
             this.uiOutputMojeRezervacije.TabIndex = 3;
             // 
             // uiActionPoništiRezervaciju
             // 
-            this.uiActionPoništiRezervaciju.Location = new System.Drawing.Point(432, 323);
+            this.uiActionPoništiRezervaciju.Location = new System.Drawing.Point(287, 231);
             this.uiActionPoništiRezervaciju.Name = "uiActionPoništiRezervaciju";
             this.uiActionPoništiRezervaciju.Size = new System.Drawing.Size(75, 23);
             this.uiActionPoništiRezervaciju.TabIndex = 4;
@@ -113,11 +114,36 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Pritisnite F1 za pomoć";
             // 
+            // calendar1
+            // 
+            this.calendar1.AllowEditingEvents = true;
+            this.calendar1.CalendarDate = new System.DateTime(2018, 8, 9, 16, 15, 43, 346);
+            this.calendar1.CalendarView = Calendar.NET.CalendarViews.Month;
+            this.calendar1.DateHeaderFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.calendar1.DayOfWeekFont = new System.Drawing.Font("Arial", 10F);
+            this.calendar1.DaysFont = new System.Drawing.Font("Arial", 10F);
+            this.calendar1.DayViewTimeFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.calendar1.DimDisabledEvents = true;
+            this.calendar1.HighlightCurrentDay = true;
+            this.calendar1.LoadPresetHolidays = true;
+            this.calendar1.Location = new System.Drawing.Point(418, 12);
+            this.calendar1.Name = "calendar1";
+            this.calendar1.ShowArrowControls = true;
+            this.calendar1.ShowDashedBorderOnDisabledEvents = true;
+            this.calendar1.ShowDateInHeader = true;
+            this.calendar1.ShowDisabledEvents = false;
+            this.calendar1.ShowEventTooltips = true;
+            this.calendar1.ShowTodayButton = true;
+            this.calendar1.Size = new System.Drawing.Size(610, 384);
+            this.calendar1.TabIndex = 19;
+            this.calendar1.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            // 
             // frmRezervacijaPraonice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 399);
+            this.ClientSize = new System.Drawing.Size(1071, 414);
+            this.Controls.Add(this.calendar1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.uiInputDatumRezervacije);
             this.Controls.Add(this.label2);
@@ -147,5 +173,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker uiInputDatumRezervacije;
         private System.Windows.Forms.Label label5;
+        private Calendar.NET.Calendar calendar1;
     }
 }
