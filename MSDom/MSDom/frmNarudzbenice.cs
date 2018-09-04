@@ -69,7 +69,7 @@ namespace MSDom
                                      select new { nalaz.id, nalaz.nazivBolesti};
                 nalazBindingSource.DataSource = listaNalaza.ToList();
             }
-            this.reportViewer1.Refresh();
+            this.reportViewer1.RefreshReport();
         }
         /// <summary>
         /// Metoda DohvatiLijekove() vraća sve lijekove iz baze podataka i sprema ih sa bindingsourceom
@@ -82,11 +82,11 @@ namespace MSDom
                 var listalijekova = from lij in db.lijeks
                                     join od in db.lijekoviZaDijagnozus
                                     on lij.id equals od.lijekId
-                                    where(od.id==idNalaz)
+                                    where(od.nalazId==idNalaz)
                                   select new { lij.id, lij.naziv };
                 lijekBindingSource.DataSource = listalijekova.ToList();             
             }
-            this.reportViewer1.Refresh();
+            this.reportViewer1.RefreshReport();
         }
         /// <summary>
         /// Metoda DohvatiLijekoveZaDijagnozu() vraća sve narudzbenice iz baze podataka i sprema ih sa bindingsourceom
@@ -114,10 +114,10 @@ namespace MSDom
                 var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
                                     where (nalaz.nalazId == idNalaz)
                                     select new { nalaz.id, nalaz.lijekId, nalaz.nalazId };
-
                 lijekoviZaDijagnozuBindingSource.DataSource = listaLijekova.ToList();
             }
-            this.reportViewer1.Refresh();
+            
+            this.reportViewer1.RefreshReport();
         }
 
         private void uiOutputPrikaz_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,6 +133,25 @@ namespace MSDom
                 frmF1Narudzbenice forma = new frmF1Narudzbenice();
                 forma.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int idNalaz = int.Parse(uiOutputPrikaz.SelectedValue.ToString());
+            List<StavkeNarudzbenice> listalijekova;
+
+            using (var db = new MSDomEntities())
+            {
+                var temp = from lij in db.lijeks
+                           join od in db.lijekoviZaDijagnozus
+                           on lij.id equals od.lijekId
+                           where (od.nalazId == idNalaz)
+                           select new StavkeNarudzbenice { ID = lij.id, Naziv = lij.naziv };
+                listalijekova = temp.ToList();
+            }
+
+
+            PDF.IspisNarudzbenice(idNalaz, listalijekova);
         }
     }
 }

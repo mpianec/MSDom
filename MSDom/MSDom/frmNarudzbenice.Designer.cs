@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.uiOutputPrikaz = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
@@ -59,15 +60,15 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DsNarudzbenice";
-            reportDataSource1.Value = this.lijekoviZaDijagnozuBindingSource;
-            reportDataSource2.Name = "DsNalaz";
-            reportDataSource2.Value = this.nalazBindingSource;
-            reportDataSource3.Name = "DsLijek";
-            reportDataSource3.Value = this.lijekBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource4.Name = "DsNarudzbenice";
+            reportDataSource4.Value = this.lijekoviZaDijagnozuBindingSource;
+            reportDataSource5.Name = "DsNalaz";
+            reportDataSource5.Value = this.nalazBindingSource;
+            reportDataSource6.Name = "DsLijek";
+            reportDataSource6.Value = this.lijekBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "MSDom.IzvještajNarudžbenica.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 98);
             this.reportViewer1.Name = "reportViewer1";
@@ -105,11 +106,22 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pritisnite F1 za pomoć";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(294, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 39);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Ispis";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmNarudzbenice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 472);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uiOutputPrikaz);
             this.Controls.Add(this.label1);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.BindingSource nalazBindingSource;
         private System.Windows.Forms.BindingSource lijekBindingSource;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
