@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Calendar.NET;
+using System.Net.Mail;
 
 namespace MSDom
 {
@@ -50,7 +51,22 @@ namespace MSDom
                                          where (od.korisnikId == PrijavljeniKorisnik.id)
                                          select new { od.id, praon.naziv,od.datumVrijeme};
                 if (idOdabranePraonice.ToList().Count > 0)
+                {
                     uiOutputMojeRezervacije.DataSource = idOdabranePraonice.ToList();
+                    BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
+                    
+                    foreach (var item in lista)
+                    {
+                        var Rezervirana = new CustomEvent
+                        {
+                             Date = item.datumVrijeme,
+                             EventText = "Rezervirana praonica broj:" + item.praonicaId,
+                             EventLengthInHours = 1f,
+                             EventColor = Color.Blue
+                         };                       
+                        calendar1.AddEvent(Rezervirana);
+                    }
+                }
                 else
                     uiOutputMojeRezervacije.DataSource = null;
             }
@@ -84,8 +100,7 @@ namespace MSDom
                                 foreach (var item2 in listaRezervacija)
                                 {
                                     if (id == item2.praonicaId && (item2.datumVrijeme == uiInputDatumRezervacije.Value || uiInputDatumRezervacije.Value.Subtract(item2.datumVrijeme)<razlika))
-                                    {
-                                                                          
+                                    {                                                                        
                                         MessageBox.Show("Taj termin je zauzeo drugi korisnik. Idući slobodan termin za ovu perilicu je: "+ item2.datumVrijeme.AddHours(1));
                                         proba = true;
                                     }
@@ -280,6 +295,18 @@ namespace MSDom
                         db.rezervacijaPraonices.Attach(brisanjeRezervacije);
                         db.rezervacijaPraonices.Remove(brisanjeRezervacije);
                         db.SaveChanges();
+
+                        MailMessage message = new MailMessage();
+                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                        message.From = new MailAddress("mattaker.knot@gmail.com");
+                        message.To.Add("mpianec@foi.hr");
+                        message.Subject = "Oslobođena praonica";
+                        message.Body = "Oslobođena je praonica: ";
+                        SmtpServer.Port = 587;
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
+                        SmtpServer.EnableSsl = true;
+                        SmtpServer.Send(message);
+
                         DohvatiVaseRezervacije();                        
                     }
                 }

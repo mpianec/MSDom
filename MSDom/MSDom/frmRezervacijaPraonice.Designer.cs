@@ -117,7 +117,7 @@
             // calendar1
             // 
             this.calendar1.AllowEditingEvents = true;
-            this.calendar1.CalendarDate = new System.DateTime(2018, 8, 9, 16, 15, 43, 346);
+            this.calendar1.CalendarDate = new System.DateTime(2018, 9, 5, 0, 0, 0, 0);
             this.calendar1.CalendarView = Calendar.NET.CalendarViews.Month;
             this.calendar1.DateHeaderFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.calendar1.DayOfWeekFont = new System.Drawing.Font("Arial", 10F);
