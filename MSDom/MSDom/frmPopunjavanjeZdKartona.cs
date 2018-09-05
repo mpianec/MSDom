@@ -108,5 +108,41 @@ namespace MSDom
                 forma.ShowDialog();
             }
         }
+
+        private void uiActionObrisi_Click(object sender, EventArgs e)
+        {
+            nalaz nalaz = null;
+
+
+            int id = int.Parse(uiOutputStanari.CurrentRow.Cells[0].Value.ToString());
+            using (var db = new MSDomEntities())
+            {
+                var odabir = from nlz in db.nalazs
+                             select nlz.id;
+                if (odabir.ToList().Count > 0)
+                {
+
+                    BindingList<nalaz> lista = new BindingList<nalaz>(db.nalazs.ToList());
+                    foreach (var item in lista)
+                    {
+                        if (item.id == id)
+                        {
+                            nalaz = item;
+                        }
+                    }
+                    db.nalazs.Attach(nalaz);
+                    db.nalazs.Remove(nalaz);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Nema nalaza za brisanje! ");
+                }
+            }
+
+            
+
+            DohvatiNalaze();
+        }
     }
 }

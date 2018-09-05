@@ -33,9 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="Calendar.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Desktop\New folder (2)\New folder\Calendar.NET\bin\Debug\Calendar.NET.dll</HintPath>
+=======
+    <Reference Include="Calendar.NET">
+      <HintPath>..\..\..\..\New folder (2)\Calendar.NET.dll</HintPath>
+>>>>>>> 61c5ca6be50671cf00d6ceac9313f320fd9fcdc6
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
