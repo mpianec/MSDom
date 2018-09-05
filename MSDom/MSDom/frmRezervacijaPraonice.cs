@@ -50,40 +50,25 @@ namespace MSDom
                                          on od.praonicaId equals praon.id
                                          where (od.korisnikId == PrijavljeniKorisnik.id)
                                          select new { od.id, praon.naziv,od.datumVrijeme};
-                BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                 if (idOdabranePraonice.ToList().Count > 0)
                 {
                     uiOutputMojeRezervacije.DataSource = idOdabranePraonice.ToList();
+                    BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                     
-                    calendar1.RemoveAll();
                     foreach (var item in lista)
                     {
                         var Rezervirana = new CustomEvent
                         {
-                            Date = item.datumVrijeme,
-                            EventText = "Rezervirana praonica broj:" + item.praonicaId,
-                            EventLengthInHours = 1f,
-                            EventColor = Color.Blue
-                        };
+                             Date = item.datumVrijeme,
+                             EventText = "Rezervirana praonica broj:" + item.praonicaId,
+                             EventLengthInHours = 1f,
+                             EventColor = Color.Blue
+                         };                       
                         calendar1.AddEvent(Rezervirana);
                     }
                 }
                 else
-                {
                     uiOutputMojeRezervacije.DataSource = null;
-                    calendar1.RemoveAll();
-                    foreach (var item in lista)
-                    {
-                        var Rezervirana = new CustomEvent
-                        {
-                            Date = item.datumVrijeme,
-                            EventText = "Rezervirana praonica broj:" + item.praonicaId,
-                            EventLengthInHours = 1f,
-                            EventColor = Color.Blue
-                        };
-                        calendar1.AddEvent(Rezervirana);
-                    }
-                }
             }
         }
         private void uiActionRezervirajPraonicu_Click(object sender, EventArgs e)
@@ -280,14 +265,13 @@ namespace MSDom
                                join praon in db.praonicas
                                on od.praonicaId equals praon.id
                                where (od.korisnikId == PrijavljeniKorisnik.id)
-                               select od.id;                
+                               select od.id;
                 if (idOdabir.ToList().Count > 0)
                 {
                     int id = int.Parse(uiOutputMojeRezervacije.CurrentRow.Cells[0].Value.ToString());
                     string naziv = uiOutputMojeRezervacije.CurrentRow.Cells[1].Value.ToString();
                     BindingList<praonica> listaPraonica = new BindingList<praonica>(db.praonicas.ToList());
                     BindingList<rezervacijaPraonice> listaOdabira = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
-                    BindingList<korisnik> listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
                     TimeSpan interval3 = new TimeSpan(0, 0, 0, 1);
                     
                     foreach (var item in listaOdabira)
@@ -299,24 +283,7 @@ namespace MSDom
                             foreach(var item2 in listaPraonica)
                             {
                                 if (item.praonicaId == item2.id)
-                                {
                                     praonicaBrisanje = item2;
-                                    if (praonicaBrisanje != null && brisanjeRezervacije != null)                                    
-                                        for (int i = 0; i < listaKorisnika.Count(); i++)                                       
-                                            if (listaKorisnika[i].ulogaId == 1)
-                                            {
-                                                MailMessage message = new MailMessage();
-                                                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                                                message.From = new MailAddress("mattaker.knot@gmail.com");
-                                                message.To.Add("mpianec@foi.hr");
-                                                message.Subject = "Oslobođena praonica";
-                                                message.Body = "Oslobođena je praonica: " + item.praonicaId;
-                                                SmtpServer.Port = 587;
-                                                SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
-                                                SmtpServer.EnableSsl = true;
-                                                SmtpServer.Send(message);
-                                            }                                                                          
-                                }
                             }
                         }
 
@@ -328,6 +295,18 @@ namespace MSDom
                         db.rezervacijaPraonices.Attach(brisanjeRezervacije);
                         db.rezervacijaPraonices.Remove(brisanjeRezervacije);
                         db.SaveChanges();
+
+                        MailMessage message = new MailMessage();
+                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                        message.From = new MailAddress("mattaker.knot@gmail.com");
+                        message.To.Add("mpianec@foi.hr");
+                        message.Subject = "Oslobođena praonica";
+                        message.Body = "Oslobođena je praonica: ";
+                        SmtpServer.Port = 587;
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
+                        SmtpServer.EnableSsl = true;
+                        SmtpServer.Send(message);
+
                         DohvatiVaseRezervacije();                        
                     }
                 }
