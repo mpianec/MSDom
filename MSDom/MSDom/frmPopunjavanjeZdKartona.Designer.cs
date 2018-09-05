@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.uiActionNoviNalaz = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiActionObrisi = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.uiInputStanar = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -95,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uiActionObrisi);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.uiInputStanar);
             this.groupBox1.Controls.Add(this.label4);
@@ -111,6 +113,16 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodaj";
+            // 
+            // uiActionObrisi
+            // 
+            this.uiActionObrisi.Location = new System.Drawing.Point(484, 134);
+            this.uiActionObrisi.Name = "uiActionObrisi";
+            this.uiActionObrisi.Size = new System.Drawing.Size(212, 36);
+            this.uiActionObrisi.TabIndex = 19;
+            this.uiActionObrisi.Text = "Obriši nalaz";
+            this.uiActionObrisi.UseVisualStyleBackColor = true;
+            this.uiActionObrisi.Click += new System.EventHandler(this.uiActionObrisi_Click);
             // 
             // dateTimePicker1
             // 
@@ -238,5 +250,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button uiActionObrisi;
     }
 }
