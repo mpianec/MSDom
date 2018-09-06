@@ -33,20 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Reference Include="Calendar.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\..\Desktop\New folder (2)\New folder\Calendar.NET\bin\Debug\Calendar.NET.dll</HintPath>
-=======
-    <Reference Include="Calendar.NET">
-      <HintPath>..\..\..\..\New folder (2)\Calendar.NET.dll</HintPath>
->>>>>>> 61c5ca6be50671cf00d6ceac9313f320fd9fcdc6
-=======
-    <Reference Include="Calendar.NET">
-      <HintPath>..\..\..\..\..\..\..\..\..\Desktop\New folder (2)\Calendar.NET.dll</HintPath>
->>>>>>> parent of 7cc5054... Napravljene izmjene kod slanja mailova te promijenjen rad kalendara nakon ažuriranja DLL-a za kontrolu kalendara.
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -637,6 +623,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Calendar.NET\Calendar.NET.csproj">
+      <Project>{6cbc43b6-e950-49b2-b14a-563c50fcd5c3}</Project>
+      <Name>Calendar.NET</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Class Library\Class Library.csproj">
       <Project>{6bd577c6-8cba-46d4-b4ea-93102e5d690b}</Project>
       <Name>Class Library</Name>
