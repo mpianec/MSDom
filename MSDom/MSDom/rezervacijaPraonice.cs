@@ -18,6 +18,7 @@ namespace MSDom
         public int korisnikId { get; set; }
         public int praonicaId { get; set; }
         public System.DateTime datumVrijeme { get; set; }
+        public Nullable<byte> isteklaRezervacija { get; set; }
     
         public virtual korisnik korisnik { get; set; }
         public virtual praonica praonica { get; set; }

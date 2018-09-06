@@ -33,6 +33,9 @@ namespace MSDom
         public string korisnickoIme { get; set; }
         public string lozinka { get; set; }
         public int ulogaId { get; set; }
+        public string email { get; set; }
+        public Nullable<System.TimeSpan> predbilježbaOd { get; set; }
+        public Nullable<System.TimeSpan> predbilježbaDo { get; set; }
     
         public virtual soba soba { get; set; }
         public virtual uloga uloga { get; set; }

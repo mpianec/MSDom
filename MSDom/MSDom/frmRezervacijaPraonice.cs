@@ -50,25 +50,90 @@ namespace MSDom
                                          on od.praonicaId equals praon.id
                                          where (od.korisnikId == PrijavljeniKorisnik.id)
                                          select new { od.id, praon.naziv,od.datumVrijeme};
+                BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                 if (idOdabranePraonice.ToList().Count > 0)
                 {
-                    uiOutputMojeRezervacije.DataSource = idOdabranePraonice.ToList();
-                    BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
-                    
+                    uiOutputMojeRezervacije.DataSource = idOdabranePraonice.ToList();                    
+                    calendar1.RemoveAll();
                     foreach (var item in lista)
                     {
-                        var Rezervirana = new CustomEvent
+                        if (item.korisnikId == PrijavljeniKorisnik.id && item.isteklaRezervacija==0)
                         {
-                             Date = item.datumVrijeme,
-                             EventText = "Rezervirana praonica broj:" + item.praonicaId,
-                             EventLengthInHours = 1f,
-                             EventColor = Color.Blue
-                         };                       
-                        calendar1.AddEvent(Rezervirana);
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Vi ste rezervirali praonicu:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Red
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                        else if (item.isteklaRezervacija == 1)
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Black
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }                      
+                        else
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Rezervirana praonica broj:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Blue
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
                     }
                 }
                 else
+                {
                     uiOutputMojeRezervacije.DataSource = null;
+                    calendar1.RemoveAll();
+                    foreach (var item in lista)
+                    {
+                        if (item.korisnikId == PrijavljeniKorisnik.id && item.isteklaRezervacija == 0)
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Vi ste rezervirali praonicu:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Red
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                        else if (item.isteklaRezervacija == 1)
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Black
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                        else
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Rezervirana praonica broj:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.Blue
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                    }
+
+                }
             }
         }
         private void uiActionRezervirajPraonicu_Click(object sender, EventArgs e)
@@ -99,7 +164,7 @@ namespace MSDom
                             if (proba == false) {
                                 foreach (var item2 in listaRezervacija)
                                 {
-                                    if (id == item2.praonicaId && (item2.datumVrijeme == uiInputDatumRezervacije.Value || uiInputDatumRezervacije.Value.Subtract(item2.datumVrijeme)<razlika))
+                                    if (id == item2.praonicaId && (item2.datumVrijeme == uiInputDatumRezervacije.Value || uiInputDatumRezervacije.Value.Subtract(item2.datumVrijeme)<razlika) && item2.isteklaRezervacija==0)
                                     {                                                                        
                                         MessageBox.Show("Taj termin je zauzeo drugi korisnik. Idući slobodan termin za ovu perilicu je: "+ item2.datumVrijeme.AddHours(1));
                                         proba = true;
@@ -120,16 +185,10 @@ namespace MSDom
                             novaRezervacija.datumVrijeme = uiInputDatumRezervacije.Value;
                             novaRezervacija.korisnikId = PrijavljeniKorisnik.id;
                             novaRezervacija.praonicaId = idPraonice;
+                            novaRezervacija.isteklaRezervacija = 0;
                             db.rezervacijaPraonices.Add(novaRezervacija);
                             db.SaveChanges();
-                            var Rezervirana = new CustomEvent
-                            {
-                                Date = uiInputDatumRezervacije.Value,
-                                EventText = "Rezervirana praonica broj:" + id,
-                                EventLengthInHours = 1f,
-                                EventColor = Color.Blue
-                            };
-                            calendar1.AddEvent(Rezervirana);
+                           
                         }
                     }
                     // ako je rezerviral već praonicu 
@@ -160,7 +219,7 @@ namespace MSDom
                                 {
                                     foreach (var item2 in listaRezervacija)
                                     {
-                                        if (id == item2.praonicaId && item2.datumVrijeme == uiInputDatumRezervacije.Value)
+                                        if (id == item2.praonicaId && item2.datumVrijeme == uiInputDatumRezervacije.Value && item2.isteklaRezervacija==0)
                                         {
                                             uiInputDatumRezervacije.Value = uiInputDatumRezervacije.Value.AddHours(1);
                                             MessageBox.Show("Taj termin je zauzeo drugi korisnik. Idući slobodan termin za ovu perilicu je: " + uiInputDatumRezervacije.Value);
@@ -182,14 +241,15 @@ namespace MSDom
                                 novaRezervacija.datumVrijeme = uiInputDatumRezervacije.Value;
                                 novaRezervacija.korisnikId = PrijavljeniKorisnik.id;
                                 novaRezervacija.praonicaId = idPraonice;
+                                novaRezervacija.isteklaRezervacija = 0;
                                 db.rezervacijaPraonices.Add(novaRezervacija);
                                 db.SaveChanges();
                                 var Rezervirana = new CustomEvent
                                 {
                                     Date = uiInputDatumRezervacije.Value,
-                                    EventText = "Rezervirana praonica broj:" + id,
+                                    EventText = "Vi ste rezervirali praonicu:" + id,
                                     EventLengthInHours = 1f,
-                                    EventColor = Color.Blue
+                                    EventColor = Color.Red
                                 };
                                 calendar1.AddEvent(Rezervirana);
                             }
@@ -237,7 +297,7 @@ namespace MSDom
                         }
                     }
                     db.praonicas.Attach(praonicaBrisanje);
-                    praonicaBrisanje.zauzeto = 0;
+                   // praonicaBrisanje.zauzeto = 0;
                     db.rezervacijaPraonices.Attach(brisanjeRezervacije);
                     db.rezervacijaPraonices.Remove(brisanjeRezervacije);
                     db.SaveChanges();
@@ -272,7 +332,7 @@ namespace MSDom
                     string naziv = uiOutputMojeRezervacije.CurrentRow.Cells[1].Value.ToString();
                     BindingList<praonica> listaPraonica = new BindingList<praonica>(db.praonicas.ToList());
                     BindingList<rezervacijaPraonice> listaOdabira = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
-                    TimeSpan interval3 = new TimeSpan(0, 0, 0, 1);
+                    BindingList<korisnik> listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
                     
                     foreach (var item in listaOdabira)
                     {
@@ -282,32 +342,36 @@ namespace MSDom
                             brisanjeRezervacije = item;
                             foreach(var item2 in listaPraonica)
                             {
-                                if (item.praonicaId == item2.id)
-                                    praonicaBrisanje = item2;
+                                if (item.praonicaId == item2.id)                               
+                                    praonicaBrisanje = item2;                                  
                             }
                         }
-
-                    }                 
-                    if (brisanjeRezervacije != null && praonicaBrisanje!=null)
-                    {
-                        db.praonicas.Attach(praonicaBrisanje);
-                        praonicaBrisanje.zauzeto = 0;
-                        db.rezervacijaPraonices.Attach(brisanjeRezervacije);
-                        db.rezervacijaPraonices.Remove(brisanjeRezervacije);
-                        db.SaveChanges();
-
-                        MailMessage message = new MailMessage();
-                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                        message.From = new MailAddress("mattaker.knot@gmail.com");
-                        message.To.Add("mpianec@foi.hr");
-                        message.Subject = "Oslobođena praonica";
-                        message.Body = "Oslobođena je praonica: ";
-                        SmtpServer.Port = 587;
-                        SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
-                        SmtpServer.EnableSsl = true;
-                        SmtpServer.Send(message);
-
-                        DohvatiVaseRezervacije();                        
+                        if (brisanjeRezervacije != null && praonicaBrisanje != null)
+                        {
+                            TimeSpan rezer = item.datumVrijeme.TimeOfDay;
+                            db.praonicas.Attach(praonicaBrisanje);
+                            // praonicaBrisanje.zauzeto = 0;                                                   
+                            
+                            
+                                for (int i = 0; i < listaKorisnika.Count(); i++)
+                                    if (listaKorisnika[i].ulogaId == 1 && listaKorisnika[i].predbilježbaOd<=rezer && listaKorisnika[i].predbilježbaDo>=rezer && item.isteklaRezervacija==0)
+                                    {
+                                        MailMessage message = new MailMessage();
+                                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                                        message.From = new MailAddress("mattaker.knot@gmail.com");
+                                        message.To.Add(listaKorisnika[i].email.ToString());
+                                        message.Subject = "Oslobođena praonica";
+                                        message.Body = "Poštovani "+listaKorisnika[i].korisnickoIme+", oslobođena je praonica: " + item.praonicaId;
+                                        SmtpServer.Port = 587;
+                                        SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
+                                        SmtpServer.EnableSsl = true;
+                                        SmtpServer.Send(message);
+                                    }
+                            db.rezervacijaPraonices.Attach(brisanjeRezervacije);
+                            brisanjeRezervacije.isteklaRezervacija = 1;
+                            db.SaveChanges();
+                        }                                  
+                    DohvatiVaseRezervacije();                        
                     }
                 }
             }
@@ -319,6 +383,51 @@ namespace MSDom
             {
                 frmF1RezervacijaPraonice forma = new frmF1RezervacijaPraonice();
                 forma.ShowDialog();
+            }
+        }
+
+        private void uiActionPredbilježi_Click(object sender, EventArgs e)
+        {
+            korisnik korisnikZaUpdate = null;
+            
+            using (var db = new MSDomEntities())
+            {
+                var idPredbilj = from od in db.korisniks                              
+                               where (od.id==PrijavljeniKorisnik.id)
+                               select od.id;
+                BindingList<korisnik> lista = new BindingList<korisnik>(db.korisniks.ToList());
+                if (idPredbilj.ToList().Count > 0)
+                {
+                    foreach (var item in lista)
+                    {
+                        if (item.id == PrijavljeniKorisnik.id)
+                        {
+                            if(item.predbilježbaDo!=null && item.predbilježbaOd != null)
+                            {
+                                DialogResult dialog = MessageBox.Show("Ovi podaci već postoje. Želite li ih ažurirati?", "Upozorenje", MessageBoxButtons.YesNo);
+                                if (dialog == DialogResult.Yes)
+                                    korisnikZaUpdate = item;
+                                else if (dialog == DialogResult.No)
+                                    break;
+                            }
+                            else
+                                korisnikZaUpdate = item;
+                        }                                                   
+                    }
+                    if (korisnikZaUpdate != null)
+                    {
+                        db.korisniks.Attach(korisnikZaUpdate);
+                        DateTime vrijOd = uiVrijemePredbilježbeOd.Value;
+                        TimeSpan tsVrijOd = vrijOd.TimeOfDay;
+                        DateTime vrijDo = uiVrijemePredbilježbeDo.Value;
+                        TimeSpan tsVrijDo = vrijDo.TimeOfDay;
+                        korisnikZaUpdate.predbilježbaOd = tsVrijOd;
+                        korisnikZaUpdate.predbilježbaDo = tsVrijDo;
+                        db.SaveChanges();
+                        MessageBox.Show("Uspješno uneseno u bazu!","Uneseni podaci");
+                    }
+                }
+               
             }
         }
     }

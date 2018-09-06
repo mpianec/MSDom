@@ -37,8 +37,15 @@
             this.uiInputDatumRezervacije = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.calendar1 = new Calendar.NET.Calendar();
+            this.uiVrijemePredbilježbeOd = new System.Windows.Forms.DateTimePicker();
+            this.uiVrijemePredbilježbeDo = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiActionPredbilježi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiActionRezervirajPraonicu
@@ -75,7 +82,7 @@
             this.uiOutputMojeRezervacije.Location = new System.Drawing.Point(19, 219);
             this.uiOutputMojeRezervacije.Name = "uiOutputMojeRezervacije";
             this.uiOutputMojeRezervacije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiOutputMojeRezervacije.Size = new System.Drawing.Size(262, 150);
+            this.uiOutputMojeRezervacije.Size = new System.Drawing.Size(262, 96);
             this.uiOutputMojeRezervacije.TabIndex = 3;
             // 
             // uiActionPoništiRezervaciju
@@ -138,11 +145,70 @@
             this.calendar1.TabIndex = 19;
             this.calendar1.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             // 
+            // uiVrijemePredbilježbeOd
+            // 
+            this.uiVrijemePredbilježbeOd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.uiVrijemePredbilježbeOd.Location = new System.Drawing.Point(6, 42);
+            this.uiVrijemePredbilježbeOd.Name = "uiVrijemePredbilježbeOd";
+            this.uiVrijemePredbilježbeOd.Size = new System.Drawing.Size(71, 20);
+            this.uiVrijemePredbilježbeOd.TabIndex = 20;
+            // 
+            // uiVrijemePredbilježbeDo
+            // 
+            this.uiVrijemePredbilježbeDo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.uiVrijemePredbilježbeDo.Location = new System.Drawing.Point(105, 42);
+            this.uiVrijemePredbilježbeDo.Name = "uiVrijemePredbilježbeDo";
+            this.uiVrijemePredbilježbeDo.Size = new System.Drawing.Size(71, 20);
+            this.uiVrijemePredbilježbeDo.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Od";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(102, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Do";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiVrijemePredbilježbeOd);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.uiVrijemePredbilježbeDo);
+            this.groupBox1.Location = new System.Drawing.Point(19, 328);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 74);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Predbilježba";
+            // 
+            // uiActionPredbilježi
+            // 
+            this.uiActionPredbilježi.Location = new System.Drawing.Point(226, 370);
+            this.uiActionPredbilježi.Name = "uiActionPredbilježi";
+            this.uiActionPredbilježi.Size = new System.Drawing.Size(75, 23);
+            this.uiActionPredbilježi.TabIndex = 25;
+            this.uiActionPredbilježi.Text = "Predbilježi";
+            this.uiActionPredbilježi.UseVisualStyleBackColor = true;
+            this.uiActionPredbilježi.Click += new System.EventHandler(this.uiActionPredbilježi_Click);
+            // 
             // frmRezervacijaPraonice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 414);
+            this.Controls.Add(this.uiActionPredbilježi);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.uiInputDatumRezervacije);
@@ -158,6 +224,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRezervacijaPraonice_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSlobodnePraonice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputMojeRezervacije)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +242,11 @@
         private System.Windows.Forms.DateTimePicker uiInputDatumRezervacije;
         private System.Windows.Forms.Label label5;
         private Calendar.NET.Calendar calendar1;
+        private System.Windows.Forms.DateTimePicker uiVrijemePredbilježbeOd;
+        private System.Windows.Forms.DateTimePicker uiVrijemePredbilježbeDo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiActionPredbilježi;
     }
 }

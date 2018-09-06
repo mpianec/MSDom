@@ -43,6 +43,9 @@
           <Property Name="korisnickoIme" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="lozinka" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="ulogaId" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="predbilježbaOd" Type="time" Precision="7" />
+          <Property Name="predbilježbaDo" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="korisnikLijeka">
           <Key>
@@ -118,6 +121,7 @@
           <Property Name="korisnikId" Type="int" Nullable="false" />
           <Property Name="praonicaId" Type="int" Nullable="false" />
           <Property Name="datumVrijeme" Type="datetime" Nullable="false" />
+          <Property Name="isteklaRezervacija" Type="tinyint" />
         </EntityType>
         <EntityType Name="sastanakSDoktorom">
           <Key>
@@ -524,6 +528,9 @@
           <NavigationProperty Name="sastanakSDoktoroms" Relationship="Self.fk_sastanakSDoktorom_korisnik_1" FromRole="korisnik" ToRole="sastanakSDoktorom" />
           <NavigationProperty Name="sastanakSDoktoroms1" Relationship="Self.fk_sastanakSDoktorom_korisnik_2" FromRole="korisnik" ToRole="sastanakSDoktorom" />
           <NavigationProperty Name="vasIzborDanas" Relationship="Self.fk_vasIzborDana_korisnik_1" FromRole="korisnik" ToRole="vasIzborDana" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="predbilježbaOd" Type="Time" Precision="7" />
+          <Property Name="predbilježbaDo" Type="Time" Precision="7" />
         </EntityType>
         <EntityType Name="korisnikLijeka">
           <Key>
@@ -614,6 +621,7 @@
           <Property Name="datumVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="korisnik" Relationship="Self.fk_rezervacijaPraonice_korisnik_1" FromRole="rezervacijaPraonice" ToRole="korisnik" />
           <NavigationProperty Name="praonica" Relationship="Self.fk_rezervacijaPraonice_praonica_1" FromRole="rezervacijaPraonice" ToRole="praonica" />
+          <Property Name="isteklaRezervacija" Type="Byte" />
         </EntityType>
         <EntityType Name="sastanakSDoktorom">
           <Key>
@@ -1012,6 +1020,9 @@
           <EntitySetMapping Name="korisniks">
             <EntityTypeMapping TypeName="MSDomDBModel.korisnik">
               <MappingFragment StoreEntitySet="korisnik">
+                <ScalarProperty Name="predbilježbaDo" ColumnName="predbilježbaDo" />
+                <ScalarProperty Name="predbilježbaOd" ColumnName="predbilježbaOd" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
                 <ScalarProperty Name="prezime" ColumnName="prezime" />
@@ -1099,6 +1110,7 @@
           <EntitySetMapping Name="rezervacijaPraonices">
             <EntityTypeMapping TypeName="MSDomDBModel.rezervacijaPraonice">
               <MappingFragment StoreEntitySet="rezervacijaPraonice">
+                <ScalarProperty Name="isteklaRezervacija" ColumnName="isteklaRezervacija" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
                 <ScalarProperty Name="praonicaId" ColumnName="praonicaId" />
