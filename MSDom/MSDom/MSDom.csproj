@@ -631,6 +631,10 @@
       <Project>{6bd577c6-8cba-46d4-b4ea-93102e5d690b}</Project>
       <Name>Class Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IspisPdf\IspisPdf.csproj">
+      <Project>{feca53dc-8b55-43dd-a5e0-6affa8d0b6ca}</Project>
+      <Name>IspisPdf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
+
 //pdf
 using System.IO;
 using iTextSharp.text;
@@ -11,22 +12,22 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
 using System.Diagnostics;
 
-namespace MSDom
+namespace IspisPdf
 {
-    public class PDF
+    public class Ispis
     {
-        public static void IspisNarudzbenice(int idNalaza, List<StavkeNarudzbenice> popisLijekova)
+        public static bool IspisNarudzbenice(int idNalaza, List<StavkeNarudzbenice> popisLijekova)
         {
             try
             {
                 if (popisLijekova == null)
-                    return;
+                    return false;
 
-                
+
                 Document doc = new Document(PageSize.A4, 65, 65, 30, 30);
-                
-                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("Narudzbenica.pdf", FileMode.Create)); 
-                
+
+                PdfWriter pdf = PdfWriter.GetInstance(doc, new FileStream("Narudzbenica.pdf", FileMode.Create));
+
                 doc.Open();
 
                 PdfPTable tableOsnovniPodaci = new PdfPTable(3);
@@ -55,15 +56,15 @@ namespace MSDom
 
                 doc.Add(new Paragraph("\n"));
                 doc.Add(new Paragraph("\n"));
-                
 
-                
-                
+
+
+
                 PdfPTable table = new PdfPTable(3);
                 table.WidthPercentage = 100;
 
                 iTextSharp.text.Font tablica = FontFactory.GetFont(FontFactory.HELVETICA, 14);
-                
+
                 PdfPCell naslovTablice = new PdfPCell(new Phrase("Stavke narudzbenice", tablica));
                 naslovTablice.Padding = 5;
                 naslovTablice.Colspan = 3;
@@ -71,10 +72,10 @@ namespace MSDom
                 naslovTablice.BackgroundColor = CMYKColor.GRAY;
                 naslovTablice.HorizontalAlignment = Element.ALIGN_CENTER;
                 naslovTablice.VerticalAlignment = Element.ALIGN_CENTER;
-                
+
                 table.AddCell(naslovTablice);
 
-                
+
                 table.HeaderRows = 1;
 
                 table.AddCell(new Phrase("Rbr.", tablica));
@@ -84,10 +85,10 @@ namespace MSDom
                 for (int i = 0; i < popisLijekova.Count; i++)
                 {
                     table.AddCell(new Phrase((i + 1).ToString(), tablica));
-                    table.AddCell(new Phrase(popisLijekova[i].ID.ToString(), tablica)); 
+                    table.AddCell(new Phrase(popisLijekova[i].ID.ToString(), tablica));
                     table.AddCell(new Phrase(popisLijekova[i].Naziv, tablica));
                 }
-                
+
                 doc.Add(table);
 
                 //PRAZNI REDOVI
@@ -121,10 +122,11 @@ namespace MSDom
                 doc.Close();
 
                 Process.Start("Narudzbenica.pdf");
+                return true;
             }
             catch
             {
-                MessageBox.Show("PDF dokument je već otvoren");
+                return false;
             }
         }
     }
