@@ -48,7 +48,7 @@ namespace MSDom
                 var idOdabranePraonice = from od in db.rezervacijaPraonices
                                          join praon in db.praonicas
                                          on od.praonicaId equals praon.id
-                                         where (od.korisnikId == PrijavljeniKorisnik.id)
+                                         where (od.korisnikId == PrijavljeniKorisnik.id && od.isteklaRezervacija==0)
                                          select new { od.id, praon.naziv,od.datumVrijeme};
                 BindingList<rezervacijaPraonice> lista = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                 if (idOdabranePraonice.ToList().Count > 0)
@@ -68,18 +68,18 @@ namespace MSDom
                             };
                             calendar1.AddEvent(Rezervirana);
                         }
-                        else if (item.isteklaRezervacija == 1)
+                        else if (item.isteklaRezervacija == 1 && item.korisnikId==PrijavljeniKorisnik.id)
                         {
                             var Rezervirana = new CustomEvent
                             {
                                 Date = item.datumVrijeme,
-                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventText = "Vaša prošla rezervacija praonice:" + item.praonicaId,
                                 EventLengthInHours = 1f,
-                                EventColor = Color.Black
+                                EventColor = Color.Brown
                             };
                             calendar1.AddEvent(Rezervirana);
                         }                      
-                        else
+                        else if(item.isteklaRezervacija==0 && item.korisnikId != PrijavljeniKorisnik.id)
                         {
                             var Rezervirana = new CustomEvent
                             {
@@ -87,6 +87,17 @@ namespace MSDom
                                 EventText = "Rezervirana praonica broj:" + item.praonicaId,
                                 EventLengthInHours = 1f,
                                 EventColor = Color.Blue
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                        else if (item.isteklaRezervacija == 1 && item.korisnikId != PrijavljeniKorisnik.id)
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.MidnightBlue
                             };
                             calendar1.AddEvent(Rezervirana);
                         }
@@ -109,18 +120,18 @@ namespace MSDom
                             };
                             calendar1.AddEvent(Rezervirana);
                         }
-                        else if (item.isteklaRezervacija == 1)
+                        else if (item.isteklaRezervacija == 1 && item.korisnikId == PrijavljeniKorisnik.id)
                         {
                             var Rezervirana = new CustomEvent
                             {
                                 Date = item.datumVrijeme,
-                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventText = "Vaša prošla rezervacija praonice:" + item.praonicaId,
                                 EventLengthInHours = 1f,
-                                EventColor = Color.Black
+                                EventColor = Color.Brown
                             };
                             calendar1.AddEvent(Rezervirana);
                         }
-                        else
+                        else if (item.isteklaRezervacija == 0 && item.korisnikId != PrijavljeniKorisnik.id)
                         {
                             var Rezervirana = new CustomEvent
                             {
@@ -128,6 +139,17 @@ namespace MSDom
                                 EventText = "Rezervirana praonica broj:" + item.praonicaId,
                                 EventLengthInHours = 1f,
                                 EventColor = Color.Blue
+                            };
+                            calendar1.AddEvent(Rezervirana);
+                        }
+                        else if (item.isteklaRezervacija == 1 && item.korisnikId != PrijavljeniKorisnik.id)
+                        {
+                            var Rezervirana = new CustomEvent
+                            {
+                                Date = item.datumVrijeme,
+                                EventText = "Prošla rezervacija praonice:" + item.praonicaId,
+                                EventLengthInHours = 1f,
+                                EventColor = Color.MidnightBlue
                             };
                             calendar1.AddEvent(Rezervirana);
                         }
@@ -317,7 +339,7 @@ namespace MSDom
             this.KeyDown += new KeyEventHandler(frmRezervacijaPraonice_KeyDown);
             this.KeyDown -= new KeyEventHandler(frmRezervacijaPraonice_KeyDown);
 
-            rezervacijaPraonice brisanjeRezervacije = null;
+           /* rezervacijaPraonice brisanjeRezervacije = null;
             praonica praonicaBrisanje = null;
             using (var db = new MSDomEntities())
             {
@@ -358,12 +380,12 @@ namespace MSDom
                                     {
                                         MailMessage message = new MailMessage();
                                         SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                                        message.From = new MailAddress("mattaker.knot@gmail.com");
+                                        message.From = new MailAddress("pimsdom@gmail.com");
                                         message.To.Add(listaKorisnika[i].email.ToString());
                                         message.Subject = "Oslobođena praonica";
                                         message.Body = "Poštovani "+listaKorisnika[i].korisnickoIme+", oslobođena je praonica: " + item.praonicaId;
                                         SmtpServer.Port = 587;
-                                        SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
+                                        SmtpServer.Credentials = new System.Net.NetworkCredential("pimsdom@gmail.com", "staracki1");
                                         SmtpServer.EnableSsl = true;
                                         SmtpServer.Send(message);
                                     }
@@ -374,7 +396,7 @@ namespace MSDom
                     DohvatiVaseRezervacije();                        
                     }
                 }
-            }
+            }*/
         }
 
         private void frmRezervacijaPraonice_KeyDown(object sender, KeyEventArgs e)

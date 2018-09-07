@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="korisnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prezime" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sobaId" Type="int" />
+          <Property Name="korisnickoIme" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lozinka" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ulogaId" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="predbilježbaOd" Type="time" Precision="7" />
+          <Property Name="predbilježbaDo" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="praonica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="zauzeto" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rezervacijaPraonice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korisnikId" Type="int" Nullable="false" />
+          <Property Name="praonicaId" Type="int" Nullable="false" />
+          <Property Name="datumVrijeme" Type="datetime" Nullable="false" />
+          <Property Name="isteklaRezervacija" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_korisnik_uloga_1">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="ulogaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_praonica_1">
+          <End Role="praonica" Type="Self.praonica" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="praonica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="praonicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="korisnik" EntityType="Self.korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="praonica" EntityType="Self.praonica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rezervacijaPraonice" EntityType="Self.rezervacijaPraonice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uloga" EntityType="Self.uloga" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_korisnik_uloga_1" Association="Self.fk_korisnik_uloga_1">
+            <End Role="uloga" EntitySet="uloga" />
+            <End Role="korisnik" EntitySet="korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_korisnik_1" Association="Self.fk_rezervacijaPraonice_korisnik_1">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_praonica_1" Association="Self.fk_rezervacijaPraonice_praonica_1">
+            <End Role="praonica" EntitySet="praonica" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="korisnik">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prezime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sobaId" Type="Int32" />
+          <Property Name="korisnickoIme" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lozinka" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulogaId" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="predbilježbaOd" Type="Time" Precision="7" />
+          <Property Name="predbilježbaDo" Type="Time" Precision="7" />
+          <NavigationProperty Name="uloga" Relationship="Self.fk_korisnik_uloga_1" FromRole="korisnik" ToRole="uloga" />
+          <NavigationProperty Name="rezervacijaPraonices" Relationship="Self.fk_rezervacijaPraonice_korisnik_1" FromRole="korisnik" ToRole="rezervacijaPraonice" />
+        </EntityType>
+        <EntityType Name="praonica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zauzeto" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="rezervacijaPraonices" Relationship="Self.fk_rezervacijaPraonice_praonica_1" FromRole="praonica" ToRole="rezervacijaPraonice" />
+        </EntityType>
+        <EntityType Name="rezervacijaPraonice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korisnikId" Type="Int32" Nullable="false" />
+          <Property Name="praonicaId" Type="Int32" Nullable="false" />
+          <Property Name="datumVrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isteklaRezervacija" Type="Byte" />
+          <NavigationProperty Name="korisnik" Relationship="Self.fk_rezervacijaPraonice_korisnik_1" FromRole="rezervacijaPraonice" ToRole="korisnik" />
+          <NavigationProperty Name="praonica" Relationship="Self.fk_rezervacijaPraonice_praonica_1" FromRole="rezervacijaPraonice" ToRole="praonica" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="korisniks" Relationship="Self.fk_korisnik_uloga_1" FromRole="uloga" ToRole="korisnik" />
+        </EntityType>
+        <Association Name="fk_korisnik_uloga_1">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="1" />
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="korisnik">
+              <PropertyRef Name="ulogaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_korisnik_1">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rezervacijaPraonice_praonica_1">
+          <End Role="praonica" Type="Self.praonica" Multiplicity="1" />
+          <End Role="rezervacijaPraonice" Type="Self.rezervacijaPraonice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="praonica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rezervacijaPraonice">
+              <PropertyRef Name="praonicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="korisniks" EntityType="Self.korisnik" />
+          <EntitySet Name="praonicas" EntityType="Self.praonica" />
+          <EntitySet Name="rezervacijaPraonices" EntityType="Self.rezervacijaPraonice" />
+          <EntitySet Name="ulogas" EntityType="Self.uloga" />
+          <AssociationSet Name="fk_korisnik_uloga_1" Association="Self.fk_korisnik_uloga_1">
+            <End Role="uloga" EntitySet="ulogas" />
+            <End Role="korisnik" EntitySet="korisniks" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_korisnik_1" Association="Self.fk_rezervacijaPraonice_korisnik_1">
+            <End Role="korisnik" EntitySet="korisniks" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rezervacijaPraonice_praonica_1" Association="Self.fk_rezervacijaPraonice_praonica_1">
+            <End Role="praonica" EntitySet="praonicas" />
+            <End Role="rezervacijaPraonice" EntitySet="rezervacijaPraonices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="korisniks">
+            <EntityTypeMapping TypeName="DBModel.korisnik">
+              <MappingFragment StoreEntitySet="korisnik">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="sobaId" ColumnName="sobaId" />
+                <ScalarProperty Name="korisnickoIme" ColumnName="korisnickoIme" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="ulogaId" ColumnName="ulogaId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="predbilježbaOd" ColumnName="predbilježbaOd" />
+                <ScalarProperty Name="predbilježbaDo" ColumnName="predbilježbaDo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="praonicas">
+            <EntityTypeMapping TypeName="DBModel.praonica">
+              <MappingFragment StoreEntitySet="praonica">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="zauzeto" ColumnName="zauzeto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rezervacijaPraonices">
+            <EntityTypeMapping TypeName="DBModel.rezervacijaPraonice">
+              <MappingFragment StoreEntitySet="rezervacijaPraonice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
+                <ScalarProperty Name="praonicaId" ColumnName="praonicaId" />
+                <ScalarProperty Name="datumVrijeme" ColumnName="datumVrijeme" />
+                <ScalarProperty Name="isteklaRezervacija" ColumnName="isteklaRezervacija" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ulogas">
+            <EntityTypeMapping TypeName="DBModel.uloga">
+              <MappingFragment StoreEntitySet="uloga">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
