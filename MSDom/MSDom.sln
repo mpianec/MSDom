@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSDom", "MSDom\MSDom.csproj", "{222881ED-57AC-4242-8E50-080C7B7E50B4}"
 EndProject
@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class Library", "Class Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.NET", "Calendar.NET\Calendar.NET.csproj", "{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlanjeMaila", "ProbniServis\SlanjeMaila.csproj", "{A4D31107-70F8-4765-9989-E91AEC48B10F}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IspisPdf", "IspisPdf\IspisPdf.csproj", "{FECA53DC-8B55-43DD-A5E0-6AFFA8D0B6CA}"
+>>>>>>> 954940c173880798279aa7351c06010de36dd374
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +33,22 @@ Global
 		{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{A4D31107-70F8-4765-9989-E91AEC48B10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A4D31107-70F8-4765-9989-E91AEC48B10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4D31107-70F8-4765-9989-E91AEC48B10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4D31107-70F8-4765-9989-E91AEC48B10F}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{FECA53DC-8B55-43DD-A5E0-6AFFA8D0B6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECA53DC-8B55-43DD-A5E0-6AFFA8D0B6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECA53DC-8B55-43DD-A5E0-6AFFA8D0B6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECA53DC-8B55-43DD-A5E0-6AFFA8D0B6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 954940c173880798279aa7351c06010de36dd374
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFFEFBA2-E590-47B2-A7C1-71A791ECCCD5}
 	EndGlobalSection
 EndGlobal
