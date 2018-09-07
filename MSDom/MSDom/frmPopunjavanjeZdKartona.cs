@@ -30,7 +30,7 @@ namespace MSDom
             {
                 var listaStanara = from nalaz in db.nalazs
                                              where (nalaz.stanarId == idKor)
-                                             select new { nalaz.dijagnoza, nalaz.nazivBolesti, nalaz.datum };
+                                             select new {nalaz.id, nalaz.dijagnoza, nalaz.nazivBolesti, nalaz.datum };
                 
                     uiOutputStanari.DataSource = listaStanara.ToList();
                 
