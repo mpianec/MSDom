@@ -217,7 +217,7 @@ namespace MSDom
                     else
                     {
                         TimeSpan interval = new TimeSpan(0, 0, 0);
-                        TimeSpan interval2 = new TimeSpan(1, 0, 0, 0);
+                        TimeSpan interval2 = new TimeSpan(12, 0, 0);
                         foreach (var item in idOdabranePraonice.ToList())
                         {
                             /* if ( item.datumVrijeme.Subtract(uiInputDatumRezervacije.Value)<=interval2)

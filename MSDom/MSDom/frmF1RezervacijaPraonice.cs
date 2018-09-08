@@ -21,6 +21,10 @@ namespace MSDom
             label1.Text += "Nakon odabira kliknite gumb 'Rezerviraj'\n\n";
             label1.Text += "Za poništavanje rezervacije odaberite rezerviranu praonicu iz druge tablice\n";
             label1.Text += "te pritisnite gumb 'Poništi'";
+            label1.Text += "Također, ako želite primiti obavijest \nda je praonica u određenom terminu oslobođena,\n";
+            label1.Text += "odaberite u odjeljku 'Predbilježba' taj termin i kliknite potvrdi.\n";
+            label1.Text += "Na kalendaru su crvenom bojom označene Vaše buduće rezervacije, \n";
+            label1.Text += "smeđom Vaše prošle, plavom tuđe buduće i tamno plavom tuđe prošle.";
         }
     }
 }
