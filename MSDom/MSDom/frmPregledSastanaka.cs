@@ -30,8 +30,9 @@ namespace MSDom
                                     on sas.stanarId equals kor.id
                                     where (kor.id == sas.stanarId)
                                     select new { sas.id, kor.ime , sas.datumVrijeme };
+                var listica = listaSastanak.OrderBy(x => x.datumVrijeme);
                 uiOutputSastanak.DataSource = null; 
-                uiOutputSastanak.DataSource = listaSastanak.ToList();
+                uiOutputSastanak.DataSource = listica.ToList();
             }
         }
 
