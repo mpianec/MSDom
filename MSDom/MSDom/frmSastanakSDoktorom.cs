@@ -26,19 +26,28 @@ namespace MSDom
             {
                 BindingList<sastanakSDoktorom> listaSastanaka = new BindingList<sastanakSDoktorom>(db.sastanakSDoktoroms.ToList());
                 sastanakSDoktorom sastanak = new sastanakSDoktorom();
-                sastanak.stanarId = int.Parse(uiInputStanar.SelectedValue.ToString());
-                sastanak.doktorId = int.Parse(uiInputDoktor.SelectedValue.ToString());
-                sastanak.datumVrijeme = dateTimePicker1.Value;
+                TimeSpan razlika = new TimeSpan(0, 15, 0);
+                //sastanak.stanarId = int.Parse(uiInputStanar.SelectedValue.ToString());
+                //sastanak.doktorId = int.Parse(uiInputDoktor.SelectedValue.ToString());
+                //sastanak.datumVrijeme = dateTimePicker1.Value;
 
                 foreach (var item in listaSastanaka)
                 {
-                    if (item.datumVrijeme==sastanak.datumVrijeme)
+                    /*if (item.datumVrijeme==sastanak.datumVrijeme)
+                    {
+                        postoji = true;
+                    }*/
+
+                    if (item.datumVrijeme == dateTimePicker1.Value || dateTimePicker1.Value.Subtract(item.datumVrijeme)<razlika)
                     {
                         postoji = true;
                     }
                 }
                 if (!postoji)
                 {
+                    sastanak.stanarId = int.Parse(uiInputStanar.SelectedValue.ToString());
+                    sastanak.doktorId = int.Parse(uiInputDoktor.SelectedValue.ToString());
+                    sastanak.datumVrijeme = dateTimePicker1.Value;
                     db.sastanakSDoktoroms.Add(sastanak);
                     MessageBox.Show("Ugovorili ste sastanak!");
                     db.SaveChanges();
