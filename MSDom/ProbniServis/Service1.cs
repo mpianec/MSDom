@@ -27,9 +27,12 @@ namespace ProbniServis
                     BindingList<korisnik> listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
                     BindingList<rezervacijaPraonice> listaRezervacija = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                     TimeSpan razlika = new TimeSpan(1, 0, 0);
+                    TimeSpan min = new TimeSpan(-1, 0, 0);
+                    
                     foreach (var item in listaRezervacija)
                     {
-                        if (DateTime.Now.Subtract(item.datumVrijeme) <= razlika)
+                        TimeSpan provjera = DateTime.Now.Subtract(item.datumVrijeme);
+                        if (provjera <= razlika && provjera>=min)
                             for (int i = 0; i < listaKorisnika.Count(); i++)
                                 if (item.korisnikId == listaKorisnika[i].id && item.isteklaRezervacija == 0)
                                 {
@@ -141,9 +144,10 @@ namespace ProbniServis
                     BindingList<korisnik> listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
                     BindingList<rezervacijaPraonice> listaRezervacija = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                     TimeSpan razlika = new TimeSpan(1, 0, 0);
-                    foreach(var item in listaRezervacija)
+                    TimeSpan min = new TimeSpan(0, 0, 0);
+                    foreach (var item in listaRezervacija)
                     {
-                        if (DateTime.Now.Subtract(item.datumVrijeme) <= razlika)                       
+                        if (DateTime.Now.Subtract(item.datumVrijeme) <= razlika && DateTime.Now.Subtract(item.datumVrijeme)>=min)                       
                             for(int i = 0; i < listaKorisnika.Count(); i++)                           
                                 if (item.korisnikId == listaKorisnika[i].id && item.isteklaRezervacija==0)
                                 {

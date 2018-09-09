@@ -163,6 +163,7 @@
             this.uiActionPoništiRezervaciju.TabIndex = 30;
             this.uiActionPoništiRezervaciju.Text = "Poništi rezervaciju";
             this.uiActionPoništiRezervaciju.UseVisualStyleBackColor = true;
+            this.uiActionPoništiRezervaciju.Click += new System.EventHandler(this.uiActionPoništiRezervaciju_Click_1);
             // 
             // uiOutputMojeRezervacije
             // 
@@ -199,6 +200,7 @@
             this.uiActionRezervirajPraonicu.TabIndex = 26;
             this.uiActionRezervirajPraonicu.Text = "Rezerviraj";
             this.uiActionRezervirajPraonicu.UseVisualStyleBackColor = true;
+            this.uiActionRezervirajPraonicu.Click += new System.EventHandler(this.uiActionRezervirajPraonicu_Click_1);
             // 
             // frmRezervacijaPraonice
             // 
