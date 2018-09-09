@@ -42,7 +42,10 @@ namespace MSDom
                     {
                         postoji = true;
                     }
+
                 }
+                
+
                 if (!postoji)
                 {
                     sastanak.stanarId = int.Parse(uiInputStanar.SelectedValue.ToString());
@@ -52,6 +55,10 @@ namespace MSDom
                     MessageBox.Show("Ugovorili ste sastanak!");
                     db.SaveChanges();
                 }
+                else if(dateTimePicker1.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Ne možete rezervirati termin koji je prošao!");
+                } 
                 else
                 {
                     MessageBox.Show("Termin je već rezerviran!");

@@ -135,7 +135,7 @@
             this.Controls.Add(this.uiInputDoktor);
             this.Controls.Add(this.uiInputStanar);
             this.Name = "frmSastanakSDoktorom";
-            this.Text = "frmSastanakSDoktorom";
+            this.Text = "Ugovaranje sastanka s doktorom";
             this.Load += new System.EventHandler(this.frmSastanakSDoktorom_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSastanakSDoktorom_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
