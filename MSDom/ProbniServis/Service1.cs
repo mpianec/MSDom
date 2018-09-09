@@ -144,7 +144,7 @@ namespace ProbniServis
                     BindingList<korisnik> listaKorisnika = new BindingList<korisnik>(db.korisniks.ToList());
                     BindingList<rezervacijaPraonice> listaRezervacija = new BindingList<rezervacijaPraonice>(db.rezervacijaPraonices.ToList());
                     TimeSpan razlika = new TimeSpan(1, 0, 0);
-                    TimeSpan min = new TimeSpan(0, 0, 0);
+                    TimeSpan min = new TimeSpan(-1, 0, 0);
                     foreach (var item in listaRezervacija)
                     {
                         if (DateTime.Now.Subtract(item.datumVrijeme) <= razlika && DateTime.Now.Subtract(item.datumVrijeme)>=min)                       
