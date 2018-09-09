@@ -175,7 +175,14 @@ namespace MSDom
             }
 
 
-            Ispis.IspisNarudzbenice(idNalaz, listalijekova);
+            if (Ispis.IspisNarudzbenice(idNalaz, listalijekova)==true)
+            {
+                Ispis.IspisNarudzbenice(idNalaz, listalijekova);
+            }
+            else
+            {
+                MessageBox.Show("PDF je već otvoren");
+            }
         }
     }
 }
