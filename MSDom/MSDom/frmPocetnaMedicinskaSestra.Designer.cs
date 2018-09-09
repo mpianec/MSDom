@@ -84,7 +84,7 @@
             this.Controls.Add(this.uiActionPopuniZdKarton);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaMedicinskaSestra";
-            this.Text = "frmPocetnaMedicinskaSestra";
+            this.Text = "Medicinska sestra";
             this.ResumeLayout(false);
             this.PerformLayout();
 

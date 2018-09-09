@@ -220,7 +220,7 @@
             this.Controls.Add(this.uiOutputKorisnik);
             this.Controls.Add(this.uiOutputStanari);
             this.Name = "frmPopunjavanjeZdKartona";
-            this.Text = "frmPopunjavanjeZdKartona";
+            this.Text = "Pregled i popunjavnaje zdravstvenih kartona";
             this.Load += new System.EventHandler(this.frmPopunjavanjeZdKartona_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPopunjavanjeZdKartona_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputStanari)).EndInit();

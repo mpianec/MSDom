@@ -89,7 +89,7 @@
             this.Controls.Add(this.uiActionObrisi);
             this.Controls.Add(this.uiOutputSastanak);
             this.Name = "frmPregledSastanaka";
-            this.Text = "frmPregledSastanaka";
+            this.Text = "Pregled sastanaka";
             this.Load += new System.EventHandler(this.frmPregledSastanaka_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPregledSastanaka_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).EndInit();

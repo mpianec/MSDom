@@ -84,7 +84,7 @@
             this.Controls.Add(this.uiActionPopuniZdKarton);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaDoktor";
-            this.Text = "frmPocetnaDoktor";
+            this.Text = "Doktor";
             this.ResumeLayout(false);
             this.PerformLayout();
 
