@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(572, 260);
             this.Controls.Add(this.label1);
             this.Name = "frmF1SastanakSDoktorom";
-            this.Text = "frmF1SastanakSDoktorom";
+            this.Text = "Upute";
             this.ResumeLayout(false);
             this.PerformLayout();
 

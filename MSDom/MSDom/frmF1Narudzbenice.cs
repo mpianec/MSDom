@@ -15,8 +15,8 @@ namespace MSDom
         public frmF1Narudzbenice()
         {
             InitializeComponent();
-            label1.Text = "Na ovoj formi je složen pregled narudžbenica u obliku izvještaja kako bi\n" +
-                "bio omogućen ispis. Ako želimo promjeniti narudžbenicu koju ćemo vidjeti na izvještaju,\n" +
+            label1.Text = "Na ovoj formi je potrebno iz padajučeg izbornika odabrati narudžbenicu koju želimo isprintati i.\n" +
+                "pritisnuti tipku za ispis. Ako želimo promjeniti narudžbenicu koju ćemo vidjeti na izvještaju,\n" +
                 "samo iz padajućeg izbornika odaberemo drugu koju želimo ispisati.";
         }
     }
