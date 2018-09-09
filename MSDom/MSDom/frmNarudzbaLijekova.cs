@@ -17,16 +17,18 @@ namespace MSDom
             InitializeComponent();
             DohvatiLijekove();
         }
-
+        
         public void DohvatiLijekove()
         {
-
             BindingList<lijek> listaLijekica = null;
+
             using (var db = new MSDomEntities())
             {
 
                 listaLijekica = new BindingList<lijek>(db.lijeks.ToList());
-                lijekBindingSource.DataSource = listaLijekica;
+
+                var listica = listaLijekica.OrderBy(x => x.naziv).ToList();
+                lijekBindingSource.DataSource = listica;
 
             }
         }
@@ -92,5 +94,6 @@ namespace MSDom
                 forma.ShowDialog();
             }
         }
+
     }
 }
