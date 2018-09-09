@@ -29,30 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.label1 = new System.Windows.Forms.Label();
             this.uiOutputPrikaz = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lijekoviZaDijagnozuBindingSource
-            // 
-            this.lijekoviZaDijagnozuBindingSource.DataSource = typeof(MSDom.lijekoviZaDijagnozu);
-            // 
-            // nalazBindingSource
-            // 
-            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
-            // 
-            // lijekBindingSource
-            // 
-            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
             // 
             // label1
             // 
@@ -65,8 +55,8 @@
             // 
             // uiOutputPrikaz
             // 
-            this.uiOutputPrikaz.DataSource = this.nalazBindingSource;
-            this.uiOutputPrikaz.DisplayMember = "nazivBolesti";
+            this.uiOutputPrikaz.DataSource = this.korisnikBindingSource;
+            this.uiOutputPrikaz.DisplayMember = "ime";
             this.uiOutputPrikaz.FormattingEnabled = true;
             this.uiOutputPrikaz.Location = new System.Drawing.Point(31, 51);
             this.uiOutputPrikaz.Name = "uiOutputPrikaz";
@@ -94,6 +84,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lijekoviZaDijagnozuBindingSource
+            // 
+            this.lijekoviZaDijagnozuBindingSource.DataSource = typeof(MSDom.lijekoviZaDijagnozu);
+            // 
+            // nalazBindingSource
+            // 
+            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
+            // 
+            // lijekBindingSource
+            // 
+            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
+            // 
+            // korisnikBindingSource
+            // 
+            this.korisnikBindingSource.DataSource = typeof(MSDom.korisnik);
+            // 
             // frmNarudzbenice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,12 +110,13 @@
             this.Controls.Add(this.uiOutputPrikaz);
             this.Controls.Add(this.label1);
             this.Name = "frmNarudzbenice";
-            this.Text = "frmNarudzbenice";
+            this.Text = "Ispis narudžbenica lijekova za stanare";
             this.Load += new System.EventHandler(this.frmNarudzbenice_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmNarudzbenice_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +131,6 @@
         private System.Windows.Forms.BindingSource lijekBindingSource;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource korisnikBindingSource;
     }
 }
