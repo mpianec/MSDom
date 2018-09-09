@@ -83,8 +83,10 @@ namespace MSDom
                                   on lij.id equals od.lijekId
                                   join nal in db.nalazs
                                   on od.nalazId equals nal.id
+                                  join kor in db.korisniks
+                                  on nal.stanarId equals kor.id
                                   where(od.nalazId==idNalaz)
-                                  select new {od.id, lij.naziv,nal.dijagnoza };
+                                  select new {od.id, lij.naziv,nal.dijagnoza, kor.ime, kor.prezime };
                 uiOutputPrikazLijekovaINalaza.DataSource = listaLijeka.ToList();
             }
 
@@ -111,6 +113,40 @@ namespace MSDom
                 frmF1DodajLijekStanaru forma = new frmF1DodajLijekStanaru();
                 forma.ShowDialog();
             }
+        }
+
+        private void uiActionObrisi_Click(object sender, EventArgs e)
+        {
+            lijekoviZaDijagnozu lijek = null;
+            int id = int.Parse(uiOutputPrikazLijekovaINalaza.CurrentRow.Cells[0].Value.ToString());
+            using (var db = new MSDomEntities())
+            {
+                var odabir = from lij in db.lijekoviZaDijagnozus
+                             select lij.id;
+                if (odabir.ToList().Count > 0)
+                {
+
+                    BindingList<lijekoviZaDijagnozu> lista = new BindingList<lijekoviZaDijagnozu>(db.lijekoviZaDijagnozus.ToList());
+                    foreach (var item in lista)
+                    {
+                        if (item.id == id)
+                        {
+                            lijek = item;
+                        }
+                    }
+                    db.lijekoviZaDijagnozus.Attach(lijek);
+                    db.lijekoviZaDijagnozus.Remove(lijek);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Nema lijekaa za brisanje! ");
+                }
+            }
+
+            DohvatiLijekove();
+            DohvatiLijekoveZaDijagnozu();
+
         }
     }
 }
