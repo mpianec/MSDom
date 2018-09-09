@@ -35,12 +35,12 @@ namespace ProbniServis
                                 {
                                     MailMessage message = new MailMessage();
                                     SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                                    message.From = new MailAddress("mattaker.knot@gmail.com");
+                                    message.From = new MailAddress("pimsdom@gmail.com");
                                     message.To.Add(listaKorisnika[i].email.ToString());
                                     message.Subject = "Podsjetnik";
                                     message.Body = "Poštovani " + listaKorisnika[i].korisnickoIme + ", podsjećamo Vas da imate rezerviranu praonicu za: " + item.datumVrijeme;
                                     SmtpServer.Port = 587;
-                                    SmtpServer.Credentials = new System.Net.NetworkCredential("mattaker.knot@gmail.com", "grejtsejtan666");
+                                    SmtpServer.Credentials = new System.Net.NetworkCredential("pimsdom@gmail.com", "staracki1");
                                     SmtpServer.EnableSsl = true;
                                     SmtpServer.Send(message);
                                 }
@@ -108,7 +108,8 @@ namespace ProbniServis
 
 
                             for (int i = 0; i < listaKorisnika.Count(); i++)
-                                if (listaKorisnika[i].ulogaId == 1 && listaKorisnika[i].predbilježbaOd <= rezer && listaKorisnika[i].predbilježbaDo >= rezer && item.isteklaRezervacija == 0)
+                            
+                                if (listaKorisnika[i].ulogaId == 1 && listaKorisnika[i].predbilježbaOd <= rezer && listaKorisnika[i].predbilježbaDo >= rezer &&item.datumVrijeme<DateTime.Now && item.isteklaRezervacija == 0)
                                 {
                                     MailMessage message = new MailMessage();
                                     SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -121,9 +122,10 @@ namespace ProbniServis
                                     SmtpServer.EnableSsl = true;
                                     SmtpServer.Send(message);
                                 }
-                            db.rezervacijaPraonices.Attach(brisanjeRezervacije);
-                            brisanjeRezervacije.isteklaRezervacija = 1;
-                            db.SaveChanges();
+                                db.rezervacijaPraonices.Attach(brisanjeRezervacije);
+                                brisanjeRezervacije.isteklaRezervacija = 1;
+                                db.SaveChanges();
+                            
                         }
                     }
                 }
