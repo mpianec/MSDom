@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Matija\Documents\Kolegiji\3.godina\6.semestar\PI\Projekt\r18073\MSDom\MSDom\MSDomModel.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\PI projekt\r18073\MSDom\MSDom\MSDomModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

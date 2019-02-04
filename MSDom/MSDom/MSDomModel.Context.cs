@@ -43,5 +43,7 @@ namespace MSDom
         public virtual DbSet<tipSobe> tipSobes { get; set; }
         public virtual DbSet<uloga> ulogas { get; set; }
         public virtual DbSet<vasIzborDana> vasIzborDanas { get; set; }
+        public virtual DbSet<narudzbenica> narudzbenicas { get; set; }
+        public virtual DbSet<stavkeNarudzbenice> stavkeNarudzbenices { get; set; }
     }
 }

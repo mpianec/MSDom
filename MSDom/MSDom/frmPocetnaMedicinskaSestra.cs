@@ -31,7 +31,7 @@ namespace MSDom
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmNarudzbenice forma = new frmNarudzbenice();
+            frmKreiranjeNarudzbenice forma = new frmKreiranjeNarudzbenice();
             forma.ShowDialog();
         }
     }

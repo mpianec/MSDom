@@ -12,24 +12,19 @@ namespace MSDom
     using System;
     using System.Collections.Generic;
     
-    public partial class lijek
+    public partial class narudzbenica
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public lijek()
+        public narudzbenica()
         {
-            this.korisnikLijekas = new HashSet<korisnikLijeka>();
-            this.lijekoviZaDijagnozus = new HashSet<lijekoviZaDijagnozu>();
             this.stavkeNarudzbenices = new HashSet<stavkeNarudzbenice>();
         }
     
         public int id { get; set; }
-        public string naziv { get; set; }
-        public int kolicina { get; set; }
+        public int korisnikId { get; set; }
+        public System.DateTime datum { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<korisnikLijeka> korisnikLijekas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lijekoviZaDijagnozu> lijekoviZaDijagnozus { get; set; }
+        public virtual korisnik korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<stavkeNarudzbenice> stavkeNarudzbenices { get; set; }
     }

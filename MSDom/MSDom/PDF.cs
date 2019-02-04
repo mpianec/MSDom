@@ -10,6 +10,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
 using System.Diagnostics;
+using IspisPdf;
 
 namespace MSDom
 {

@@ -24,6 +24,7 @@ namespace MSDom
             this.sastanakSDoktoroms = new HashSet<sastanakSDoktorom>();
             this.sastanakSDoktoroms1 = new HashSet<sastanakSDoktorom>();
             this.vasIzborDanas = new HashSet<vasIzborDana>();
+            this.narudzbenicas = new HashSet<narudzbenica>();
         }
     
         public int id { get; set; }
@@ -53,5 +54,7 @@ namespace MSDom
         public virtual ICollection<sastanakSDoktorom> sastanakSDoktoroms1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vasIzborDana> vasIzborDanas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<narudzbenica> narudzbenicas { get; set; }
     }
 }

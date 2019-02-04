@@ -189,6 +189,12 @@
     <Compile Include="frmJelovnikUnos.Designer.cs">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKreiranjeNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKreiranjeNarudzbenice.Designer.cs">
+      <DependentUpon>frmKreiranjeNarudzbenice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKreiranjePonudeDorucak.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,12 @@
     <Compile Include="frmSastanakSDoktorom.Designer.cs">
       <DependentUpon>frmSastanakSDoktorom.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStavkeNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStavkeNarudzbenice.Designer.cs">
+      <DependentUpon>frmStavkeNarudzbenice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStvoriAnketu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +393,9 @@
     <Compile Include="nalaz.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="narudzbenica.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PDF.cs" />
     <Compile Include="pitanje.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
@@ -407,7 +422,9 @@
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="StavkeNarudzbenice.cs" />
+    <Compile Include="StavkeNarudzbenice.cs">
+      <DependentUpon>MSDomModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tipSobe.cs">
       <DependentUpon>MSDomModel.tt</DependentUpon>
     </Compile>
@@ -470,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmJelovnikUnos.resx">
       <DependentUpon>frmJelovnikUnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKreiranjeNarudzbenice.resx">
+      <DependentUpon>frmKreiranjeNarudzbenice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKreiranjePonudeDorucak.resx">
       <DependentUpon>frmKreiranjePonudeDorucak.cs</DependentUpon>
@@ -546,6 +566,9 @@
     <EmbeddedResource Include="frmSastanakSDoktorom.resx">
       <DependentUpon>frmSastanakSDoktorom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStavkeNarudzbenice.resx">
+      <DependentUpon>frmStavkeNarudzbenice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStvoriAnketu.resx">
       <DependentUpon>frmStvoriAnketu.cs</DependentUpon>
     </EmbeddedResource>
@@ -575,6 +598,7 @@
     <None Include="Properties\DataSources\lijek.datasource" />
     <None Include="Properties\DataSources\lijekoviZaDijagnozu.datasource" />
     <None Include="Properties\DataSources\nalaz.datasource" />
+    <None Include="Properties\DataSources\narudzbenica.datasource" />
     <None Include="Properties\DataSources\pitanje.datasource" />
     <None Include="Properties\DataSources\pitanjeSAnkete.datasource" />
     <None Include="Properties\DataSources\podsjetnik.datasource" />

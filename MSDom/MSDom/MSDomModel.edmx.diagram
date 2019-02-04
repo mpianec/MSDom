@@ -41,6 +41,11 @@
         <AssociationConnector Association="MSDomDBModel.fk_pitanjeSAnkete_pitanje_1" ManuallyRouted="false" />
         <AssociationConnector Association="MSDomDBModel.fk_rezervacijaPraonice_praonica_1" ManuallyRouted="false" />
         <AssociationConnector Association="MSDomDBModel.fk_soba_tipSobe_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MSDomDBModel.narudzbenica" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="MSDomDBModel.stavkeNarudzbenice" Width="1.5" PointX="10.5" PointY="2.625" />
+        <AssociationConnector Association="MSDomDBModel.FK_narudzbenica_korisnik" />
+        <AssociationConnector Association="MSDomDBModel.FK_stavkeNarudzbenice_lijek" />
+        <AssociationConnector Association="MSDomDBModel.FK_stavkeNarudzbenice_narudzbenica" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

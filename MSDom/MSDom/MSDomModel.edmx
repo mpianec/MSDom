@@ -81,6 +81,14 @@
           <Property Name="stanarId" Type="int" Nullable="false" />
           <Property Name="datum" Type="date" />
         </EntityType>
+        <EntityType Name="narudzbenica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="korisnikId" Type="int" Nullable="false" />
+          <Property Name="datum" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="pitanje">
           <Key>
             <PropertyRef Name="id" />
@@ -141,6 +149,15 @@
           <Property Name="brojKreveta" Type="int" Nullable="false" />
           <Property Name="brojPopunjenihKreveta" Type="int" Nullable="false" />
           <Property Name="tipSobeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stavkeNarudzbenice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="lijekId" Type="int" Nullable="false" />
+          <Property Name="narudzbenicaId" Type="int" Nullable="false" />
+          <Property Name="kolicina" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tipSobe">
           <Key>
@@ -261,6 +278,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_narudzbenica_korisnik">
+          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
+          <End Role="narudzbenica" Type="Self.narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="narudzbenica">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_pitanjeSAnkete_anketa_1">
           <End Role="anketa" Type="Self.anketa" Multiplicity="1" />
           <End Role="pitanjeSAnkete" Type="Self.pitanjeSAnkete" Multiplicity="*" />
@@ -357,6 +386,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_stavkeNarudzbenice_lijek">
+          <End Role="lijek" Type="Self.lijek" Multiplicity="1" />
+          <End Role="stavkeNarudzbenice" Type="Self.stavkeNarudzbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stavkeNarudzbenice">
+              <PropertyRef Name="lijekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stavkeNarudzbenice_narudzbenica">
+          <End Role="narudzbenica" Type="Self.narudzbenica" Multiplicity="1" />
+          <End Role="stavkeNarudzbenice" Type="Self.stavkeNarudzbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="narudzbenica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stavkeNarudzbenice">
+              <PropertyRef Name="narudzbenicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_vasIzborDana_izbor_1">
           <End Role="izbor" Type="Self.izbor" Multiplicity="1" />
           <End Role="vasIzborDana" Type="Self.vasIzborDana" Multiplicity="*" />
@@ -390,6 +443,7 @@
           <EntitySet Name="lijek" EntityType="Self.lijek" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lijekoviZaDijagnozu" EntityType="Self.lijekoviZaDijagnozu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nalaz" EntityType="Self.nalaz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="narudzbenica" EntityType="Self.narudzbenica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pitanje" EntityType="Self.pitanje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pitanjeSAnkete" EntityType="Self.pitanjeSAnkete" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="podsjetnik" EntityType="Self.podsjetnik" Schema="dbo" store:Type="Tables" />
@@ -397,6 +451,7 @@
           <EntitySet Name="rezervacijaPraonice" EntityType="Self.rezervacijaPraonice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sastanakSDoktorom" EntityType="Self.sastanakSDoktorom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="soba" EntityType="Self.soba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stavkeNarudzbenice" EntityType="Self.stavkeNarudzbenice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipSobe" EntityType="Self.tipSobe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uloga" EntityType="Self.uloga" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vasIzborDana" EntityType="Self.vasIzborDana" Schema="dbo" store:Type="Tables" />
@@ -432,6 +487,10 @@
             <End Role="korisnik" EntitySet="korisnik" />
             <End Role="nalaz" EntitySet="nalaz" />
           </AssociationSet>
+          <AssociationSet Name="FK_narudzbenica_korisnik" Association="Self.FK_narudzbenica_korisnik">
+            <End Role="korisnik" EntitySet="korisnik" />
+            <End Role="narudzbenica" EntitySet="narudzbenica" />
+          </AssociationSet>
           <AssociationSet Name="fk_pitanjeSAnkete_anketa_1" Association="Self.fk_pitanjeSAnkete_anketa_1">
             <End Role="anketa" EntitySet="anketa" />
             <End Role="pitanjeSAnkete" EntitySet="pitanjeSAnkete" />
@@ -463,6 +522,14 @@
           <AssociationSet Name="fk_soba_tipSobe_1" Association="Self.fk_soba_tipSobe_1">
             <End Role="tipSobe" EntitySet="tipSobe" />
             <End Role="soba" EntitySet="soba" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stavkeNarudzbenice_lijek" Association="Self.FK_stavkeNarudzbenice_lijek">
+            <End Role="lijek" EntitySet="lijek" />
+            <End Role="stavkeNarudzbenice" EntitySet="stavkeNarudzbenice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stavkeNarudzbenice_narudzbenica" Association="Self.FK_stavkeNarudzbenice_narudzbenica">
+            <End Role="narudzbenica" EntitySet="narudzbenica" />
+            <End Role="stavkeNarudzbenice" EntitySet="stavkeNarudzbenice" />
           </AssociationSet>
           <AssociationSet Name="fk_vasIzborDana_izbor_1" Association="Self.fk_vasIzborDana_izbor_1">
             <End Role="izbor" EntitySet="izbor" />
@@ -531,6 +598,7 @@
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="predbilježbaOd" Type="Time" Precision="7" />
           <Property Name="predbilježbaDo" Type="Time" Precision="7" />
+          <NavigationProperty Name="narudzbenicas" Relationship="MSDomDBModel.FK_narudzbenica_korisnik" FromRole="korisnik" ToRole="narudzbenica" />
         </EntityType>
         <EntityType Name="korisnikLijeka">
           <Key>
@@ -551,6 +619,7 @@
           <Property Name="kolicina" Type="Int32" Nullable="false" />
           <NavigationProperty Name="korisnikLijekas" Relationship="Self.fk_korisnikLijeka_lijek_1" FromRole="lijek" ToRole="korisnikLijeka" />
           <NavigationProperty Name="lijekoviZaDijagnozus" Relationship="Self.fk_lijekoviZaDijagnozu_lijek_1" FromRole="lijek" ToRole="lijekoviZaDijagnozu" />
+          <NavigationProperty Name="stavkeNarudzbenices" Relationship="MSDomDBModel.FK_stavkeNarudzbenice_lijek" FromRole="lijek" ToRole="stavkeNarudzbenice" />
         </EntityType>
         <EntityType Name="lijekoviZaDijagnozu">
           <Key>
@@ -980,7 +1049,78 @@
             <End Role="tipSobe" EntitySet="tipSobes" />
             <End Role="soba" EntitySet="sobas" />
           </AssociationSet>
+          <EntitySet Name="narudzbenicas" EntityType="MSDomDBModel.narudzbenica" />
+          <EntitySet Name="stavkeNarudzbenices" EntityType="MSDomDBModel.stavkeNarudzbenice" />
+          <AssociationSet Name="FK_narudzbenica_korisnik" Association="MSDomDBModel.FK_narudzbenica_korisnik">
+            <End Role="korisnik" EntitySet="korisniks" />
+            <End Role="narudzbenica" EntitySet="narudzbenicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stavkeNarudzbenice_lijek" Association="MSDomDBModel.FK_stavkeNarudzbenice_lijek">
+            <End Role="lijek" EntitySet="lijeks" />
+            <End Role="stavkeNarudzbenice" EntitySet="stavkeNarudzbenices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stavkeNarudzbenice_narudzbenica" Association="MSDomDBModel.FK_stavkeNarudzbenice_narudzbenica">
+            <End Role="narudzbenica" EntitySet="narudzbenicas" />
+            <End Role="stavkeNarudzbenice" EntitySet="stavkeNarudzbenices" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="narudzbenica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="korisnikId" Type="Int32" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="korisnik" Relationship="MSDomDBModel.FK_narudzbenica_korisnik" FromRole="narudzbenica" ToRole="korisnik" />
+          <NavigationProperty Name="stavkeNarudzbenices" Relationship="MSDomDBModel.FK_stavkeNarudzbenice_narudzbenica" FromRole="narudzbenica" ToRole="stavkeNarudzbenice" />
+        </EntityType>
+        <EntityType Name="stavkeNarudzbenice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lijekId" Type="Int32" Nullable="false" />
+          <Property Name="narudzbenicaId" Type="Int32" Nullable="false" />
+          <Property Name="kolicina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lijek" Relationship="MSDomDBModel.FK_stavkeNarudzbenice_lijek" FromRole="stavkeNarudzbenice" ToRole="lijek" />
+          <NavigationProperty Name="narudzbenica" Relationship="MSDomDBModel.FK_stavkeNarudzbenice_narudzbenica" FromRole="stavkeNarudzbenice" ToRole="narudzbenica" />
+        </EntityType>
+        <Association Name="FK_narudzbenica_korisnik">
+          <End Type="MSDomDBModel.korisnik" Role="korisnik" Multiplicity="1" />
+          <End Type="MSDomDBModel.narudzbenica" Role="narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnik">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="narudzbenica">
+              <PropertyRef Name="korisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stavkeNarudzbenice_lijek">
+          <End Type="MSDomDBModel.lijek" Role="lijek" Multiplicity="1" />
+          <End Type="MSDomDBModel.stavkeNarudzbenice" Role="stavkeNarudzbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lijek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stavkeNarudzbenice">
+              <PropertyRef Name="lijekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stavkeNarudzbenice_narudzbenica">
+          <End Type="MSDomDBModel.narudzbenica" Role="narudzbenica" Multiplicity="1" />
+          <End Type="MSDomDBModel.stavkeNarudzbenice" Role="stavkeNarudzbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="narudzbenica">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stavkeNarudzbenice">
+              <PropertyRef Name="narudzbenicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1162,6 +1302,25 @@
                 <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
                 <ScalarProperty Name="izborId" ColumnName="izborId" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="narudzbenicas">
+            <EntityTypeMapping TypeName="MSDomDBModel.narudzbenica">
+              <MappingFragment StoreEntitySet="narudzbenica">
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="korisnikId" ColumnName="korisnikId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stavkeNarudzbenices">
+            <EntityTypeMapping TypeName="MSDomDBModel.stavkeNarudzbenice">
+              <MappingFragment StoreEntitySet="stavkeNarudzbenice">
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="narudzbenicaId" ColumnName="narudzbenicaId" />
+                <ScalarProperty Name="lijekId" ColumnName="lijekId" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

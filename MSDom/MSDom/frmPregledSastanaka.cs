@@ -54,8 +54,8 @@ namespace MSDom
             {
                 var odabir = from sas in db.sastanakSDoktoroms
                              join kor in db.korisniks
-                             on sas.stanarId equals kor.id
-                             select sas.id;
+                             on sas.stanarId equals kor.id where sas.datumVrijeme>=DateTime.Now
+                             select sas.id ;
                 if (odabir.ToList().Count>0)
                 {
                     int id =int.Parse(uiOutputSastanak.CurrentRow.Cells[0].Value.ToString());
