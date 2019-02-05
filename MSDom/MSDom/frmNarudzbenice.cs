@@ -170,7 +170,7 @@ namespace MSDom
                            join kor in db.korisniks
                            on nal.stanarId equals kor.id
                            where (kor.id == idNalaz)
-                           select new IspisPdf.StavkeNarudzbenice { ID = lij.id, Naziv = lij.naziv };
+                           select new IspisPdf.StavkeNarudzbenice { Kolicina = lij.id, Naziv = lij.naziv };
                 listalijekova = temp.ToList();
             }
 

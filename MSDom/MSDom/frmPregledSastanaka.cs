@@ -27,7 +27,7 @@ namespace MSDom
             {
                 var listaSastanak = from sas in db.sastanakSDoktoroms
                                     join kor in db.korisniks
-                                    on sas.stanarId equals kor.id
+                                    on sas.stanarId equals kor.id where sas.datumVrijeme >= DateTime.Now
                                     where (kor.id == sas.stanarId)
                                     select new { sas.id, kor.ime , sas.datumVrijeme };
                 var listica = listaSastanak.OrderBy(x => x.datumVrijeme);
@@ -54,7 +54,7 @@ namespace MSDom
             {
                 var odabir = from sas in db.sastanakSDoktoroms
                              join kor in db.korisniks
-                             on sas.stanarId equals kor.id where sas.datumVrijeme>=DateTime.Now
+                             on sas.stanarId equals kor.id
                              select sas.id ;
                 if (odabir.ToList().Count>0)
                 {

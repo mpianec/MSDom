@@ -111,6 +111,12 @@
     <Compile Include="frmAzuriranjeKorisnika.Designer.cs">
       <DependentUpon>frmAzuriranjeKorisnika.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAzuriranjeStavkeNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzuriranjeStavkeNarudzbenice.Designer.cs">
+      <DependentUpon>frmAzuriranjeStavkeNarudzbenice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBrisanjeAzuriranjeJelovnika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -449,6 +455,9 @@
     <EmbeddedResource Include="frmAzuriranjeKorisnika.resx">
       <DependentUpon>frmAzuriranjeKorisnika.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAzuriranjeStavkeNarudzbenice.resx">
+      <DependentUpon>frmAzuriranjeStavkeNarudzbenice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBrisanjeAzuriranjeJelovnika.resx">
       <DependentUpon>frmBrisanjeAzuriranjeJelovnika.cs</DependentUpon>
     </EmbeddedResource>
@@ -604,6 +613,7 @@
     <None Include="Properties\DataSources\podsjetnik.datasource" />
     <None Include="Properties\DataSources\sastanakSDoktorom.datasource" />
     <None Include="Properties\DataSources\soba.datasource" />
+    <None Include="Properties\DataSources\stavkeNarudzbenice.datasource" />
     <None Include="Properties\DataSources\uloga.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

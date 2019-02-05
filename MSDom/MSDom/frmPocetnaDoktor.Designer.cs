@@ -40,7 +40,7 @@
             this.uiActionNaruči.Name = "uiActionNaruči";
             this.uiActionNaruči.Size = new System.Drawing.Size(153, 33);
             this.uiActionNaruči.TabIndex = 6;
-            this.uiActionNaruči.Text = "Naručivanje lijekova";
+            this.uiActionNaruči.Text = "Dodavanje novih lijekova";
             this.uiActionNaruči.UseVisualStyleBackColor = true;
             this.uiActionNaruči.Click += new System.EventHandler(this.uiActionNaruči_Click);
             // 
