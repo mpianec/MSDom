@@ -85,8 +85,8 @@ namespace MSDom
                 for (int i = 0; i < popisLijekova.Count; i++)
                 {
                     table.AddCell(new Phrase((i + 1).ToString(), tablica));
-                    table.AddCell(new Phrase(popisLijekova[i].ID.ToString(), tablica)); 
                     table.AddCell(new Phrase(popisLijekova[i].Naziv, tablica));
+                    table.AddCell(new Phrase(popisLijekova[i].Kolicina.ToString(), tablica));
                 }
                 
                 doc.Add(table);

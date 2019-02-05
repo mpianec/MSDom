@@ -79,14 +79,14 @@ namespace IspisPdf
                 table.HeaderRows = 1;
 
                 table.AddCell(new Phrase("Rbr.", tablica));
-                table.AddCell(new Phrase("Lijek ID.", tablica));
-                table.AddCell(new Phrase("Naziv.", tablica));
+                table.AddCell(new Phrase("Naziv lijeka", tablica));
+                table.AddCell(new Phrase("Količina", tablica));
 
                 for (int i = 0; i < popisLijekova.Count; i++)
                 {
                     table.AddCell(new Phrase((i + 1).ToString(), tablica));
-                    table.AddCell(new Phrase(popisLijekova[i].ID.ToString(), tablica));
                     table.AddCell(new Phrase(popisLijekova[i].Naziv, tablica));
+                    table.AddCell(new Phrase(popisLijekova[i].Kolicina.ToString(), tablica));
                 }
 
                 doc.Add(table);

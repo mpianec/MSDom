@@ -8,7 +8,7 @@ namespace IspisPdf
 {
     public class StavkeNarudzbenice
     {
-        public int ID { get; set; }
+        public int Kolicina { get; set; }
         public string Naziv { get; set; }
     }
 }
