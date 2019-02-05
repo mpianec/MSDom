@@ -97,7 +97,7 @@
             this.groupBox1.Size = new System.Drawing.Size(344, 132);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Naručivanje nove količine lijeka";
+            this.groupBox1.Text = "Unošenje količine lijeka u bazu";
             // 
             // uiActionUnosKolicine
             // 
