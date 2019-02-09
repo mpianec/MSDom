@@ -15,10 +15,9 @@ namespace MSDom
         public frmF1DodajLijekStanaru()
         {
             InitializeComponent();
-            label1.Text = "U tablici su vam prikazani svi dodijeljeni lijekovi po jednom nalazu.\n" +
-                "Ukoliko želite promjeniti nalaz, iz padajućeg izbronika smao odaberete neki drugi nalaz.\n" +
-                "Ukoliko određenom nalazu želite dodati lijek iz padajućeg izbornika izaberete lijek\n" +
-                "i kliknete na gumb 'Dodaj'";
+            label1.Text = "U tablici su vam prikazani svi lijekovi.\n" +
+                "Za prethodno odabrani nalaz možete dodati novi lijek, odabirom lijeka iz prikaza te klikom na gumb Odaberi.\n" +
+                "Imate prikaz dodijeljenih lijekova nekom nalazu te ih pritiskom na gumb Obrisi možete obrisati\n";
         }
         
     }

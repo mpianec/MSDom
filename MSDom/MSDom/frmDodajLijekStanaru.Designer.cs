@@ -29,109 +29,61 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.uiOutputPrikazLijekovaINalaza = new System.Windows.Forms.DataGridView();
-            this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uiInputNalaz = new System.Windows.Forms.ComboBox();
-            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uiInputLijek = new System.Windows.Forms.ComboBox();
-            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.uiActionDodaj = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiOutputPrikazLijekova = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.uiActionDodaj = new System.Windows.Forms.Button();
             this.uiActionObrisi = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekovaINalaza)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uiOutputLijekoviZaDijagnozu = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.korisnikLijekasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lijekoviZaDijagnozuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nalazBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.uiOutputPretraga = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekova)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiOutputLijekoviZaDijagnozu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // uiOutputPrikazLijekovaINalaza
+            // uiOutputPrikazLijekova
             // 
-            this.uiOutputPrikazLijekovaINalaza.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.uiOutputPrikazLijekovaINalaza.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uiOutputPrikazLijekovaINalaza.Location = new System.Drawing.Point(33, 149);
-            this.uiOutputPrikazLijekovaINalaza.Name = "uiOutputPrikazLijekovaINalaza";
-            this.uiOutputPrikazLijekovaINalaza.Size = new System.Drawing.Size(732, 256);
-            this.uiOutputPrikazLijekovaINalaza.TabIndex = 0;
+            this.uiOutputPrikazLijekova.AutoGenerateColumns = false;
+            this.uiOutputPrikazLijekova.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.uiOutputPrikazLijekova.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uiOutputPrikazLijekova.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nazivDataGridViewTextBoxColumn,
+            this.kolicinaDataGridViewTextBoxColumn,
+            this.korisnikLijekasDataGridViewTextBoxColumn,
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn,
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn});
+            this.uiOutputPrikazLijekova.DataSource = this.lijekBindingSource;
+            this.uiOutputPrikazLijekova.Location = new System.Drawing.Point(12, 103);
+            this.uiOutputPrikazLijekova.Name = "uiOutputPrikazLijekova";
+            this.uiOutputPrikazLijekova.Size = new System.Drawing.Size(368, 268);
+            this.uiOutputPrikazLijekova.TabIndex = 0;
             // 
-            // lijekoviZaDijagnozuBindingSource
+            // label4
             // 
-            this.lijekoviZaDijagnozuBindingSource.DataSource = typeof(MSDom.lijekoviZaDijagnozu);
-            // 
-            // uiInputNalaz
-            // 
-            this.uiInputNalaz.DataSource = this.nalazBindingSource;
-            this.uiInputNalaz.DisplayMember = "dijagnoza";
-            this.uiInputNalaz.FormattingEnabled = true;
-            this.uiInputNalaz.Location = new System.Drawing.Point(87, 96);
-            this.uiInputNalaz.Name = "uiInputNalaz";
-            this.uiInputNalaz.Size = new System.Drawing.Size(176, 21);
-            this.uiInputNalaz.TabIndex = 1;
-            this.uiInputNalaz.ValueMember = "id";
-            this.uiInputNalaz.SelectedIndexChanged += new System.EventHandler(this.uiInputNalaz_SelectedIndexChanged);
-            // 
-            // nalazBindingSource
-            // 
-            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
-            // 
-            // uiInputLijek
-            // 
-            this.uiInputLijek.DataSource = this.lijekBindingSource;
-            this.uiInputLijek.DisplayMember = "naziv";
-            this.uiInputLijek.FormattingEnabled = true;
-            this.uiInputLijek.Location = new System.Drawing.Point(87, 59);
-            this.uiInputLijek.Name = "uiInputLijek";
-            this.uiInputLijek.Size = new System.Drawing.Size(176, 21);
-            this.uiInputLijek.TabIndex = 2;
-            this.uiInputLijek.ValueMember = "id";
-            // 
-            // lijekBindingSource
-            // 
-            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(87, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Lijek";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nalaz";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Id";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(904, 428);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Pritisnite F1 za pomoć";
             // 
             // uiActionDodaj
             // 
-            this.uiActionDodaj.Location = new System.Drawing.Point(321, 23);
+            this.uiActionDodaj.Location = new System.Drawing.Point(12, 377);
             this.uiActionDodaj.Name = "uiActionDodaj";
             this.uiActionDodaj.Size = new System.Drawing.Size(115, 39);
             this.uiActionDodaj.TabIndex = 7;
@@ -139,35 +91,9 @@
             this.uiActionDodaj.UseVisualStyleBackColor = true;
             this.uiActionDodaj.Click += new System.EventHandler(this.uiActionDodaj_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.uiActionObrisi);
-            this.groupBox1.Controls.Add(this.uiActionDodaj);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.uiInputLijek);
-            this.groupBox1.Controls.Add(this.uiInputNalaz);
-            this.groupBox1.Location = new System.Drawing.Point(28, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 134);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dodavanje lijeka nalazu";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(598, 425);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Pritisnite F1 za pomoć";
-            // 
             // uiActionObrisi
             // 
-            this.uiActionObrisi.Location = new System.Drawing.Point(321, 73);
+            this.uiActionObrisi.Location = new System.Drawing.Point(445, 377);
             this.uiActionObrisi.Name = "uiActionObrisi";
             this.uiActionObrisi.Size = new System.Drawing.Size(115, 39);
             this.uiActionObrisi.TabIndex = 8;
@@ -175,24 +101,130 @@
             this.uiActionObrisi.UseVisualStyleBackColor = true;
             this.uiActionObrisi.Click += new System.EventHandler(this.uiActionObrisi_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Izaberite lijek";
+            // 
+            // uiOutputLijekoviZaDijagnozu
+            // 
+            this.uiOutputLijekoviZaDijagnozu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.uiOutputLijekoviZaDijagnozu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.uiOutputLijekoviZaDijagnozu.Location = new System.Drawing.Point(445, 103);
+            this.uiOutputLijekoviZaDijagnozu.Name = "uiOutputLijekoviZaDijagnozu";
+            this.uiOutputLijekoviZaDijagnozu.Size = new System.Drawing.Size(569, 268);
+            this.uiOutputLijekoviZaDijagnozu.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(501, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(167, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Pregled dodanih lijekova dijagnozi";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nazivDataGridViewTextBoxColumn
+            // 
+            this.nazivDataGridViewTextBoxColumn.DataPropertyName = "naziv";
+            this.nazivDataGridViewTextBoxColumn.HeaderText = "naziv";
+            this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
+            this.nazivDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // kolicinaDataGridViewTextBoxColumn
+            // 
+            this.kolicinaDataGridViewTextBoxColumn.DataPropertyName = "kolicina";
+            this.kolicinaDataGridViewTextBoxColumn.HeaderText = "kolicina";
+            this.kolicinaDataGridViewTextBoxColumn.Name = "kolicinaDataGridViewTextBoxColumn";
+            this.kolicinaDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // korisnikLijekasDataGridViewTextBoxColumn
+            // 
+            this.korisnikLijekasDataGridViewTextBoxColumn.DataPropertyName = "korisnikLijekas";
+            this.korisnikLijekasDataGridViewTextBoxColumn.HeaderText = "korisnikLijekas";
+            this.korisnikLijekasDataGridViewTextBoxColumn.Name = "korisnikLijekasDataGridViewTextBoxColumn";
+            this.korisnikLijekasDataGridViewTextBoxColumn.Visible = false;
+            this.korisnikLijekasDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // lijekoviZaDijagnozusDataGridViewTextBoxColumn
+            // 
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn.DataPropertyName = "lijekoviZaDijagnozus";
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn.HeaderText = "lijekoviZaDijagnozus";
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn.Name = "lijekoviZaDijagnozusDataGridViewTextBoxColumn";
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn.Visible = false;
+            this.lijekoviZaDijagnozusDataGridViewTextBoxColumn.Width = 129;
+            // 
+            // stavkeNarudzbenicesDataGridViewTextBoxColumn
+            // 
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn.DataPropertyName = "stavkeNarudzbenices";
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn.HeaderText = "stavkeNarudzbenices";
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn.Name = "stavkeNarudzbenicesDataGridViewTextBoxColumn";
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn.Visible = false;
+            this.stavkeNarudzbenicesDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // lijekBindingSource
+            // 
+            this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
+            // 
+            // lijekoviZaDijagnozuBindingSource
+            // 
+            this.lijekoviZaDijagnozuBindingSource.DataSource = typeof(MSDom.lijekoviZaDijagnozu);
+            // 
+            // nalazBindingSource
+            // 
+            this.nalazBindingSource.DataSource = typeof(MSDom.nalaz);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Pretraži lijekove";
+            // 
+            // uiOutputPretraga
+            // 
+            this.uiOutputPretraga.Location = new System.Drawing.Point(108, 23);
+            this.uiOutputPretraga.Name = "uiOutputPretraga";
+            this.uiOutputPretraga.Size = new System.Drawing.Size(139, 20);
+            this.uiOutputPretraga.TabIndex = 14;
+            this.uiOutputPretraga.TextChanged += new System.EventHandler(this.uiOutputPretraga_TextChanged);
+            // 
             // frmDodajLijekStanaru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1026, 450);
+            this.Controls.Add(this.uiOutputPretraga);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.uiOutputLijekoviZaDijagnozu);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uiActionObrisi);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.uiOutputPrikazLijekovaINalaza);
+            this.Controls.Add(this.uiActionDodaj);
+            this.Controls.Add(this.uiOutputPrikazLijekova);
             this.Name = "frmDodajLijekStanaru";
             this.Text = "Dodjeljivanje lijeka stanaru";
             this.Load += new System.EventHandler(this.frmDodajLijekStanaru_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDodajLijekStanaru_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekovaINalaza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiOutputPrikazLijekova)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiOutputLijekoviZaDijagnozu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lijekoviZaDijagnozuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nalazBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,19 +232,23 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView uiOutputPrikazLijekovaINalaza;
+        private System.Windows.Forms.DataGridView uiOutputPrikazLijekova;
         private System.Windows.Forms.BindingSource lijekoviZaDijagnozuBindingSource;
-        private System.Windows.Forms.ComboBox uiInputNalaz;
-        private System.Windows.Forms.ComboBox uiInputLijek;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button uiActionDodaj;
         private System.Windows.Forms.BindingSource nalazBindingSource;
         private System.Windows.Forms.BindingSource lijekBindingSource;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn korisnikLijekasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lijekoviZaDijagnozusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stavkeNarudzbenicesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button uiActionDodaj;
         private System.Windows.Forms.Button uiActionObrisi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView uiOutputLijekoviZaDijagnozu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox uiOutputPretraga;
     }
 }

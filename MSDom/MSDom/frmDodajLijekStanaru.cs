@@ -12,25 +12,39 @@ namespace MSDom
 {
     public partial class frmDodajLijekStanaru : Form
     {
-        public frmDodajLijekStanaru()
+        int brojNalaza;
+        int ID;
+        public frmDodajLijekStanaru(int id)
         {
             InitializeComponent();
+
+            ID = id;
             DohvatiLijekove();
             DohvatiNalaze();
             DohvatiLijekoveZaDijagnozu();
         }
 
+        BindingList<lijek> listaLijekica = null;
+
         private void uiActionDodaj_Click(object sender, EventArgs e)
         {
-            using (var db = new MSDomEntities())
+            int? id = int.Parse(uiOutputPrikazLijekova.CurrentRow.Cells[0].Value.ToString());
+            if (id!=null)
             {
-                lijekoviZaDijagnozu lijek = new lijekoviZaDijagnozu();
-                lijek.lijekId = int.Parse(uiInputLijek.SelectedValue.ToString());
-                lijek.nalazId = int.Parse(uiInputNalaz.SelectedValue.ToString());
-                db.lijekoviZaDijagnozus.Add(lijek);
-                db.SaveChanges();
+                using (var db = new MSDomEntities())
+                {
+                    lijekoviZaDijagnozu novaDijagnoza = new lijekoviZaDijagnozu
+                    {
+                        lijekId = int.Parse(uiOutputPrikazLijekova.CurrentRow.Cells[0].Value.ToString()),
+                        nalazId = ID
+                    };
+
+                    db.lijekoviZaDijagnozus.Add(novaDijagnoza);
+                    db.SaveChanges();
+                    DohvatiLijekoveZaDijagnozu();
+                }
             }
-            DohvatiLijekoveZaDijagnozu();
+            
         }
         /// <summary>
         /// Metoda DohvatiLijekove() vraća sve nalaze iz baze podataka i sprema ih sa bindingsourceom
@@ -39,7 +53,7 @@ namespace MSDom
         public void DohvatiLijekove()
         {
 
-            BindingList<lijek> listaLijekica = null;
+            
             using (var db = new MSDomEntities())
             {
 
@@ -68,7 +82,7 @@ namespace MSDom
         /// </summary>
         public void DohvatiLijekoveZaDijagnozu()
         {
-            int idNalaz = int.Parse(uiInputNalaz.SelectedValue.ToString());
+            //int idNalaz = int.Parse(uiInputNalaz.SelectedValue.ToString());
             /* using (var db = new MSDomEntities())
              {
                  var listaLijekova = from nalaz in db.lijekoviZaDijagnozus
@@ -85,9 +99,30 @@ namespace MSDom
                                   on od.nalazId equals nal.id
                                   join kor in db.korisniks
                                   on nal.stanarId equals kor.id
-                                  where(od.nalazId==idNalaz)
-                                  select new {od.id, lij.naziv,nal.dijagnoza, kor.ime, kor.prezime };
-                uiOutputPrikazLijekovaINalaza.DataSource = listaLijeka.ToList();
+                                  where(nal.id==ID)
+                                  select new {od.id, kor.ime, kor.prezime, nal.dijagnoza, lij.naziv };
+                //uiOutputPrikazLijekova.DataSource = listaLijeka.ToList();
+                var listica = listaLijeka.OrderBy(x => x.id).ToList();
+                uiOutputLijekoviZaDijagnozu.DataSource = null;
+                uiOutputLijekoviZaDijagnozu.DataSource = listica;
+
+                var listaSvega = from lij in db.lijeks
+                                 join od in db.lijekoviZaDijagnozus
+                                 on lij.id equals od.lijekId
+                                 join nal in db.nalazs
+                                 on od.nalazId equals nal.id
+                                 join kor in db.korisniks
+                                 on nal.stanarId equals kor.id
+                                 select new { od.id, lij.naziv, nal.dijagnoza, kor.ime, kor.prezime };
+                var listicaSvega = listaSvega.OrderBy(x => x.id).ToList();
+                if (listicaSvega.ToArray().Length == 0)
+                {
+                    brojNalaza = 0;
+                }
+                else
+                {
+                    brojNalaza = listicaSvega[listicaSvega.ToArray().Length - 1].id + 1;
+                }
             }
 
 
@@ -118,7 +153,7 @@ namespace MSDom
         private void uiActionObrisi_Click(object sender, EventArgs e)
         {
             lijekoviZaDijagnozu lijek = null;
-            int id = int.Parse(uiOutputPrikazLijekovaINalaza.CurrentRow.Cells[0].Value.ToString());
+            int id = int.Parse(uiOutputLijekoviZaDijagnozu.CurrentRow.Cells[0].Value.ToString());
             using (var db = new MSDomEntities())
             {
                 var odabir = from lij in db.lijekoviZaDijagnozus
@@ -148,5 +183,33 @@ namespace MSDom
             DohvatiLijekoveZaDijagnozu();
 
         }
+
+        private void uiOutputPretraga_TextChanged(object sender, EventArgs e)
+        {
+            using (var db = new MSDomEntities())
+            {
+                string pretraga = uiOutputPretraga.Text;
+
+                var lista = new List<lijek>();
+
+                if (uiOutputPretraga.Text.Length > 0)
+                {
+                    foreach (var item in listaLijekica)
+                    {
+                        if (item.naziv.ToUpper().Contains(pretraga.ToUpper()))
+                        {
+                            lista.Add(item);
+                        }
+                    }
+
+                    lijekBindingSource.DataSource = lista;
+                }
+                else
+                {
+                    DohvatiLijekove();
+                }
+            }
+        }
     }
+    
 }
