@@ -46,6 +46,7 @@
             this.uiInputNazivBolesti = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputStanari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -209,11 +210,22 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Pritisnite F1 za pomoć";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(650, 229);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 40);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Dodaj lijek";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmPopunjavanjeZdKartona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 558);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -251,5 +263,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button uiActionObrisi;
+        private System.Windows.Forms.Button button1;
     }
 }

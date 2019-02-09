@@ -19,6 +19,8 @@ namespace MSDom
             DohvatiNalaze();
             DohvatiStanaraZaNoviNalaz();
         }
+
+        int? idNalaza;
         /// <summary>
         /// Metoda DohvatiNalaze() vraća sve nalaze iz baze podataka i sprema ih
         /// u datagridview ako odgovara zadanom upitu
@@ -143,6 +145,21 @@ namespace MSDom
             
 
             DohvatiNalaze();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            idNalaza = int.Parse(uiOutputStanari.CurrentRow.Cells[0].Value.ToString());
+
+            if (idNalaza!=null)
+            {
+                frmDodajLijekStanaru forma = new frmDodajLijekStanaru(int.Parse(uiOutputStanari.CurrentRow.Cells[0].Value.ToString()));
+                forma.Show();
+            }
+            else
+            {
+                MessageBox.Show("Niste odabrali nalaz");
+            }
         }
     }
 }

@@ -147,5 +147,21 @@ namespace MSDom
                 }
             }
         }
+
+        private void frmKreiranjeNarudzbenice_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmKreiranjeNarudzbenice_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmKreiranjeNarudzbenice_KeyDown);
+        }
+
+        private void frmKreiranjeNarudzbenice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1KreiranjeNarudzbenice forma = new frmF1KreiranjeNarudzbenice();
+                forma.ShowDialog();
+            }
+        }
     }
 }

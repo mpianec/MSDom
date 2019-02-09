@@ -36,6 +36,7 @@
             this.uiActionObrisi = new System.Windows.Forms.Button();
             this.narudzbenicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.narudzbenicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
@@ -97,11 +98,21 @@
             // 
             this.korisnikBindingSource.DataSource = typeof(MSDom.korisnik);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(674, 418);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Pritisnite F1 za pomoć";
+            // 
             // frmKreiranjeNarudzbenice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.uiActionObrisi);
             this.Controls.Add(this.uiActionDodajStavke);
             this.Controls.Add(this.uiActionIspis);
@@ -109,10 +120,12 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmKreiranjeNarudzbenice";
             this.Text = "frmKreiranjeNarudzbenice";
+            this.Load += new System.EventHandler(this.frmKreiranjeNarudzbenice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.narudzbenicaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,5 +138,6 @@
         private System.Windows.Forms.Button uiActionDodajStavke;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
         private System.Windows.Forms.Button uiActionObrisi;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -22,6 +22,8 @@ namespace MSDom
             DohvatiStavkeNarudzbenice();
         }
 
+        BindingList<lijek> listaLijekica = null;
+
         private void uiActionDodaj_Click(object sender, EventArgs e)
         {
             int? idLijeka = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
@@ -53,8 +55,7 @@ namespace MSDom
 
         public void DohvatiLijekove()
         {
-            BindingList<lijek> listaLijekica = null;
-
+            
             using (var db = new MSDomEntities())
             {
 
@@ -134,5 +135,49 @@ namespace MSDom
             }
             
         }
+
+        private void uiOutputPretraga_TextChanged(object sender, EventArgs e)
+        {
+            using (var db = new MSDomEntities())
+            {
+                string pretraga = uiOutputPretraga.Text;
+
+                var lista = new List<lijek>();
+
+                if (uiOutputPretraga.Text.Length > 0)
+                {
+                    foreach (var item in listaLijekica)
+                    {
+                        if (item.naziv.ToUpper().Contains(pretraga.ToUpper()))
+                        {
+                            lista.Add(item);
+                        }
+                    }
+
+                    lijekBindingSource.DataSource = lista;
+                }
+                else
+                {
+                    DohvatiLijekove();
+                }
+            }
+        }
+
+        private void frmStavkeNarudzbenice_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(frmStavkeNarudzbenice_KeyDown);
+            this.KeyDown -= new KeyEventHandler(frmStavkeNarudzbenice_KeyDown);
+        }
+
+        private void frmStavkeNarudzbenice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                frmF1StavkeNarudzbenice forma = new frmF1StavkeNarudzbenice();
+                forma.ShowDialog();
+            }
+        }
     }
+    
 }

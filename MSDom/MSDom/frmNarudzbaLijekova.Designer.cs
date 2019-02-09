@@ -43,15 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.uiInputNaziv = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiOutputPretraga = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikLijekasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lijekoviZaDijagnozusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lijekBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputLijekovi)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +70,7 @@
             this.korisnikLijekasDataGridViewTextBoxColumn,
             this.lijekoviZaDijagnozusDataGridViewTextBoxColumn});
             this.uiOutputLijekovi.DataSource = this.lijekBindingSource;
-            this.uiOutputLijekovi.Location = new System.Drawing.Point(38, 158);
+            this.uiOutputLijekovi.Location = new System.Drawing.Point(39, 228);
             this.uiOutputLijekovi.Name = "uiOutputLijekovi";
             this.uiOutputLijekovi.Size = new System.Drawing.Size(695, 280);
             this.uiOutputLijekovi.TabIndex = 0;
@@ -187,11 +191,30 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(623, 446);
+            this.label5.Location = new System.Drawing.Point(624, 516);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Pritisnite F1 za pomoć";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.uiOutputPretraga);
+            this.groupBox3.Location = new System.Drawing.Point(39, 154);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(344, 68);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Pretraživanje lijekova";
+            // 
+            // uiOutputPretraga
+            // 
+            this.uiOutputPretraga.Location = new System.Drawing.Point(107, 29);
+            this.uiOutputPretraga.Name = "uiOutputPretraga";
+            this.uiOutputPretraga.Size = new System.Drawing.Size(146, 20);
+            this.uiOutputPretraga.TabIndex = 1;
+            this.uiOutputPretraga.TextChanged += new System.EventHandler(this.uiOutputPretraga_TextChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -229,11 +252,21 @@
             // 
             this.lijekBindingSource.DataSource = typeof(MSDom.lijek);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Traži";
+            // 
             // frmNarudzbaLijekova
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 468);
+            this.ClientSize = new System.Drawing.Size(771, 540);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -247,6 +280,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lijekBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -275,5 +310,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox uiInputId;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox uiOutputPretraga;
+        private System.Windows.Forms.Label label6;
     }
 }

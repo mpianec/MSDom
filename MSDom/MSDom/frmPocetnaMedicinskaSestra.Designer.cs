@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiActionNaruči = new System.Windows.Forms.Button();
             this.uiActionPopuniZdKarton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // uiActionNaruči
-            // 
-            this.uiActionNaruči.Location = new System.Drawing.Point(206, 151);
-            this.uiActionNaruči.Name = "uiActionNaruči";
-            this.uiActionNaruči.Size = new System.Drawing.Size(153, 36);
-            this.uiActionNaruči.TabIndex = 9;
-            this.uiActionNaruči.Text = "Dodavanje lijeka nalazima stanara";
-            this.uiActionNaruči.UseVisualStyleBackColor = true;
-            this.uiActionNaruči.Click += new System.EventHandler(this.uiActionNaruči_Click);
-            // 
             // uiActionPopuniZdKarton
             // 
-            this.uiActionPopuniZdKarton.Location = new System.Drawing.Point(206, 108);
+            this.uiActionPopuniZdKarton.Location = new System.Drawing.Point(203, 127);
             this.uiActionPopuniZdKarton.Name = "uiActionPopuniZdKarton";
             this.uiActionPopuniZdKarton.Size = new System.Drawing.Size(153, 37);
             this.uiActionPopuniZdKarton.TabIndex = 8;
@@ -66,11 +55,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(206, 193);
+            this.button1.Location = new System.Drawing.Point(203, 170);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 36);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Pregled narudžbenica";
+            this.button1.Text = "Kreiranje i pregled narudžbenica";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -80,7 +69,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 332);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.uiActionNaruči);
             this.Controls.Add(this.uiActionPopuniZdKarton);
             this.Controls.Add(this.label1);
             this.Name = "frmPocetnaMedicinskaSestra";
@@ -91,8 +79,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button uiActionNaruči;
         private System.Windows.Forms.Button uiActionPopuniZdKarton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

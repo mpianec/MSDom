@@ -25,14 +25,30 @@ namespace MSDom
         {
             using (var db = new MSDomEntities())
             {
-                var listaSastanak = from sas in db.sastanakSDoktoroms
-                                    join kor in db.korisniks
-                                    on sas.stanarId equals kor.id where sas.datumVrijeme >= DateTime.Now
-                                    where (kor.id == sas.stanarId)
-                                    select new { sas.id, kor.ime , sas.datumVrijeme };
-                var listica = listaSastanak.OrderBy(x => x.datumVrijeme);
-                uiOutputSastanak.DataSource = null; 
-                uiOutputSastanak.DataSource = listica.ToList();
+                if (uiActionProsliSastanci.Checked==false)
+                {
+                    var listaSastanak = from sas in db.sastanakSDoktoroms
+                                        join kor in db.korisniks
+                                        on sas.stanarId equals kor.id
+                                        where sas.datumVrijeme >= DateTime.Now
+                                        where (kor.id == sas.stanarId)
+                                        select new { sas.id, kor.ime, sas.datumVrijeme };
+                    var listica = listaSastanak.OrderBy(x => x.datumVrijeme);
+                    uiOutputSastanak.DataSource = null;
+                    uiOutputSastanak.DataSource = listica.ToList();
+                }
+                if (uiActionProsliSastanci.Checked==true)
+                {
+                    var listaSastanak = from sas in db.sastanakSDoktoroms
+                                        join kor in db.korisniks
+                                        on sas.stanarId equals kor.id
+                                        where (kor.id == sas.stanarId)
+                                        select new { sas.id, kor.ime, sas.datumVrijeme };
+                    var listica = listaSastanak.OrderBy(x => x.datumVrijeme);
+                    uiOutputSastanak.DataSource = null;
+                    uiOutputSastanak.DataSource = listica.ToList();
+                }
+                
             }
         }
 
@@ -94,6 +110,11 @@ namespace MSDom
                 frmF1PregledSastanaka forma = new frmF1PregledSastanaka();
                 forma.ShowDialog();
             }
+        }
+
+        private void uiActionProsliSastanci_CheckedChanged(object sender, EventArgs e)
+        {
+            DohvatiSastanke();
         }
     }
 }

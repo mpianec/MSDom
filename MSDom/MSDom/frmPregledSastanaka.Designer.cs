@@ -35,6 +35,7 @@
             this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pitanjeSAnketeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.uiActionProsliSastanci = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.uiOutputSastanak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sastanakSDoktoromBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
@@ -80,11 +81,23 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Pritisnite F1 za pomoć";
             // 
+            // uiActionProsliSastanci
+            // 
+            this.uiActionProsliSastanci.AutoSize = true;
+            this.uiActionProsliSastanci.Location = new System.Drawing.Point(43, 405);
+            this.uiActionProsliSastanci.Name = "uiActionProsliSastanci";
+            this.uiActionProsliSastanci.Size = new System.Drawing.Size(134, 17);
+            this.uiActionProsliSastanci.TabIndex = 11;
+            this.uiActionProsliSastanci.Text = "Prikazi prošle sastanke";
+            this.uiActionProsliSastanci.UseVisualStyleBackColor = true;
+            this.uiActionProsliSastanci.CheckedChanged += new System.EventHandler(this.uiActionProsliSastanci_CheckedChanged);
+            // 
             // frmPregledSastanaka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 465);
+            this.Controls.Add(this.uiActionProsliSastanci);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uiActionObrisi);
             this.Controls.Add(this.uiOutputSastanak);
@@ -109,5 +122,6 @@
         private System.Windows.Forms.BindingSource sastanakSDoktoromBindingSource;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox uiActionProsliSastanci;
     }
 }

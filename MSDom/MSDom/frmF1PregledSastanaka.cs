@@ -16,10 +16,11 @@ namespace MSDom
         {
             InitializeComponent();
 
-            label1.Text = "Omogućen vam je pregled svih sastanaka koje imate sa stanarima.\n" +
+            label1.Text = "Omogućen vam je pregled svih sastanaka koje imate u budućnosti sa stanarima.\n" +
+                "Ako želite vidjeti i sastanke koji su prošli, pritisnete kvačicu i prikazati će se." +
                 "Ako želite obrisati neki sastanak, možete to napraviti tako da\n" +
                 "odaberete u tablici sastanak i kliknete na njega te zatim kliknete na\n" +
-                "gumb 'Obriši sastanak'";
+                "gumb 'Obriši sastanak'. ";
         }
     }
 }

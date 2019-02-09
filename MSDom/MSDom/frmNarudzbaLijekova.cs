@@ -17,10 +17,10 @@ namespace MSDom
             InitializeComponent();
             DohvatiLijekove();
         }
-        
+        BindingList<lijek> listaLijekica = null;
+
         public void DohvatiLijekove()
         {
-            BindingList<lijek> listaLijekica = null;
 
             using (var db = new MSDomEntities())
             {
@@ -95,5 +95,31 @@ namespace MSDom
             }
         }
 
+        private void uiOutputPretraga_TextChanged(object sender, EventArgs e)
+        {
+            using (var db = new MSDomEntities())
+            {
+                string pretraga = uiOutputPretraga.Text;
+
+                var lista = new List<lijek>();
+
+                if (uiOutputPretraga.Text.Length>0)
+                {
+                    foreach (var item in listaLijekica)
+                    {
+                        if (item.naziv.ToUpper().Contains(pretraga.ToUpper()))
+                        {
+                            lista.Add(item);
+                        }
+                    }
+
+                    lijekBindingSource.DataSource = lista;
+                }
+                else
+                {
+                    DohvatiLijekove();
+                }
+            }
+        }
     }
 }

@@ -80,7 +80,7 @@ namespace IspisPdf
 
                 table.AddCell(new Phrase("Rbr.", tablica));
                 table.AddCell(new Phrase("Naziv lijeka", tablica));
-                table.AddCell(new Phrase("Količina", tablica));
+                table.AddCell(new Phrase("Kolicina", tablica));
 
                 for (int i = 0; i < popisLijekova.Count; i++)
                 {

@@ -141,6 +141,12 @@
     <Compile Include="frmF1IspisAnkete.Designer.cs">
       <DependentUpon>frmF1IspisAnkete.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmF1KreiranjeNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1KreiranjeNarudzbenice.Designer.cs">
+      <DependentUpon>frmF1KreiranjeNarudzbenice.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmF1NarudzbaLijekova.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="frmF1SastanakSDoktorom.Designer.cs">
       <DependentUpon>frmF1SastanakSDoktorom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmF1StavkeNarudzbenice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmF1StavkeNarudzbenice.Designer.cs">
+      <DependentUpon>frmF1StavkeNarudzbenice.cs</DependentUpon>
     </Compile>
     <Compile Include="frmF1StvoriAnketu.cs">
       <SubType>Form</SubType>
@@ -470,6 +482,9 @@
     <EmbeddedResource Include="frmF1IspisAnkete.resx">
       <DependentUpon>frmF1IspisAnkete.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmF1KreiranjeNarudzbenice.resx">
+      <DependentUpon>frmF1KreiranjeNarudzbenice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmF1NarudzbaLijekova.resx">
       <DependentUpon>frmF1NarudzbaLijekova.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmF1SastanakSDoktorom.resx">
       <DependentUpon>frmF1SastanakSDoktorom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmF1StavkeNarudzbenice.resx">
+      <DependentUpon>frmF1StavkeNarudzbenice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmF1StvoriAnketu.resx">
       <DependentUpon>frmF1StvoriAnketu.cs</DependentUpon>
