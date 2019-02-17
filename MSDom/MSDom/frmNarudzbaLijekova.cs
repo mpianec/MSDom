@@ -46,6 +46,7 @@ namespace MSDom
                     db.SaveChanges();
                 }
             }
+            uiInputKolicina.Clear();
 
             DohvatiLijekove();
         }
@@ -76,6 +77,8 @@ namespace MSDom
                     MessageBox.Show("Lijek već postoji u bazi!");
                 }
             }
+            uiInputKolicinaLijeka.Clear();
+            uiInputNaziv.Clear();
             DohvatiLijekove();
         }
 
@@ -120,6 +123,21 @@ namespace MSDom
                     DohvatiLijekove();
                 }
             }
+        }
+
+        private void uiActionObrisiLijek_Click(object sender, EventArgs e)
+        {
+            lijek lijekZaBrisanje = lijekBindingSource.Current as lijek;
+            if (lijekZaBrisanje != null)
+            {
+                using (var db = new MSDomEntities())
+                {
+                    db.lijeks.Attach(lijekZaBrisanje);
+                    db.lijeks.Remove(lijekZaBrisanje);
+                    db.SaveChanges();
+                }
+            }
+            DohvatiLijekove();
         }
     }
 }
