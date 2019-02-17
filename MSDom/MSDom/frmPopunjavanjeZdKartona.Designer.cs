@@ -62,6 +62,8 @@
             // 
             // uiOutputKorisnik
             // 
+            this.uiOutputKorisnik.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.uiOutputKorisnik.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.uiOutputKorisnik.DataSource = this.korisnikBindingSource;
             this.uiOutputKorisnik.DisplayMember = "ime";
             this.uiOutputKorisnik.FormattingEnabled = true;
@@ -134,6 +136,8 @@
             // 
             // uiInputStanar
             // 
+            this.uiInputStanar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.uiInputStanar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.uiInputStanar.DataSource = this.korisnikBindingSource;
             this.uiInputStanar.DisplayMember = "ime";
             this.uiInputStanar.FormattingEnabled = true;

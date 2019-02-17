@@ -43,6 +43,8 @@
             // 
             // uiInputStanar
             // 
+            this.uiInputStanar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.uiInputStanar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.uiInputStanar.DataSource = this.korisnikBindingSource;
             this.uiInputStanar.DisplayMember = "ime";
             this.uiInputStanar.FormattingEnabled = true;
